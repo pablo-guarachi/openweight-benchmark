@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "tag": "local",
+    "users": 3,
+    "think": false,
+    "suite": "smoke.yaml",
+    "n": 3,
+    "errors": 0,
+    "wall_s": 6.2,
+    "avg_ttft_s": 2.62,
+    "avg_tok_s_per_user": 44.3,
+    "server_tok_s": 32.8,
+    "vram_before_mb": 8858,
+    "vram_peak_mb": 8860,
+    "timestamp": "2026-10-20T02:53:11"
+  },
+  "results": [
+    {
+      "id": "smoke-conv-it",
+      "category": "conversazione",
+      "lang": "it",
+      "response": "Un assistente AI può automatizzare le risposte ai clienti e gestire le prenotazioni, liberandoti dal dover rispondere alle stesse domande ripetute.\nPuoi far analizzare i dati delle riparazioni passate per prevedere meglio i tempi di consegna e ottimizzare la gestione delle scorte.\nInfine, l'AI può aiutarti a creare preventivi più rapidi e precisi, permettendoti di concentrarti sulle attività manuali e sulla relazione con i tuoi clienti.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 0.794,
+      "total_s": 2.99,
+      "in_tokens": 56,
+      "out_tokens": 97,
+      "tok_s": 44.2
+    },
+    {
+      "id": "smoke-summary-en",
+      "category": "riassunto",
+      "lang": "en",
+      "response": "After an initial rollout in March caused confusion due to significant delays in reflecting paper shift swaps, the Example General Hospital implemented software updates and staff training to resolve the issue. By June, these measures successfully reduced processing time to under four hours and improved staff satisfaction, with plans now underway to extend the system to community teams in 2027.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 3.983,
+      "total_s": 5.609,
+      "in_tokens": 125,
+      "out_tokens": 72,
+      "tok_s": 44.3
+    },
+    {
+      "id": "smoke-halluc-it",
+      "category": "allucinazioni",
+      "lang": "it",
+      "response": "L'informazione non è presente nel documento fornito. Il documento indica solo il nome del cliente (\"Rossi Impianti Srl\"), ma non ne specifica l'indirizzo.",
+      "reasoning": null,
+      "expected": "Deve dire che l'indirizzo non è presente nel documento.",
+      "error": null,
+      "ttft_s": 3.08,
+      "total_s": 3.843,
+      "in_tokens": 119,
+      "out_tokens": 34,
+      "tok_s": 44.5
+    }
+  ]
+}

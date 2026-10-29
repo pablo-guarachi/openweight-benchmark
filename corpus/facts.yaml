@@ -1,0 +1,254 @@
+# GROUND TRUTH — Rossi Impianti Srl (fictional company)
+# Every document in corpus/docs and every image in corpus/images is derived from these facts.
+# The suite's expected answers are verified HERE, not in the documents.
+# Keys and values are test data and stay in their original language (mostly Italian).
+# All companies, people, addresses and numbers are invented; UK addresses use "Example" street names.
+
+azienda:
+  ragione_sociale: Rossi Impianti Srl
+  settore: impiantistica termoidraulica ed elettrica (installazione e manutenzione)
+  piva: "01234560437"
+  sede_legale: Via dell'Industria 42, 62100 Macerata (MC)
+  fondazione: 1998
+  fondatore: Giancarlo Rossi
+  dipendenti: 38
+  fatturato_2025_eur: 4_850_000
+  pec: rossiimpianti@pec.example.it
+  telefono: "+39 0733 123456"
+  orario: lun-ven 8:00-12:30 / 14:00-18:00
+  reperibilita: 24/7 solo per clienti con contratto di manutenzione, numero +39 333 1234567
+
+filiale_uk:
+  ragione_sociale: Rossi Installations Ltd
+  company_number: "12345678"
+  sede: Unit 7, Example Business Park, Leicester
+  apertura: 2021
+  dipendenti: 9
+  manager: Sarah Whitfield
+  lead_engineer: Tom Okafor
+  telefono: "+44 116 496 0123"
+
+persone:
+  - {nome: Marco Rossi, ruolo: Amministratore delegato, sede: Macerata, email: m.rossi@rossiimpianti.example.it}
+  - {nome: Elena Carletti, ruolo: Responsabile amministrazione, sede: Macerata, email: amministrazione@rossiimpianti.example.it}
+  - {nome: Davide Marinelli, ruolo: Responsabile tecnico e cantieri, sede: Macerata, email: d.marinelli@rossiimpianti.example.it}
+  - {nome: Luca Fabbri, ruolo: Tecnico senior (caldaie e pompe di calore), sede: Macerata}
+  - {nome: Giulia Santini, ruolo: Ufficio commerciale e preventivi, sede: Macerata, email: preventivi@rossiimpianti.example.it}
+  - {nome: Sarah Whitfield, ruolo: Branch manager, sede: Leicester, email: s.whitfield@rossiinstallations.example.co.uk}
+  - {nome: Tom Okafor, ruolo: Lead engineer, sede: Leicester}
+  - {nome: Pilar Soler, ruolo: Direttrice acquisti, sede: Climatizaciones Soler S.L. (cliente, Valencia)}
+
+clienti:
+  - nome: Bianchi Supermercati Srl
+    sede: Via Carducci 15, 62012 Civitanova Marche (MC)
+    referente: Paolo Bianchi
+    punti_vendita: 6
+  - nome: Kingsway Dental Practice
+    sede: 214 Example Road, Leicester
+    referente: Dr. Amira Hassan
+  - nome: Climatizaciones Soler S.L.
+    sede: Calle de la Industria 88, 46980 Paterna (Valencia), España
+    referente: Pilar Soler
+    cif: B12345678
+
+contratti:
+  - numero: "2026/114"
+    tipo: manutenzione programmata impianti HVAC
+    cliente: Bianchi Supermercati Srl
+    oggetto: 6 punti vendita, impianti di climatizzazione e centrali termiche
+    decorrenza: 2026-02-01
+    durata_mesi: 12
+    canone_mensile_eur: 450
+    iva: 22%
+    interventi_inclusi_anno: 4
+    tempo_intervento_guasto_ore: 48
+    penale_ritardo: 2% del canone mensile per ogni giorno di ritardo oltre le 48 ore
+    recesso_preavviso_giorni: 60
+    rinnovo: tacito per ulteriori 12 mesi salvo disdetta
+    firmatari: [Marco Rossi, Paolo Bianchi]
+    data_firma: 2026-01-20
+  - numero: Q-UK-2026-031
+    tipo: preventivo (quotation) installazione pompa di calore
+    cliente: Kingsway Dental Practice
+    oggetto: Air-source heat pump 16 kW, modello RX-16 AIR, con sostituzione caldaia a gas esistente
+    data: 2026-08-28
+    validita_giorni: 30
+    importo_gbp: 18_450
+    vat: 20%
+    tempi_consegna_settimane: 3
+    durata_lavori_giorni: 4
+    garanzia_pompa_anni: 5
+    garanzia_manodopera_anni: 2
+    acconto: 40% all'ordine, saldo a collaudo
+    preparato_da: Sarah Whitfield
+    stato: accettato il 2026-09-10
+  - numero: ES-2026-07
+    tipo: contrato de suministro
+    cliente: Climatizaciones Soler S.L.
+    oggetto: 12 unidades bomba de calor aire-agua modelo RX-9 AIR (9 kW)
+    prezzo_unitario_eur: 3_200
+    totale_eur: 38_400
+    data: 2026-06-15
+    consegna_giorni: 45
+    pagamento: 30% anticipo a la firma, 70% a 30 días desde entrega
+    garanzia_anni: 3
+    incoterm: DAP Paterna
+    firmatari: [Marco Rossi, Pilar Soler]
+
+fatture:
+  - numero: FT 2026/0087
+    data: 2026-09-15
+    cliente: Bianchi Supermercati Srl
+    descrizione: Canone manutenzione contratto 2026/114 — settembre 2026
+    imponibile_eur: 450.00
+    iva_pct: 22
+    iva_eur: 99.00
+    totale_eur: 549.00
+    scadenza: 2026-10-15
+    pagamento: bonifico 30 gg d.f.
+    iban: IT60X0542411101000000123456
+  - numero: FT 2026/0092
+    data: 2026-06-18
+    cliente: Climatizaciones Soler S.L.
+    descrizione: Anticipo 30% contrato ES-2026-07
+    imponibile_eur: 11_520.00
+    iva: inversione contabile art. 7-ter DPR 633/72 (reverse charge intra-UE)
+    totale_eur: 11_520.00
+    scadenza: 2026-06-30
+
+listino_2026:
+  it:
+    tecnico_eur_h: 42
+    tecnico_senior_eur_h: 55
+    diritto_chiamata_eur: 35
+    maggiorazione_festivi_notturni: 50%
+    km_oltre_30_eur_km: 0.60
+    validita: dal 2026-01-01 al 2026-12-31
+  uk:
+    engineer_gbp_h: 58
+    call_out_gbp: 75
+    weekend_uplift: 50%
+
+procedura_PR07:
+  titolo: Sicurezza in cantiere e nei locali tecnici
+  revisione: 3
+  data: 2026-05-12
+  responsabile: Davide Marinelli
+  dpi_obbligatori: [casco, scarpe antinfortunistiche S3, guanti, occhiali, giubbotto alta visibilità nei cantieri aperti]
+  regole_chiave:
+    - lavori in quota oltre 2 m solo con imbracatura e secondo punto di ancoraggio
+    - lavori su quadri elettrici solo dopo sezionamento e lucchettaggio (lock-out) con cartello
+    - interventi su centrali termiche a gas: rilevatore portatile acceso prima di entrare
+    - mai lavorare da soli su impianti in tensione o in spazi confinati
+  numero_emergenza_interno: "+39 333 9876543"
+  segnalazione_incidenti: entro 24 ore al responsabile tecnico con modulo MOD-09
+
+verbale_riunione_2026_09_03:
+  presenti: [Marco Rossi, Elena Carletti, Davide Marinelli, Giulia Santini, Sarah Whitfield (da remoto)]
+  decisioni:
+    - acquisto di un furgone Ford Transit Custom entro ottobre 2026, budget 38.000 € + IVA
+    - assunzione di 2 tecnici junior entro novembre 2026
+    - cambio fornitore valvole da Idrotec Srl a Valvex Spa dal 1 ottobre 2026 (Idrotec ha aumentato i prezzi del 18%)
+    - filiale UK: obiettivo 6 installazioni pompe di calore entro fine anno (ad oggi 3)
+  rinviato: apertura sede a Pescara, da rivalutare a gennaio 2027
+  prossima_riunione: 2026-10-08
+
+incidente_leicester:
+  data: 2026-07-14
+  luogo: cantiere Kingsway Dental Practice, Leicester
+  persona: Tom Okafor
+  dinamica: scivolata dal terzo gradino di una scala a libro mentre fissava una staffa; contusione al ginocchio sinistro
+  gravita: lieve, nessun giorno di assenza
+  riddor: non richiesto (nessuna assenza oltre 7 giorni)
+  causa: pavimento bagnato non segnalato, scala senza piedini antiscivolo
+  azioni: sostituzione di tutte le scale a libro della filiale con modelli con piedini antiscivolo entro il 2026-07-31; aggiunta del controllo pavimento alla checklist pre-lavoro
+  redatto_da: Sarah Whitfield
+
+email_ritardo_bianchi:
+  thread: Ritardo intervento punto vendita Porto Recanati
+  guasto_segnalato: 2026-09-21 ore 9:40 (unità esterna chiller punto vendita Porto Recanati ferma)
+  intervento_eseguito: 2026-09-24 ore 15:00
+  ritardo_oltre_48h_giorni: 1
+  penale_applicata_eur: 9.00
+  causa_ritardo: tecnico senior impegnato su emergenza gas a Macerata, ricambio (scheda inverter) disponibile solo il 24
+  esito: scheda inverter sostituita, impianto ripristinato; Rossi Impianti riconosce la penale e offre un controllo gratuito aggiuntivo entro dicembre
+
+interventi_2026_mensili:  # number of maintenance/repair call-outs per month (used in the chart)
+  gen: 41
+  feb: 38
+  mar: 52
+  apr: 47
+  mag: 61
+  giu: 78
+  lug: 94
+  ago: 70
+  set: 66
+
+ferie_uk:
+  giorni_annui: 25 + bank holidays
+  anno_di_riferimento: 1 aprile - 31 marzo
+  richiesta_minima_preavviso_settimane: 2
+  riporto_massimo_giorni: 5
+  approvatore: Sarah Whitfield
+
+manuale_operativo:  # "needle in a haystack" facts planted in the long manual (corpus/docs/it-manuale-operativo.md)
+  titolo: Manuale operativo — Manutenzione impianti termici e di climatizzazione
+  revisione: 5
+  data: 2026-04-01
+  aghi:
+    - {sezione: 4, fatto: "la pressione di esercizio consigliata del circuito riscaldamento a freddo è 1,2-1,5 bar"}
+    - {sezione: 9, fatto: "il codice errore E47 sulla caldaia RX-Therm 24 indica guasto al pressostato fumi"}
+    - {sezione: 13, fatto: "la pompa di calore RX-16 AIR richiede sbrinamento manuale forzato se il ciclo automatico fallisce 3 volte consecutive"}
+    - {sezione: 18, fatto: "il filtro delle unità split va lavato ogni 3 mesi e sostituito ogni 24 mesi"}
+    - {sezione: 22, fatto: "il gas refrigerante R-32 richiede il patentino F-gas categoria I per il recupero"}
+    - {sezione: 27, fatto: "il bollitore ACS va portato a 60 °C per almeno 30 minuti una volta a settimana per la prevenzione della legionella"}
+    - {sezione: 31, fatto: "la verifica differenziali nei quadri elettrici va fatta ogni 6 mesi con il tasto di test e annotata sul registro"}
+    - {sezione: 35, fatto: "il numero per le emergenze gas è il 800 900 999 (operativo 24/7)"}
+
+immagini:  # expected values for the image tests (images generated by scripts/build_corpus.py)
+  fattura-FT-2026-0087-scansione.png:
+    tipo: fattura scansionata (ruotata, con rumore)
+    numero: FT 2026/0087
+    data: 15/09/2026
+    cliente: Bianchi Supermercati Srl
+    imponibile: 450,00 €
+    iva: 99,00 €
+    totale: 549,00 €
+    scadenza: 15/10/2026
+    iban: IT60X0542411101000000123456
+  rapporto-intervento-2026-09-24.png:
+    tipo: modulo MOD-04 compilato (campi in carattere diverso)
+    data: 24/09/2026
+    orario: 15:00-17:30
+    tecnico: Luca Fabbri
+    cliente: Bianchi Supermercati Srl, punto vendita Porto Recanati
+    allarme: E12
+    diagnosi: scheda inverter compressore in corto
+    ricambio: scheda inverter INV-2240-B
+    ore_manodopera: 2,5
+    esito: impianto ripristinato
+  grafico-interventi-2026.png:
+    tipo: grafico a barre, interventi mensili gen-set 2026
+    valori: {gen: 41, feb: 38, mar: 52, apr: 47, mag: 61, giu: 78, lug: 94, ago: 70, set: 66}
+    mese_massimo: luglio (94, barra evidenziata in arancione)
+    totale_gen_set: 547
+  tabella-listino-2026.png:
+    tipo: tabella confronto listino Italia/UK
+    tecnico_it: 42,00 €/h
+    engineer_uk: £58.00/h
+    tecnico_senior_it: 55,00 €/h
+    chiamata_it: 35,00 €
+    callout_uk: £75.00
+    pompa_calore_forfait: 140,00 €
+  targhetta-RX-16-AIR.png:
+    tipo: targhetta tecnica fotografata (inclinata)
+    modello: RX-16 AIR
+    seriale: RX16-26-1183
+    potenza: 16.0 kW (A7/W35)
+    cop: 4.45
+    refrigerante: R-32, GWP 675
+    carica: 1.6 kg (1.08 t CO2 eq)
+    alimentazione: 400 V 3N 50 Hz
+    corrente_max: 14.5 A
+    ip: IPX4
+    produzione: 2026-03

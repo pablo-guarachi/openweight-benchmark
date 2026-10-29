@@ -1,0 +1,75 @@
+# Images: vision models only. Expected values in facts.yaml → immagini.
+tests:
+  - id: img-fattura-campi
+    lang: it
+    image: images/fattura-FT-2026-0087-scansione.png
+    prompt: "Leggi questa fattura e riporta: numero fattura, data, cliente, imponibile, IVA, totale, scadenza."
+    expected: FT 2026/0087; 15/09/2026; Bianchi Supermercati Srl; 450,00; 99,00; 549,00; 15/10/2026
+    check: {contains_all: ["0087", "549", "99", "450", "Bianchi"], contains_any: ["15/10/2026", "15 ottobre 2026"]}
+
+  - id: img-fattura-iban
+    lang: it
+    image: images/fattura-FT-2026-0087-scansione.png
+    prompt: Qual è l'IBAN indicato sulla fattura? Riportalo esattamente, senza spazi.
+    expected: IT60X0542411101000000123456
+    check: {contains_any: ["IT60X0542411101000000123456"]}
+
+  - id: img-rapporto-campi
+    lang: it
+    image: images/rapporto-intervento-2026-09-24.png
+    prompt: "Da questo rapporto di intervento estrai: nome del tecnico, codice allarme segnalato, ricambio utilizzato, ore di manodopera."
+    expected: "Luca Fabbri; E12; inverter board INV-2240-B; 2.5"
+    check: {contains_all: ["Fabbri", "E12", "INV-2240-B"], contains_any: ["2,5", "2.5"]}
+
+  - id: img-rapporto-descrizione
+    lang: it
+    grade: true
+    image: images/rapporto-intervento-2026-09-24.png
+    prompt: Descrivi in 3 frasi cosa è successo secondo questo documento.
+    expected: "Call-out on 24/09/2026 in Porto Recanati for Bianchi Supermercati: chiller down with alarm E12, short-circuited inverter board replaced by Luca Fabbri in 2.5 hours, system restored."
+    check: {contains_all: ["Porto Recanati"], contains_any: ["inverter"]}
+
+  - id: img-grafico-massimo
+    lang: it
+    image: images/grafico-interventi-2026.png
+    prompt: In quale mese ci sono stati più interventi e quanti? Quanti ne sono stati fatti ad aprile?
+    expected: "July, 94; April 47"
+    check: {contains_all: ["94", "47"], contains_any: ["luglio", "lug"]}
+
+  - id: img-grafico-tendenza
+    lang: en
+    grade: true
+    image: images/grafico-interventi-2026.png
+    prompt: Describe the trend shown in this chart in two sentences and give the total for the first quarter (January to March).
+    expected: Rising from winter to a July peak (94) then declining; Q1 total = 41+38+52 = 131.
+    check: {contains_any: ["131"]}
+
+  - id: img-tabella-confronto
+    lang: it
+    image: images/tabella-listino-2026.png
+    prompt: Quanto costa il diritto di chiamata nel Regno Unito e quanto costa il tecnico senior in Italia? Quali voci non hanno un prezzo UK?
+    expected: "£75.00; €55.00; senior engineer, boiler maintenance, heat pump maintenance (—) and mileage (n/a)"
+    check: {contains_all: ["75", "55"], contains_any: ["senior"]}
+    grade: true
+
+  - id: img-targhetta-seriale
+    lang: en
+    image: images/targhetta-RX-16-AIR.png
+    prompt: "Read the nameplate and give: model, serial number, refrigerant and charge, maximum current."
+    expected: RX-16 AIR; RX16-26-1183; R-32, 1.6 kg; 14.5 A
+    check: {contains_all: ["RX16-26-1183", "R-32", "1.6", "14.5"]}
+
+  - id: img-targhetta-potenza
+    lang: it
+    image: images/targhetta-RX-16-AIR.png
+    prompt: Che potenza termica e che COP dichiara la targhetta, e in quali condizioni?
+    expected: "16.0 kW and COP 4.45, both at A7/W35"
+    check: {contains_all: ["16"], contains_any: ["4.45", "4,45"], contains_any_2: ["A7/W35", "A7"]}
+
+  - id: img-fattura-assente
+    lang: it
+    grade: true
+    image: images/fattura-FT-2026-0087-scansione.png
+    prompt: Qual è la partita IVA del cliente Bianchi Supermercati indicata in fattura?
+    expected: "Not there (only Rossi Impianti's VAT number 01234560437 appears). Must not attribute that number to Bianchi."
+    check: {contains_any: ["non ", "no "], not_contains: ["partita iva del cliente è 01234560437", "p.iva del cliente è 01234560437"]}

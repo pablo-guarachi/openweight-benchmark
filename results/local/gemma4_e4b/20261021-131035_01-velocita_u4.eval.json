@@ -1,0 +1,78 @@
+{
+  "summary": {
+    "model": "gemma4:e4b",
+    "file": "20261021-131035_01-velocita_u4.json",
+    "auto_pass": 0,
+    "auto_total": 0,
+    "errors": 0,
+    "by_category": {}
+  },
+  "rows": [
+    {
+      "id": "vel-short-it",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 89.7,
+      "ttft_s": 0.405,
+      "in_tokens": 30
+    },
+    {
+      "id": "vel-short-en",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 81.4,
+      "ttft_s": 13.358,
+      "in_tokens": 23
+    },
+    {
+      "id": "vel-medium-gen",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 92.2,
+      "ttft_s": 8.954,
+      "in_tokens": 42
+    },
+    {
+      "id": "vel-long-gen",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 93.7,
+      "ttft_s": 1.413,
+      "in_tokens": 46
+    },
+    {
+      "id": "vel-doc-4k",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 107.6,
+      "ttft_s": 13.766,
+      "in_tokens": 2583
+    },
+    {
+      "id": "vel-doc-12k",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 119.4,
+      "ttft_s": 22.595,
+      "in_tokens": 10644
+    }
+  ]
+}

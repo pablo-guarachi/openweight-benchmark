@@ -1,0 +1,136 @@
+# Document analysis: questions whose answers can be verified in facts.yaml. Includes long documents (needles in the manual).
+tests:
+  - id: doc-contratto-recesso
+    lang: it
+    doc: [docs/it-contratto-manutenzione-2026-114.md]
+    prompt: Con quanto preavviso si può recedere dal contratto e con quale mezzo va inviata la comunicazione?
+    expected: "60 days, by PEC (certified email)"
+    check: {contains_all: ["60"], contains_any: ["PEC", "pec"]}
+
+  - id: doc-contratto-penale-cross
+    lang: it
+    doc: [docs/it-contratto-manutenzione-2026-114.md, docs/it-email-ritardo-bianchi.md]
+    prompt: Quanto vale la penale applicata per il ritardo dell'intervento di Porto Recanati di settembre, da quale articolo del contratto deriva e come è stata calcolata?
+    expected: "€9.00 = 2% of €450 for 1 day of delay; art. 6"
+    check: {contains_any: ["9,00", "9.00", "9 euro", "9 €", "9€"], contains_all: ["2%"], regex: "[Aa]rt(icolo|\\.)?\\s*6"}
+
+  - id: doc-email-ricambio
+    lang: it
+    doc: [docs/it-email-ritardo-bianchi.md]
+    prompt: Chi ha eseguito materialmente la riparazione, in che giorno, e quale componente è stato sostituito?
+    expected: "Luca Fabbri, Wednesday 24 September 2026, inverter board of the outdoor unit"
+    check: {contains_all: ["Fabbri", "24", "inverter"]}
+
+  - id: doc-verbale-fornitore
+    lang: it
+    doc: [docs/it-verbale-riunione-2026-09-03.md]
+    prompt: Qual è il nuovo fornitore principale di valvole, da quando, e perché è stato cambiato?
+    expected: "Valvex Spa from 1 October 2026; Idrotec raised its prices by 18%"
+    check: {contains_all: ["Valvex", "18%"], contains_any: ["1 ottobre", "1° ottobre", "primo ottobre", "01/10"]}
+
+  - id: doc-procedura-incidenti
+    lang: it
+    doc: [docs/it-procedura-PR07-sicurezza.md]
+    prompt: Entro quanto tempo va segnalato un quasi-incidente, a chi e con quale modulo?
+    expected: "within 24 hours, to the Technical Manager (Davide Marinelli), form MOD-09"
+    check: {contains_all: ["24", "MOD-09"], contains_any: ["Responsabile tecnico", "responsabile tecnico", "Marinelli"]}
+
+  - id: doc-quotation-total
+    lang: en
+    doc: [docs/en-quotation-Q-UK-2026-031.md]
+    prompt: What is the total price including VAT, how much is the deposit in pounds, and when is the balance due?
+    expected: £22,140 incl. VAT; deposit 40% = £8,856; balance on commissioning
+    check: {contains_any: ["22,140", "22140", "22 140"], contains_all: ["8,856"], contains_any_2: ["commissioning"]}
+
+  - id: doc-quotation-warranty
+    lang: en
+    doc: [docs/en-quotation-Q-UK-2026-031.md]
+    prompt: How long are the warranties, and what condition applies to the heat pump warranty?
+    expected: 5 years heat pump (subject to annual servicing), 2 years workmanship
+    check: {contains_all: ["5", "2"], contains_any: ["annual servic", "serviced annually", "yearly servic", "manutenzione annuale", "mantenimiento anual"]}
+
+  - id: doc-incident-riddor
+    lang: en
+    doc: [docs/en-incident-report-2026-07-14.md]
+    prompt: Was the incident reportable under RIDDOR, and why? Also list the three causes identified.
+    expected: Not reportable (no absence over 7 days, not a specified injury); wet floor from condensation; missing non-slip foot; checklist without floor check
+    check: {contains_any: ["not reportable", "not required", "non riportabile", "non era segnalabile", "non è segnalabile", "non segnalabile", "no, "], contains_all: ["7", "checklist"], contains_any_2: ["wet", "bagnato"], contains_any_3: ["non-slip", "antiscivolo"]}
+
+  - id: doc-handbook-carryover
+    lang: en
+    doc: [docs/en-uk-handbook-leave.md]
+    prompt: How many unused leave days can be carried over, by when must they be taken, and who approves leave requests?
+    expected: 5 days, by 30 June, Sarah Whitfield
+    check: {contains_all: ["5", "30 June", "Whitfield"]}
+
+  - id: doc-es-pagos
+    lang: es
+    doc: [docs/es-contrato-ES-2026-07.md, docs/es-correo-soler-entrega.md]
+    prompt: ¿Cuánto queda por pagar después del anticipo, en qué fecha vence ese pago y en qué fecha se entregaron las unidades?
+    expected: "€26,880; due 26 August 2026; units delivered 27 July 2026"
+    check: {contains_any: ["26.880", "26,880", "26 880"], contains_all: ["26 de agosto", "27 de julio"]}
+
+  - id: doc-estrazione-tabella
+    lang: it
+    doc: [docs/it-listino-2026.md]
+    prompt: "Estrai dal listino una tabella markdown con tre colonne: voce, prezzo Italia, prezzo UK, solo per manodopera oraria e diritto di chiamata."
+    expected: "engineer €42/h vs £58/h; call-out €35 vs £75; senior engineer €55 (UK n/a)"
+    check: {contains_all: ["42", "58", "35", "75", "55"], contains_any: ["|"]}
+    grade: true
+
+  - id: doc-multi-persona
+    lang: it
+    doc: [docs/it-verbale-riunione-2026-09-03.md, docs/en-incident-report-2026-07-14.md, docs/es-correo-soler-entrega.md]
+    prompt: In quali di questi tre documenti compare Davide Marinelli e con quale ruolo o azione in ciascuno?
+    expected: "Meeting minutes (present, technical/site manager, updates the bills of materials); incident report (reviewed by, Technical Manager, 18 July); correo (in copy, will send instructions for the panel)"
+    check: {contains_all: ["verbale", "incident", "correo"]}
+    grade: true
+
+  # --- long document: needle in a haystack ---
+  - id: long-8k-e47
+    lang: it
+    ctx: 8192
+    doc: [{path: docs/it-manuale-operativo.md, sections: [7, 10]}]
+    prompt: Secondo il manuale, cosa indica il codice errore E47 sulla caldaia RX-Therm 24?
+    expected: "flue gas pressure switch fault (section 9)"
+    check: {contains_any: ["pressostato fumi", "pressostato dei fumi"]}
+
+  - id: long-16k-sbrinamento
+    lang: it
+    ctx: 16384
+    doc: [{path: docs/it-manuale-operativo.md, sections: [1, 14]}]
+    prompt: Quando la pompa di calore RX-16 AIR richiede uno sbrinamento manuale forzato?
+    expected: "if the automatic cycle fails 3 times in a row (section 13)"
+    check: {contains_any: ["3 volte", "tre volte", "3 cicli", "tre cicli"]}
+
+  - id: long-16k-assente
+    lang: it
+    ctx: 16384
+    doc: [{path: docs/it-manuale-operativo.md, sections: [1, 14]}]
+    prompt: Qual è il numero di telefono per le emergenze gas indicato nel manuale?
+    expected: "NOT in sections 1-14 (it is in section 35); must say it is not there"
+    check: {not_contains: ["800 900 999", "800900999"], contains_any: ["non", "no "]}
+
+  - id: long-32k-legionella
+    lang: it
+    ctx: 40960
+    doc: [docs/it-manuale-operativo.md]
+    prompt: Cosa prescrive il manuale per la prevenzione della legionella nel bollitore ACS?
+    expected: "raise to 60 °C for at least 30 minutes once a week (section 27)"
+    check: {contains_all: ["60"], contains_any: ["30 minuti", "trenta minuti", "mezz'ora"], contains_any_2: ["settimana"]}
+
+  - id: long-32k-gas
+    lang: it
+    ctx: 40960
+    doc: [docs/it-manuale-operativo.md]
+    prompt: Qual è il numero per le emergenze gas riportato nel manuale e quando è operativo?
+    expected: "800 900 999, 24/7 (section 35)"
+    check: {contains_any: ["800 900 999", "800900999", "800-900-999"], contains_any_2: ["24", "h24", "sempre"]}
+
+  - id: long-32k-multi
+    lang: it
+    ctx: 40960
+    doc: [docs/it-manuale-operativo.md]
+    prompt: "Rispondi a tre domande usando solo il manuale: (1) ogni quanto va lavato e ogni quanto sostituito il filtro delle unità split? (2) quale patentino serve per recuperare l'R-32? (3) ogni quanto va verificato il differenziale nei quadri elettrici?"
+    expected: "(1) washed every 3 months, replaced every 24 months; (2) F-gas category I; (3) every 6 months"
+    check: {contains_all: ["3 mesi", "24 mesi", "6 mesi"], contains_any: ["categoria I", "categoria 1", "cat. I"]}

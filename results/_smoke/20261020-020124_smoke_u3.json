@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "tag": "local",
+    "users": 3,
+    "think": false,
+    "suite": "smoke.yaml",
+    "n": 3,
+    "errors": 0,
+    "wall_s": 11.3,
+    "avg_ttft_s": 3.13,
+    "avg_tok_s_per_user": 19.7,
+    "server_tok_s": 16.9,
+    "vram_before_mb": 11374,
+    "vram_peak_mb": 11374,
+    "timestamp": "2026-10-20T02:01:24"
+  },
+  "results": [
+    {
+      "id": "smoke-conv-it",
+      "category": "conversazione",
+      "lang": "it",
+      "response": "Un assistente AI può automatizzare le risposte ai clienti e gestire le prenotazioni, liberandoti da compiti ripetitivi.\nPuoi farlo analizzare le fatture e i dati di magazzino per aiutarti a pianificare meglio gli acquisti e ridurre gli sprechi.\nInfine, può supportarti nella stesura di preventivi rapidi e nella ricerca di soluzioni tecniche, permettendoti di concentrarti sui lavori più complessi.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 6.21,
+      "total_s": 10.772,
+      "in_tokens": 56,
+      "out_tokens": 89,
+      "tok_s": 19.5
+    },
+    {
+      "id": "smoke-summary-en",
+      "category": "riassunto",
+      "lang": "en",
+      "response": "After an initial rollout in March caused confusion due to delays in reflecting paper shift swaps, the Example General Hospital resolved these issues by June through software updates and staff training. Consequently, swap processing time dropped to under four hours, leading to improved staff satisfaction and plans to extend the system to community teams by 2027.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 2.534,
+      "total_s": 6.016,
+      "in_tokens": 125,
+      "out_tokens": 68,
+      "tok_s": 19.5
+    },
+    {
+      "id": "smoke-halluc-it",
+      "category": "allucinazioni",
+      "lang": "it",
+      "response": "L'informazione non è presente nel documento fornito. Il documento indica solo il nome del cliente (Rossi Impianti Srl), ma non ne riporta l'indirizzo.",
+      "reasoning": null,
+      "expected": "Deve dire che l'indirizzo non è presente nel documento.",
+      "error": null,
+      "ttft_s": 0.654,
+      "total_s": 2.343,
+      "in_tokens": 119,
+      "out_tokens": 34,
+      "tok_s": 20.1
+    }
+  ]
+}

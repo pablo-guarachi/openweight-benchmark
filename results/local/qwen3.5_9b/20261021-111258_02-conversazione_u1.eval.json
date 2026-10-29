@@ -1,0 +1,82 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "file": "20261021-111258_02-conversazione_u1.json",
+    "auto_pass": 3,
+    "auto_total": 4,
+    "errors": 0,
+    "by_category": {
+      "02-conversation": "3/4"
+    }
+  },
+  "rows": [
+    {
+      "id": "conv-memoria-it",
+      "category": "02-conversation",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 51.6,
+      "ttft_s": 0.697,
+      "in_tokens": 174
+    },
+    {
+      "id": "conv-cambio-tema-en",
+      "category": "02-conversation",
+      "passed": null,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 51.9,
+      "ttft_s": 0.18,
+      "in_tokens": 129
+    },
+    {
+      "id": "conv-riferimento-pronome-it",
+      "category": "02-conversation",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 52.1,
+      "ttft_s": 0.482,
+      "in_tokens": 710
+    },
+    {
+      "id": "conv-support-es",
+      "category": "02-conversation",
+      "passed": false,
+      "failed": [
+        "contains_all"
+      ],
+      "grade": true,
+      "error": false,
+      "tok_s": 52.1,
+      "ttft_s": 0.24,
+      "in_tokens": 172
+    },
+    {
+      "id": "conv-correzione-it",
+      "category": "02-conversation",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 51.9,
+      "ttft_s": 0.614,
+      "in_tokens": 977
+    },
+    {
+      "id": "conv-tono-en",
+      "category": "02-conversation",
+      "passed": null,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 52.0,
+      "ttft_s": 0.161,
+      "in_tokens": 76
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "tag": "local",
+    "users": 1,
+    "think": false,
+    "suite": "smoke.yaml",
+    "n": 3,
+    "errors": 0,
+    "wall_s": 10.8,
+    "avg_ttft_s": 2.2,
+    "avg_tok_s_per_user": 45.0,
+    "server_tok_s": 15.7,
+    "vram_before_mb": 766,
+    "vram_peak_mb": 8856,
+    "timestamp": "2026-10-20T02:52:56"
+  },
+  "results": [
+    {
+      "id": "smoke-conv-it",
+      "category": "conversazione",
+      "lang": "it",
+      "response": "Un assistente AI può aiutarti a organizzare automaticamente gli appuntamenti e gestire le chiamate dei clienti, così tu non perdi mai tempo prezioso. Può anche suggerire rapidamente le diagnosi o le parti di ricambio necessarie basandosi sui sintomi descritti, accelerando il lavoro in officina. Infine, ti aiuta a creare fatture e preventivi in pochi secondi, liberandoti da compiti burocratici noiosi.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 6.002,
+      "total_s": 7.961,
+      "in_tokens": 56,
+      "out_tokens": 86,
+      "tok_s": 43.9
+    },
+    {
+      "id": "smoke-summary-en",
+      "category": "riassunto",
+      "lang": "en",
+      "response": "After initial confusion caused by a 48-hour delay in reflecting paper shift swaps, the Example General Hospital improved its new electronic rostering system through software updates and staff training. By June, these measures reduced processing time to under four hours, significantly boosting staff satisfaction, with plans to extend the system to community teams by 2027.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 0.3,
+      "total_s": 1.933,
+      "in_tokens": 125,
+      "out_tokens": 72,
+      "tok_s": 44.1
+    },
+    {
+      "id": "smoke-halluc-it",
+      "category": "allucinazioni",
+      "lang": "it",
+      "response": "L'informazione non è presente nel documento fornito.",
+      "reasoning": null,
+      "expected": "Deve dire che l'indirizzo non è presente nel documento.",
+      "error": null,
+      "ttft_s": 0.29,
+      "total_s": 0.523,
+      "in_tokens": 119,
+      "out_tokens": 11,
+      "tok_s": 47.0
+    }
+  ]
+}

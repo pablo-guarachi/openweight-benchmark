@@ -1,0 +1,44 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — gemma4:26b (MoE 25B, 3.8B active) with partial offload (12 GB VRAM: 36 tok/s mean)
+# Quality very close to the dense 12B, with fewer inventions in conversations. Same family flaws:
+# Italian answers to English questions, three options instead of one. OCR: IBAN with one digit dropped.
+conv-memoria-it: 5            # the best recap seen: no promised times, asks for the store's mobile number
+conv-cambio-tema-en: 3        # returns to the topic; generic ("Daikin, Mitsubishi") but presents itself as "the installer (us)"
+conv-riferimento-pronome-it: 3 # answers with both technicians and adds the call-out fee: does not resolve the pronoun "lo" (= the senior one)
+conv-support-es: 5
+conv-correzione-it: 5
+conv-tono-en: 5
+doc-estrazione-tabella: 4     # all the numbers, but senior merged into the technician row
+doc-multi-persona: 5
+sum-email-3punti: 4           # misses the €9 amount and the spare part
+sum-incident-50w: 5
+sum-verbale-decisioni: 4      # misses the UK target
+sum-es-in-italiano: 5
+sum-manuale-sezioni: 5
+sum-fedelta-trappola: 4       # no inventions; omits the prices
+hal-cf-assente: 5
+hal-telefono-assente: 3       # Italian to an English question
+hal-premessa-falsa: 3         # corrects both premises but refuses to calculate the €18
+hal-senza-contesto: 4
+hal-data-inventata: 3         # right, in Italian
+hal-prezzo-assente: 5
+hal-citazione-sezione: 5
+img-rapporto-descrizione: 5   # only misses "Porto Recanati" (says "supermercato Bianchi")
+img-grafico-tendenza: 5
+img-tabella-confronto: 5
+img-fattura-assente: 5
+wr-email-cliente-it: 5
+wr-report-en-struttura: 5
+wr-propuesta-es: 4            # good; misses the total; "correo electrónico de preventivos" is a calque
+wr-riscrittura-tono: 3        # three options, truncated
+wr-faq-generate: 2            # in Italian
+wr-vincoli-formali: 3         # structure ok but "riprenderanno il 24 agosto" ("will resume on 24 August"; the 22nd is a Saturday: reasonable but invented) and a title with ":"
+ml-it-su-es: 5
+ml-en-su-it: 5                # here it answers in English
+ml-es-su-en: 5
+ml-traduzione-it-en: 3        # three versions + glossary
+ml-traduzione-en-es: 4        # excellent + unrequested notes
+ml-istruzione-lingua: 5
+ml-registro-it: 4             # excellent, truncated by the token limit
+ml-idiomi-en: 4               # reply longer than 3 sentences, with placeholders
+tool-ambiguo-chiede: 4
+rag-python: 5                 # correct (math.ceil), consistent examples

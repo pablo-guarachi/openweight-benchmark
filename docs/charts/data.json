@@ -1,0 +1,523 @@
+{
+  "source": "results/local + results/scores (aggregated like scripts/report.py)",
+  "models": [
+    {
+      "id": "gemma4_12b",
+      "label": "Gemma 4 12B",
+      "auto_passed": 73,
+      "auto_total": 78,
+      "auto_pct": 93.6,
+      "grade_mean": 4.29,
+      "grade_n": 41,
+      "tok_s_1user": 46.1,
+      "vram_peak_gb": 9.7,
+      "ttft_4users_s": 18.06,
+      "offload": false,
+      "usable": true,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 16,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 9,
+          "total": 9
+        },
+        "images": {
+          "passed": 10,
+          "total": 10
+        },
+        "writing": {
+          "passed": 5,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 8,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 7,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "gemma4_26b",
+      "label": "Gemma 4 26B (MoE)",
+      "auto_passed": 73,
+      "auto_total": 78,
+      "auto_pct": 93.6,
+      "grade_mean": 4.29,
+      "grade_n": 41,
+      "tok_s_1user": 28.7,
+      "vram_peak_gb": 11.6,
+      "ttft_4users_s": 34.28,
+      "offload": true,
+      "usable": false,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 18,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 9,
+          "total": 9
+        },
+        "images": {
+          "passed": 8,
+          "total": 10
+        },
+        "writing": {
+          "passed": 5,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 8,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 7,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "gemma4_e2b",
+      "label": "Gemma 4 E2B",
+      "auto_passed": 61,
+      "auto_total": 78,
+      "auto_pct": 78.2,
+      "grade_mean": 3.54,
+      "grade_n": 41,
+      "tok_s_1user": 121.3,
+      "vram_peak_gb": 5.0,
+      "ttft_4users_s": 6.62,
+      "offload": false,
+      "usable": false,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 16,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 8,
+          "total": 9
+        },
+        "images": {
+          "passed": 1,
+          "total": 10
+        },
+        "writing": {
+          "passed": 6,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 7,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 5,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "gemma4_e4b",
+      "label": "Gemma 4 E4B",
+      "auto_passed": 65,
+      "auto_total": 78,
+      "auto_pct": 83.3,
+      "grade_mean": 3.83,
+      "grade_n": 41,
+      "tok_s_1user": 102.0,
+      "vram_peak_gb": 5.8,
+      "ttft_4users_s": 10.08,
+      "offload": false,
+      "usable": false,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 16,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 8,
+          "total": 9
+        },
+        "images": {
+          "passed": 7,
+          "total": 10
+        },
+        "writing": {
+          "passed": 4,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 7,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 5,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "gemma4_latest",
+      "label": "Gemma 4 (stale blob)",
+      "auto_passed": 60,
+      "auto_total": 78,
+      "auto_pct": 76.9,
+      "grade_mean": 3.61,
+      "grade_n": 41,
+      "tok_s_1user": 74.1,
+      "vram_peak_gb": 5.5,
+      "ttft_4users_s": 12.01,
+      "offload": false,
+      "usable": false,
+      "excluded": true,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 15,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 8,
+          "total": 9
+        },
+        "images": {
+          "passed": 1,
+          "total": 10
+        },
+        "writing": {
+          "passed": 5,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 7,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 6,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "gpt-oss_20b",
+      "label": "gpt-oss 20B",
+      "auto_passed": 58,
+      "auto_total": 68,
+      "auto_pct": 85.3,
+      "grade_mean": 3.81,
+      "grade_n": 37,
+      "tok_s_1user": 39.2,
+      "vram_peak_gb": 10.8,
+      "ttft_4users_s": 23.86,
+      "offload": true,
+      "usable": false,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 13,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 7,
+          "total": 9
+        },
+        "writing": {
+          "passed": 6,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 7,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 7,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "llama3.1_8b",
+      "label": "Llama 3.1 8B",
+      "auto_passed": 50,
+      "auto_total": 68,
+      "auto_pct": 73.5,
+      "grade_mean": 3.24,
+      "grade_n": 37,
+      "tok_s_1user": 59.7,
+      "vram_peak_gb": 10.2,
+      "ttft_4users_s": 12.06,
+      "offload": false,
+      "usable": false,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 12,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 8,
+          "total": 9
+        },
+        "writing": {
+          "passed": 4,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 6,
+          "total": 8
+        },
+        "tools": {
+          "passed": 6,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 4,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "mistral-nemo",
+      "label": "Mistral Nemo 12B",
+      "auto_passed": 58,
+      "auto_total": 68,
+      "auto_pct": 85.3,
+      "grade_mean": 3.78,
+      "grade_n": 37,
+      "tok_s_1user": 43.2,
+      "vram_peak_gb": 10.5,
+      "ttft_4users_s": 16.21,
+      "offload": false,
+      "usable": false,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 3,
+          "total": 4
+        },
+        "documents": {
+          "passed": 16,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 8,
+          "total": 9
+        },
+        "writing": {
+          "passed": 5,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 7,
+          "total": 8
+        },
+        "tools": {
+          "passed": 6,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 7,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "qwen3.5_4b",
+      "label": "Qwen 3.5 4B",
+      "auto_passed": 69,
+      "auto_total": 78,
+      "auto_pct": 88.5,
+      "grade_mean": 3.85,
+      "grade_n": 41,
+      "tok_s_1user": 76.4,
+      "vram_peak_gb": 5.8,
+      "ttft_4users_s": 9.94,
+      "offload": false,
+      "usable": false,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 4,
+          "total": 4
+        },
+        "documents": {
+          "passed": 15,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 9,
+          "total": 9
+        },
+        "images": {
+          "passed": 10,
+          "total": 10
+        },
+        "writing": {
+          "passed": 4,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 7,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 6,
+          "total": 8
+        }
+      }
+    },
+    {
+      "id": "qwen3.5_9b",
+      "label": "Qwen 3.5 9B",
+      "auto_passed": 76,
+      "auto_total": 78,
+      "auto_pct": 97.4,
+      "grade_mean": 4.29,
+      "grade_n": 41,
+      "tok_s_1user": 51.5,
+      "vram_peak_gb": 8.2,
+      "ttft_4users_s": 16.79,
+      "offload": false,
+      "usable": true,
+      "excluded": false,
+      "by_category": {
+        "conversation": {
+          "passed": 3,
+          "total": 4
+        },
+        "documents": {
+          "passed": 18,
+          "total": 18
+        },
+        "summaries": {
+          "passed": 6,
+          "total": 6
+        },
+        "hallucinations": {
+          "passed": 9,
+          "total": 9
+        },
+        "images": {
+          "passed": 10,
+          "total": 10
+        },
+        "writing": {
+          "passed": 6,
+          "total": 6
+        },
+        "multilingual": {
+          "passed": 8,
+          "total": 8
+        },
+        "tools": {
+          "passed": 8,
+          "total": 9
+        },
+        "reasoning": {
+          "passed": 8,
+          "total": 8
+        }
+      }
+    }
+  ]
+}

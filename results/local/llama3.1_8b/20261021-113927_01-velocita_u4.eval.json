@@ -1,0 +1,78 @@
+{
+  "summary": {
+    "model": "llama3.1:8b",
+    "file": "20261021-113927_01-velocita_u4.json",
+    "auto_pass": 0,
+    "auto_total": 0,
+    "errors": 0,
+    "by_category": {}
+  },
+  "rows": [
+    {
+      "id": "vel-short-it",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 61.9,
+      "ttft_s": 7.966,
+      "in_tokens": 35
+    },
+    {
+      "id": "vel-short-en",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 63.3,
+      "ttft_s": 0.334,
+      "in_tokens": 23
+    },
+    {
+      "id": "vel-medium-gen",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 61.7,
+      "ttft_s": 1.533,
+      "in_tokens": 49
+    },
+    {
+      "id": "vel-long-gen",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 61.0,
+      "ttft_s": 9.648,
+      "in_tokens": 44
+    },
+    {
+      "id": "vel-doc-4k",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 57.5,
+      "ttft_s": 20.756,
+      "in_tokens": 2836
+    },
+    {
+      "id": "vel-doc-12k",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 48.6,
+      "ttft_s": 32.124,
+      "in_tokens": 12394
+    }
+  ]
+}

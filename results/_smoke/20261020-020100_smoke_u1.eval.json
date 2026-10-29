@@ -1,0 +1,45 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "file": "20261020-020100_smoke_u1.json",
+    "auto_pass": 0,
+    "auto_total": 0,
+    "errors": 0,
+    "by_category": {}
+  },
+  "rows": [
+    {
+      "id": "smoke-conv-it",
+      "category": "conversation",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 18.5,
+      "ttft_s": 0.905,
+      "in_tokens": 56
+    },
+    {
+      "id": "smoke-summary-en",
+      "category": "summary",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 19.6,
+      "ttft_s": 0.333,
+      "in_tokens": 125
+    },
+    {
+      "id": "smoke-halluc-it",
+      "category": "hallucinations",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 20.3,
+      "ttft_s": 0.332,
+      "in_tokens": 119
+    }
+  ]
+}

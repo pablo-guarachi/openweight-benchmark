@@ -1,0 +1,113 @@
+# Tool calling + structured JSON output. Everything is checked automatically.
+# The tool names, descriptions and parameters are sent to the model: they are test data and stay in Italian.
+_tools_crm: &tools_crm
+  - type: function
+    function:
+      name: crea_ticket
+      description: Apre un ticket di assistenza tecnica per un cliente
+      parameters:
+        type: object
+        properties:
+          cliente: {type: string, description: ragione sociale del cliente}
+          sede: {type: string, description: punto vendita o indirizzo}
+          problema: {type: string}
+          priorita: {type: string, enum: [bassa, media, alta, urgente]}
+        required: [cliente, problema, priorita]
+  - type: function
+    function:
+      name: cerca_cliente
+      description: Cerca un cliente nel CRM per nome
+      parameters:
+        type: object
+        properties:
+          nome: {type: string}
+        required: [nome]
+  - type: function
+    function:
+      name: invia_email
+      description: Invia una email
+      parameters:
+        type: object
+        properties:
+          a: {type: string, description: indirizzo email destinatario}
+          oggetto: {type: string}
+          testo: {type: string}
+        required: [a, oggetto, testo]
+  - type: function
+    function:
+      name: pianifica_intervento
+      description: Pianifica un intervento tecnico in calendario
+      parameters:
+        type: object
+        properties:
+          cliente: {type: string}
+          data: {type: string, description: "data ISO YYYY-MM-DD"}
+          ora: {type: string, description: "HH:MM"}
+          tecnico: {type: string}
+        required: [cliente, data]
+
+tests:
+  - id: tool-ticket-urgente
+    lang: it
+    tools: *tools_crm
+    prompt: "Apri subito un ticket: Bianchi Supermercati, punto vendita Porto Recanati, chiller unità esterna fermo, negozio a 29 gradi. È urgente."
+    expected: crea_ticket(cliente=Bianchi Supermercati, sede=Porto Recanati, problema=chiller..., priorita=urgente)
+    check: {tool: {name: crea_ticket, args_contain: {cliente: "Bianchi", sede: "Porto Recanati", priorita: "urgente"}}}
+
+  - id: tool-pianifica-data
+    lang: it
+    tools: *tools_crm
+    system: "Oggi è lunedì 20 ottobre 2026."
+    prompt: Metti in calendario Luca Fabbri da Kingsway Dental Practice giovedì di questa settimana alle 9 del mattino.
+    expected: pianifica_intervento(cliente=Kingsway Dental Practice, data=2026-10-23, ora=09:00, tecnico=Luca Fabbri)
+    check: {tool: {name: pianifica_intervento, args_contain: {data: "2026-10-23", ora: "09:00", tecnico: "Fabbri"}}}
+
+  - id: tool-nessuno-necessario
+    lang: it
+    tools: *tools_crm
+    prompt: Che differenza c'è tra una caldaia a condensazione e una tradizionale? Rispondi in due frasi.
+    expected: "No tool call; a text answer."
+    check: {no_tool: true, min_words: 15}
+
+  - id: tool-email-da-doc
+    lang: it
+    tools: *tools_crm
+    doc: [docs/it-email-ritardo-bianchi.md]
+    prompt: Invia a Paolo Bianchi una email in cui confermi che la penale sarà detratta dalla fattura di ottobre. Usa l'indirizzo che trovi nel thread.
+    expected: "invia_email(a=p.bianchi@bianchisupermercati.example.it, oggetto..., testo mentions the penalty / ottobre)"
+    check: {tool: {name: invia_email, args_contain: {a: "p.bianchi@bianchisupermercati.example.it", testo: "ottobre"}}}
+
+  - id: tool-ambiguo-chiede
+    lang: it
+    tools: *tools_crm
+    prompt: Pianifica un intervento per il cliente di Valencia.
+    expected: "The date is missing (and the customer is ambiguous); the ideal behaviour is to ask. cerca_cliente is also acceptable. Inventing a date is wrong."
+    check: {tool_not: pianifica_intervento}
+    grade: true
+
+  - id: json-contratto
+    lang: it
+    doc: [docs/it-contratto-manutenzione-2026-114.md]
+    prompt: "Estrai i dati del contratto in JSON con esattamente queste chiavi: numero, cliente, decorrenza (YYYY-MM-DD), durata_mesi (int), canone_mensile_eur (number), interventi_anno (int), preavviso_recesso_giorni (int), penale_pct (number). Rispondi SOLO con il JSON, senza testo o markdown."
+    expected: '{"numero":"2026/114","cliente":"Bianchi Supermercati Srl","decorrenza":"2026-02-01","durata_mesi":12,"canone_mensile_eur":450,"interventi_anno":4,"preavviso_recesso_giorni":60,"penale_pct":2}'
+    check: {json_equals: {numero: "2026/114", decorrenza: "2026-02-01", durata_mesi: 12, canone_mensile_eur: 450, interventi_anno: 4, preavviso_recesso_giorni: 60, penale_pct: 2}}
+
+  - id: json-quotation
+    lang: en
+    doc: [docs/en-quotation-Q-UK-2026-031.md]
+    prompt: "Return ONLY a JSON object with keys: quote_number, customer, date (YYYY-MM-DD), total_ex_vat (number), vat_rate_pct (number), total_inc_vat (number), deposit_pct (number), lead_time_weeks (int), warranty_years_unit (int), warranty_years_labour (int)."
+    expected: Q-UK-2026-031, Kingsway Dental Practice, 2026-08-28, 18450, 20, 22140, 40, 3, 5, 2
+    check: {json_equals: {quote_number: "Q-UK-2026-031", date: "2026-08-28", total_ex_vat: 18450, vat_rate_pct: 20, total_inc_vat: 22140, deposit_pct: 40, lead_time_weeks: 3, warranty_years_unit: 5, warranty_years_labour: 2}}
+
+  - id: json-lista-decisioni
+    lang: it
+    doc: [docs/it-verbale-riunione-2026-09-03.md]
+    prompt: "Restituisci SOLO un array JSON di oggetti {\"decisione\": string, \"responsabile\": string|null, \"scadenza\": string|null} con tutte le decisioni della riunione. Niente testo intorno."
+    expected: "Valid JSON array with ≥4 decisions (van, hiring, Valvex, UK target, Pescara postponed)."
+    check: {json_array_min: 4, contains_all: ["Valvex", "Transit"]}
+
+  - id: json-enum-classifica
+    lang: it
+    prompt: "Classifica ognuno di questi messaggi di clienti. Rispondi SOLO con un array JSON di oggetti {\"id\": int, \"categoria\": \"guasto\"|\"preventivo\"|\"amministrazione\"|\"altro\", \"urgenza\": \"alta\"|\"media\"|\"bassa\"}.\n1. «La caldaia perde acqua dal basso e sento odore di gas»\n2. «Vorrei un preventivo per due split in ufficio»\n3. «Non ho ricevuto la fattura di settembre»\n4. «Complimenti per il servizio di ieri»\n5. «Il condizionatore fa un rumore strano ma funziona»"
+    expected: 1 guasto alta; 2 preventivo bassa/media; 3 amministrazione bassa/media; 4 altro bassa; 5 guasto bassa/media
+    check: {json_array_min: 5, json_items: {1: {categoria: guasto, urgenza: alta}, 2: {categoria: preventivo}, 3: {categoria: amministrazione}, 4: {categoria: altro}, 5: {categoria: guasto}}}

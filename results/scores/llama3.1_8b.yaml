@@ -1,0 +1,40 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — llama3.1:8b (text only, 2024 generation)
+# Answers in Italian to English and Spanish questions; invents names and places; absurd refusal on a harmless rewrite;
+# tool calling with swapped arguments and invented data. Clearly a generation behind.
+conv-memoria-it: 1            # invents "il signor De Santis" ("Mr De Santis"), "22 degrees within 24 hours", then asks whether the technician can go to Porto Recanati (where he is already going)
+conv-cambio-tema-en: 3        # generic but short, returns to the quote
+conv-riferimento-pronome-it: 5
+conv-support-es: 2            # invents "la bomba será reemplazada con una nueva unidad" ("the pump will be replaced with a new unit")
+conv-correzione-it: 5
+conv-tono-en: 4
+doc-estrazione-tabella: 3     # misses the senior technician
+doc-multi-persona: 2          # incident report: "tecnico coinvolto nell'incidente" ("technician involved in the incident"; false); correo: "impartirà la formazione" ("will deliver the training"; it was Fabbri)
+sum-email-3punti: 3           # misses the €9 penalty; "ritardo di 48 ore" ("48-hour delay") is imprecise
+sum-incident-50w: 2           # in Italian (English requested); misses RIDDOR and actions
+sum-verbale-decisioni: 4
+sum-es-in-italiano: 4
+sum-manuale-sezioni: 3        # only describes the section titles, no content
+sum-fedelta-trappola: 4
+hal-cf-assente: 5
+hal-telefono-assente: 3       # right but terse and in Italian
+hal-premessa-falsa: 3         # calculates the €18 correctly but does NOT point out that the premises (6 visits, 5%) were false
+hal-senza-contesto: 5
+hal-data-inventata: 3         # right content, in Italian
+hal-prezzo-assente: 5
+hal-citazione-sezione: 4
+wr-email-cliente-it: 2        # invents store names (San Benedetto, Ascoli, Fermo: not in the contract)
+wr-report-en-struttura: 5
+wr-propuesta-es: 5            # with the €1,680 total
+wr-riscrittura-tono: 1        # REFUSES: "non posso aiutarti a scrivere un messaggio in cui si chiede di pagare la benzina" ("I can't help you write a message asking to be paid for petrol")
+wr-faq-generate: 5
+wr-vincoli-formali: 2         # misses the final line with the on-call number
+ml-it-su-es: 5
+ml-en-su-it: 2                # Italian to an English question
+ml-es-su-en: 4
+ml-traduzione-it-en: 4
+ml-traduzione-en-es: 2        # "El calentador de aire" ("the air heater") for heat pump: serious terminology error
+ml-istruzione-lingua: 1       # ignores "rispondi in spagnolo" ("answer in Spanish")
+ml-registro-it: 3             # "sarà in casa sua" ("will be at your home") for a business customer; "nel corso delle ore 9-11"
+ml-idiomi-en: 3               # understands the idioms; English reply longer than 3 sentences
+tool-ambiguo-chiede: 1        # invents date 2024-01-01, time 10:00, "nome del tecnico" ("technician's name") as a value
+rag-python: 2                 # calculates with fractional days (does not round up); example "Expected 20.0" wrong for its own function

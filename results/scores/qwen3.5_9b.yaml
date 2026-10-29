@@ -1,0 +1,42 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — qwen3.5:9b, thinking off
+conv-memoria-it: 3            # remembers everything but promises a "team already dispatched", an SMS, a replacement chiller: invented commitments
+conv-cambio-tema-en: 2        # returns to the topic but answers as a "generic consultant" with invented brand warranties (7 years, NAPIT), not as the company
+conv-riferimento-pronome-it: 5
+conv-support-es: 2            # invents "from 20 to 24 August" (it was only the 20th)
+conv-correzione-it: 5
+conv-tono-en: 2               # empathetic but promises an engineer within the hour and a full refund: invented commitments
+doc-estrazione-tabella: 5
+doc-multi-persona: 5
+sum-email-3punti: 4
+sum-incident-50w: 4
+sum-verbale-decisioni: 4      # misses the UK target and the date of the next meeting
+sum-es-in-italiano: 4
+sum-manuale-sezioni: 4
+sum-fedelta-trappola: 4
+hal-cf-assente: 5
+hal-telefono-assente: 5
+hal-premessa-falsa: 3         # corrects both premises but refuses to calculate the €18
+hal-senza-contesto: 3         # does not invent the figure, but says 2025 "has not started yet"
+hal-data-inventata: 5
+hal-prezzo-assente: 5
+hal-citazione-sezione: 5
+img-rapporto-descrizione: 5
+img-grafico-tendenza: 5
+img-tabella-confronto: 5      # correct, very verbose
+img-fattura-assente: 5
+wr-email-cliente-it: 4        # "Pianteremo tre interventi" (wrong-word slip), otherwise excellent
+wr-report-en-struttura: 5
+wr-propuesta-es: 3            # "Aceptamos esta oferta" ("we accept this offer") said by the proposer: a sense error in Spanish
+wr-riscrittura-tono: 5
+wr-faq-generate: 5
+wr-vincoli-formali: 4         # perfect structure, invents "internal meetings" as the reason
+ml-it-su-es: 5
+ml-en-su-it: 5
+ml-es-su-en: 4
+ml-traduzione-it-en: 5
+ml-traduzione-en-es: 5
+ml-istruzione-lingua: 5
+ml-registro-it: 3             # formal version with placeholders and invented billing details; informal one truncated
+ml-idiomi-en: 5
+tool-ambiguo-chiede: 5
+rag-python: 4                 # correct logic, truncated by the token limit because of a verbose docstring

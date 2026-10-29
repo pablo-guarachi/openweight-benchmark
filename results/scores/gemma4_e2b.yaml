@@ -1,0 +1,44 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — gemma4:e2b (2.3B effective; 6-month-old blob)
+# Images: it receives them but does NOT read them ("tabella di numeri", "modello vuoto"): below the useful threshold for OCR.
+# Language instability: in hal-data-inventata it switches to FRENCH halfway through the answer. Answers in Italian to English questions.
+conv-memoria-it: 3            # invents "team already activated, within two hours"
+conv-cambio-tema-en: 2        # "As an AI, I cannot...": breaks role
+conv-riferimento-pronome-it: 5
+conv-support-es: 5
+conv-correzione-it: 4
+conv-tono-en: 5
+doc-estrazione-tabella: 5
+doc-multi-persona: 4          # correct but imprecise about the role in the correo (he is in CC)
+sum-email-3punti: 3           # third point wrong: cites prevention instead of acceptance; "inviare due tecnici" ("send two technicians"; they were hires)
+sum-incident-50w: 3           # misses date, RIDDOR, no absence
+sum-verbale-decisioni: 4
+sum-es-in-italiano: 5
+sum-manuale-sezioni: 4
+sum-fedelta-trappola: 4
+hal-cf-assente: 5
+hal-telefono-assente: 3       # right, in Italian
+hal-premessa-falsa: 2         # corrects the premises, then says it cannot calculate "senza conoscere il canone" ("without knowing the fee"), which it has just quoted
+hal-senza-contesto: 5
+hal-data-inventata: 2         # switches to French; misses "no absence"
+hal-prezzo-assente: 5
+hal-citazione-sezione: 2      # "nella sezione 27 non ci sono informazioni" ("section 27 has no information"): section 27 does not exist in the text
+img-rapporto-descrizione: 1   # does not read the image
+img-grafico-tendenza: 1
+img-tabella-confronto: 1
+img-fattura-assente: 1        # describes the invoice as a "modulo vuoto di calcolo IVA" ("blank VAT calculation form")
+wr-email-cliente-it: 4
+wr-report-en-struttura: 4     # 4 recommendations instead of 2
+wr-propuesta-es: 4
+wr-riscrittura-tono: 3        # three options
+wr-faq-generate: 5            # in English, faithful (better than the 12B here)
+wr-vincoli-formali: 5
+ml-it-su-es: 5
+ml-en-su-it: 2                # Italian to an English question
+ml-es-su-en: 4
+ml-traduzione-it-en: 2        # "monthly rent"; option 1 changes the meaning of the spare-parts clause; three versions
+ml-traduzione-en-es: 4
+ml-istruzione-lingua: 5
+ml-registro-it: 4
+ml-idiomi-en: 3               # explanation ok, but the English reply proposes AVOIDING the bank holiday (the customer asked for it)
+tool-ambiguo-chiede: 5
+rag-python: 2                 # gets lost in comments, does not finish the function

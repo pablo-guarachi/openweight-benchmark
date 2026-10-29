@@ -1,0 +1,65 @@
+# Multilingual: question language ≠ document language; answers in the right language; translation.
+tests:
+  - id: ml-it-su-es
+    lang: it
+    doc: [docs/es-contrato-ES-2026-07.md]
+    prompt: Qual è la garanzia sulle unità e cosa esclude?
+    expected: "3 years from delivery; excludes damage from installation not compliant with the manual or from missed annual servicing. Answer in Italian."
+    check: {contains_all: ["3"], contains_any: ["manutenzione", "installazione"], lang: it}
+    grade: true
+
+  - id: ml-en-su-it
+    lang: en
+    doc: [docs/it-procedura-PR07-sicurezza.md]
+    prompt: Above what height is a harness mandatory, and what is the rule for working alone?
+    expected: Above 2 m (harness + second anchor point); never alone on live systems or in confined spaces. Answer in English.
+    check: {contains_all: ["2"], contains_any: ["confined", "alone"], lang: en}
+    grade: true
+
+  - id: ml-es-su-en
+    lang: es
+    doc: [docs/en-uk-handbook-leave.md]
+    prompt: ¿Cuántos días de vacaciones tienen los empleados a tiempo completo y con cuánta antelación hay que pedirlas?
+    expected: "25 days + bank holidays; at least 2 weeks' notice (4 weeks for more than 5 consecutive days). Answer in Spanish."
+    check: {contains_all: ["25"], contains_any: ["2 semanas", "dos semanas"], lang: es}
+    grade: true
+
+  - id: ml-traduzione-it-en
+    lang: en
+    grade: true
+    max_tokens: 500
+    prompt: "Translate into natural, professional English (UK) for a customer, keeping all figures: «Per ogni giorno di ritardo oltre le 48 ore, il Cliente avrà diritto a una penale pari al 2% del canone mensile, che sarà portata in detrazione nella fattura successiva. La penale non si applica in caso di indisponibilità di ricambi documentata dal fornitore del componente.»"
+    expected: "Faithful and natural translation (48 hours, 2% of the monthly fee, deducted from the next invoice, does not apply if parts unavailability is documented by the component supplier)."
+    check: {contains_all: ["48", "2%"], contains_any: ["next invoice", "following invoice", "subsequent invoice"]}
+
+  - id: ml-traduzione-en-es
+    lang: es
+    grade: true
+    max_tokens: 500
+    prompt: "Traduce al español (España), registro formal: «The heat pump carries a 5-year manufacturer's warranty, subject to annual servicing. Installation workmanship is guaranteed for 2 years. Payment: 40% deposit on acceptance, 60% balance on commissioning, by bank transfer within 14 days of invoice.»"
+    expected: "Correct and natural translation: 5 años garantía del fabricante sujeta a mantenimiento anual; mano de obra 2 años; 40% anticipo, 60% a la puesta en marcha, transferencia en 14 días."
+    check: {contains_all: ["40", "60", "14"], contains_any: ["5 años", "cinco años"], contains_any_2: ["2 años", "dos años"], lang: es}
+
+  - id: ml-istruzione-lingua
+    lang: es
+    doc: [docs/it-faq-clienti.md]
+    prompt: Rispondi in spagnolo. Quali sono gli orari di apertura e quanto costa il diritto di chiamata?
+    expected: "Answers in Spanish: Monday to Friday 8:00-12:30 / 14:00-18:00, €35 + VAT."
+    check: {contains_all: ["35"], contains_any: ["8:00", "8.00"], lang: es}
+    grade: true
+
+  - id: ml-registro-it
+    lang: it
+    grade: true
+    max_tokens: 400
+    prompt: "Scrivi due versioni di questo avviso: una formale per una PEC a un cliente azienda, una informale per un messaggio WhatsApp a un cliente privato abituale. Contenuto: il tecnico passerà giovedì 30 ottobre tra le 9 e le 11 per la manutenzione annuale della caldaia; costo 95 euro + IVA; se non va bene, chiamare lo 0733 123456."
+    expected: "Two clearly different registers with the same content (Thursday 30 October, 9-11, €95 + VAT, phone number). Natural Italian, no calques."
+    check: {contains_all: ["30 ottobre", "95", "0733 123456"]}
+
+  - id: ml-idiomi-en
+    lang: en
+    grade: true
+    max_tokens: 400
+    prompt: "A British customer wrote: «To be honest the quote is a bit steep, and I'm not keen on the disruption. Could you sharpen your pencil a bit, and maybe do it over the bank holiday so we're not out of action?» Explain in Italian, for the Macerata office, what the customer is asking for (3 bullet points), then draft a polite 3-sentence reply in English."
+    expected: "Understands the idioms (price too high → asks for a discount; disruption; works over the bank holiday); correct explanation in Italian; polite English reply, 3 sentences."
+    check: {contains_any: ["sconto", "ribasso", "prezzo", "riduzione", "costi", "quotazione", "preventivo"], contains_all: ["bank holiday"]}

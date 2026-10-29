@@ -1,0 +1,1377 @@
+{
+  "summary": {
+    "model": "gemma4:12b",
+    "tag": "local",
+    "backend": "ollama",
+    "users": 1,
+    "think": true,
+    "suites": [
+      "03-documenti",
+      "05-allucinazioni",
+      "10-ragionamento",
+      "09-tools"
+    ],
+    "n": 44,
+    "errors": 0,
+    "wall_s": 508.9,
+    "avg_ttft_s": 10.61,
+    "avg_tok_s": 67.9,
+    "server_tok_s": 46.8,
+    "vram_before_mb": 640,
+    "vram_peak_mb": 9941,
+    "timestamp": "2026-10-21T13:41:31"
+  },
+  "results": [
+    {
+      "id": "doc-contratto-recesso",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "60 giorni, via PEC",
+      "check": {
+        "contains_all": [
+          "60"
+        ],
+        "contains_any": [
+          "PEC",
+          "pec"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Ciascuna parte può recedere dal contratto con un preavviso scritto di 60 giorni, da inviarsi a mezzo PEC.",
+      "reasoning": "*   Question: \"Con quanto preavviso si può recedere dal contratto e con quale mezzo va inviata la comunicazione?\" (With how much notice can one withdraw from the contract and by what means must the communication be sent?)\n    *   Constraint: Answer based *only* on the provided documents. If information is missing, say so. Answer in the same language as the question (Italian).\n\n    *   Document: `it-contratto-manutenzione-2026-114.md`\n    *   Relevant section: \"Art. 7 — Recesso\"\n    *   Content: \"Ciascuna parte può recedere dal contratto con preavviso scritto di **60 giorni**, da inviarsi a mezzo PEC.\"\n\n    *   Notice period: 60 days.\n    *   Means of communication: PEC (Posta Elettronica Certificata).\n\n    *   \"Ciascuna parte può recedere dal contratto con un preavviso scritto di 60 giorni, da inviarsi a mezzo PEC.\"",
+      "tool_calls": null,
+      "ttft_s": 17.517,
+      "total_s": 17.847,
+      "in_tokens": 969,
+      "out_tokens": 260,
+      "tok_s": 73.3,
+      "prompt_tok_s": 888.3,
+      "load_s": 12.84,
+      "error": null
+    },
+    {
+      "id": "doc-contratto-penale-cross",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "9,00 € = 2% di 450 € per 1 giorno di ritardo; art. 6",
+      "check": {
+        "contains_any": [
+          "9,00",
+          "9.00",
+          "9 euro",
+          "9 €",
+          "9€"
+        ],
+        "contains_all": [
+          "2%"
+        ],
+        "regex": "[Aa]rt(icolo|\\.)?\\s*6"
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "La penale applicata per il ritardo dell'intervento di Porto Recanati è di **9,00 euro**.\n\nQuesta penale deriva dall'**Articolo 6** del contratto (\"Penali\"), il quale prevede una penale pari al 2% del canone mensile per ogni giorno di ritardo oltre le 48 ore garantite.\n\nIl calcolo è stato effettuato applicando il **2% sul canone mensile di 450,00 euro** (indicato nell'Articolo 5 del contratto).",
+      "reasoning": "*   Question: What is the value of the penalty applied for the delay in the Porto Recanati intervention in September, which contract article does it derive from, and how was it calculated?\n    *   Constraint: Use only the provided documents. If information is missing, say so. Respond in the same language as the question (Italian).\n\n    *   Document 1: `it-contratto-manutenzione-2026-114.md` (Maintenance Contract).\n    *   Document 2: `it-email-ritardo-bianchi.md` (Email thread regarding the delay).\n\n    *   *Penalty Value:* In the email from Davide Marinelli (Rossi Impianti Srl) dated September 25, 2026, he states: \"Riconosciamo il ritardo di 1 giorno oltre le 48 ore contrattuali. Elena applicherà la penale dell'articolo 6, pari a 9,00 euro (2% di 450 euro), in detrazione sulla fattura di ottobre.\"\n    *   *Contract Article:* The email explicitly mentions \"penale dell'articolo 6\". Looking at the contract document, Art. 6 (Penali) states: \"Per ogni giorno di ritardo oltre le 48 ore di cui all'art. 4, il Cliente avrà diritto a una penale pari al 2% del canone mensile...\".\n    *   *Calculation:* The email shows the calculation: 2% of 450 euro (which is the monthly fee mentioned in Art. 5).\n\n    *   *Penalty Value:* 9,00 euro.\n    *   *Article:* Articolo 6.\n    *   *Calculation:* 2% del canone mensile (che è di 450,00 euro).\n\n    *   La penale applicata è di **9,00 euro**.\n    *   Deriva dall'**Articolo 6** del contratto (\"Penali\").\n    *   È stata calcolata come il **2% del canone mensile** (che è di 450,00 euro, come indicato nell'Articolo 5).",
+      "tool_calls": null,
+      "ttft_s": 9.055,
+      "total_s": 10.761,
+      "in_tokens": 1940,
+      "out_tokens": 603,
+      "tok_s": 68.7,
+      "prompt_tok_s": 985.7,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-email-ricambio",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "Luca Fabbri, mercoledì 24 settembre 2026, scheda inverter dell'unità esterna",
+      "check": {
+        "contains_all": [
+          "Fabbri",
+          "24",
+          "inverter"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "La riparazione è stata eseguita materialmente da Luca Fabbri il mercoledì 24 settembre 2026. Il componente sostituito è stato la scheda inverter dell'unità esterna.",
+      "reasoning": "*   Question: Who physically performed the repair, on what day, and which component was replaced?\n    *   Constraint: Answer based *only* on the provided documents. If information is missing, say so. Answer in the same language as the question (Italian).\n\n    *   Document: `it-email-ritardo-bianchi.md`\n    *   Context: Email thread regarding a delay in repair at the Porto Recanati store.\n    *   Key information regarding the repair:\n        *   \"Luca Fabbri ha sostituito la scheda e rimesso in funzione l'impianto\" (Luca Fabbri replaced the board and put the system back in operation).\n        *   Date of this action: \"mercoledì 24\" (Wednesday the 24th).\n        *   Component replaced: \"scheda inverter dell'unità esterna\" (inverter board of the outdoor unit).\n\n    *   Who: Luca Fabbri.\n    *   When: Mercoledì 24 (September 24, 2026).\n    *   Component: Scheda inverter dell'unità esterna.\n\n    *   La riparazione è stata eseguita materialmente da Luca Fabbri il mercoledì 24 settembre 2026. Il componente sostituito è stato la scheda inverter dell'unità esterna.",
+      "tool_calls": null,
+      "ttft_s": 5.762,
+      "total_s": 6.345,
+      "in_tokens": 1043,
+      "out_tokens": 345,
+      "tok_s": 69.7,
+      "prompt_tok_s": 982.2,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-verbale-fornitore",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "Valvex Spa dal 1 ottobre 2026; Idrotec ha aumentato i listini del 18%",
+      "check": {
+        "contains_all": [
+          "Valvex",
+          "18%"
+        ],
+        "contains_any": [
+          "1 ottobre",
+          "1° ottobre",
+          "primo ottobre",
+          "01/10"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Il nuovo fornitore principale di valvole è **Valvex Spa**, a partire dal **1 ottobre 2026**.\n\nIl cambio è stato deciso perché Idrotec Srl ha comunicato un aumento dei listini del 18% su valvole e raccorderia; dopo un confronto con le offerte ricevute, è stata presa la decisione di passare a Valvex Spa.",
+      "reasoning": "*   Question: \"Qual è il nuovo fornitore principale di valvole, da quando, e perché è stato cambiato?\" (Who is the new main supplier of valves, from when, and why was it changed?)\n    *   Constraint: Answer based *only* on the provided document. If information is missing, say so. Answer in the same language (Italian).\n\n    *   Section 4: \"Fornitori\" (Suppliers).\n    *   Content: \"Idrotec Srl ha comunicato un aumento dei listini del 18% su valvole e raccorderia. Dopo confronto con le offerte ricevute, si decide di passare a Valvex Spa come fornitore principale di valvole dal 1 ottobre 2026. Idrotec resta fornitore secondario per gli articoli non disponibili da Valvex.\"\n\n    *   *New main supplier:* Valvex Spa.\n    *   *From when:* 1 ottobre 2026.\n    *   *Why:* Because Idrotec Srl communicated an 18% price increase on valves and fittings, and after comparing received offers, the decision was made to switch.\n\n    *   Il nuovo fornitore principale di valvole è **Valvex Spa**.\n    *   Il passaggio avverrà dal **1 ottobre 2026**.\n    *   Il cambio è stato deciso a seguito della comunicazione di **Idrotec Srl** di un **aumento dei listini del 18%** su valvole e raccorderia, dopo un confronto con le offerte ricevute.",
+      "tool_calls": null,
+      "ttft_s": 6.29,
+      "total_s": 7.371,
+      "in_tokens": 825,
+      "out_tokens": 424,
+      "tok_s": 67.1,
+      "prompt_tok_s": 991.2,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-procedura-incidenti",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "entro 24 ore, al Responsabile tecnico (Davide Marinelli), modulo MOD-09",
+      "check": {
+        "contains_all": [
+          "24",
+          "MOD-09"
+        ],
+        "contains_any": [
+          "Responsabile tecnico",
+          "responsabile tecnico",
+          "Marinelli"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Un quasi-incidente deve essere segnalato entro 24 ore al Responsabile tecnico utilizzando il modulo MOD-09.",
+      "reasoning": "*   Question: \"Entro quanto tempo va segnalato un quasi-incidente, a chi e con quale modulo?\" (Within what timeframe must a near-miss be reported, to whom, and with which form?)\n    *   Constraint: Answer based *exclusively* on the provided documents. If information is missing, say so. Answer in the same language as the question (Italian).\n\n    *   Document: `it-procedura-PR07-sicurezza.md`\n    *   Section 5: \"Segnalazione degli incidenti e dei quasi-incidenti\" (Reporting of incidents and near-misses).\n    *   Content: \"Ogni incidente, infortunio o quasi-incidente deve essere segnalato **entro 24 ore** al Responsabile tecnico utilizzando il modulo **MOD-09**, anche quando non vi sono conseguenze.\"\n\n    *   Timeframe: entro 24 ore (within 24 hours).\n    *   To whom: al Responsabile tecnico (to the Technical Manager).\n    *   Module: modulo MOD-09.\n\n    *   \"Un quasi-incidente deve essere segnalato entro 24 ore al Responsabile tecnico utilizzando il modulo MOD-09.\"",
+      "tool_calls": null,
+      "ttft_s": 5.154,
+      "total_s": 5.452,
+      "in_tokens": 969,
+      "out_tokens": 296,
+      "tok_s": 69.9,
+      "prompt_tok_s": 1011.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-quotation-total",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "£22,140 incl. VAT; deposit 40% = £8,856; balance on commissioning",
+      "check": {
+        "contains_any": [
+          "22,140",
+          "22140",
+          "22 140"
+        ],
+        "contains_all": [
+          "8,856"
+        ],
+        "contains_any_2": [
+          "commissioning"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "The total price including VAT is £22,140.00. \n\nThe document specifies a 40% deposit on acceptance of the quotation (the exact amount in pounds is not explicitly stated), and the 60% balance is due on commissioning.",
+      "reasoning": "*   Question: What is the total price including VAT, how much is the deposit in pounds, and when is the balance due?\n    *   Constraint 1: Answer based *only* on provided documents.\n    *   Constraint 2: If information is missing, say so clearly.\n    *   Constraint 3: Answer in the same language as the question (English).\n\n    *   Document: `en-quotation-Q-UK-2026-031.md`\n    *   Total price including VAT: Look for \"Total including VAT\".\n        *   Found: \"Total including VAT | £22,140.00\"\n    *   Deposit amount: Look for \"Payment terms\" or \"deposit\".\n        *   Found: \"40% deposit on acceptance of this quotation.\"\n        *   Calculation: 40% of the total price (including or excluding VAT? Usually, deposits are on the total price or the subtotal. Let's check the subtotal).\n        *   Total excluding VAT: £18,450.00.\n        *   Total including VAT: £22,140.00.\n        *   The document says \"40% deposit on acceptance\". It doesn't specify if it's 40% of the total including or excluding VAT. However, usually, it's calculated on the total.\n        *   Let's see if I can calculate it. 40% of £22,140.00 = £8,856.00. 40% of £18,450.00 = £7,380.00.\n        *   Wait, the prompt asks \"how much is the deposit in pounds\". If the document doesn't give a specific pound amount for the deposit, I should state what the document says.\n        *   Document says: \"40% deposit on acceptance of this quotation.\"\n    *   When is the balance due?\n        *   Found: \"60% balance on commissioning.\"\n        *   Payment method/timeframe: \"Payment by bank transfer within 14 days of invoice.\"\n\n    *   Total price including VAT: £22,140.00.\n    *   Deposit: The document specifies a \"40% deposit on acceptance of this quotation\" but does not provide a specific pound amount.\n    *   Balance due: The \"60% balance\" is due \"on commissioning\".\n\n    *   Total price including VAT: £22,140.00.\n    *   Deposit: 40% of the quotation (the document does not specify the exact amount in pounds).\n    *   Balance: 60% balance is due on commissioning.\n\n    *Self-Correction:* The prompt asks \"how much is the deposit in pounds\". Since the document only gives a percentage (40%), I should mention the percentage and note that a specific pound amount isn't listed, or calculate it if it's straightforward. Usually, in these tasks, if it's not explicitly written as a number, I should stick to what's written.\n    Actually, looking at the \"Total including VAT\" of £22,140.00, 40% is £8,856.00. But the document doesn't say \"40% of the total including VAT\". It just says \"40% deposit\".\n    I will state the percentage provided in the document.\n\n    *Refined Answer:*\n    - Total price including VAT: £22,140.00.\n    - Deposit: 40% on acceptance of the quotation (the document does not specify the exact amount in pounds).\n    - Balance: 60% balance is due on commissioning.\n\n    *Wait, let me re-read the prompt.* \"how much is the deposit in pounds\". If I can't find it, I say it's not there.\n    The document says \"40% deposit\". It doesn't give a pound figure.\n\n    *Final check of the document:*\n    Total including VAT: £22,140.00\n    Deposit: 40%\n    Balance: 60% on commissioning.\n\n    I will provide the total price and the terms for the deposit and balance.\n\n    *Drafting the response:*\n    The total price including VAT is £22,140.00. The document specifies a 40% deposit on acceptance of the quotation (the exact amount in pounds is not explicitly stated), and the 60% balance is due on commissioning.",
+      "tool_calls": null,
+      "ttft_s": 16.528,
+      "total_s": 17.248,
+      "in_tokens": 836,
+      "out_tokens": 1079,
+      "tok_s": 67.0,
+      "prompt_tok_s": 1003.7,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-quotation-warranty",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "5 years heat pump (subject to annual servicing), 2 years workmanship",
+      "check": {
+        "contains_all": [
+          "5",
+          "2"
+        ],
+        "contains_any": [
+          "annual servic",
+          "serviced annually",
+          "yearly servic",
+          "manutenzione annuale",
+          "mantenimiento anual"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "The heat pump has a 5-year manufacturer's warranty, which is subject to annual servicing. The installation workmanship has a 2-year warranty.",
+      "reasoning": "*   Question: \"How long are the warranties, and what condition applies to the heat pump warranty?\"\n    *   Source Document: `en-quotation-Q-UK-2026-031.md`\n    *   Constraint: Answer based *only* on the provided document. If information is missing, say so. Answer in the same language as the question (English).\n\n    *   Section: \"Warranty\"\n    *   Content:\n        *   Heat pump: 5 years manufacturer's warranty (subject to annual servicing).\n        *   Installation workmanship: 2 years.\n\n    *   Warranty lengths: Heat pump (5 years), Installation workmanship (2 years).\n    *   Condition for heat pump: Subject to annual servicing.\n\n    *   The heat pump has a 5-year manufacturer's warranty, which is subject to annual servicing.\n    *   The installation workmanship has a 2-year warranty.",
+      "tool_calls": null,
+      "ttft_s": 3.934,
+      "total_s": 4.345,
+      "in_tokens": 829,
+      "out_tokens": 240,
+      "tok_s": 73.9,
+      "prompt_tok_s": 996.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-incident-riddor",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "Not reportable (no absence over 7 days, not a specified injury); wet floor from condensation; missing non-slip foot; checklist without floor check",
+      "check": {
+        "contains_any": [
+          "not reportable",
+          "not required",
+          "non riportabile",
+          "non era segnalabile",
+          "non è segnalabile",
+          "non segnalabile",
+          "no, "
+        ],
+        "contains_all": [
+          "7",
+          "checklist"
+        ],
+        "contains_any_2": [
+          "wet",
+          "bagnato"
+        ],
+        "contains_any_3": [
+          "non-slip",
+          "antiscivolo"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "No, the incident was not reportable under RIDDOR because the injury did not result in incapacity for more than 7 consecutive days and is not a specified injury.\n\nThe three causes identified are:\n*   **Immediate cause:** The floor of the plant area was wet from condensation dripping from an uninsulated pipe, and this had not been noticed or marked.\n*   **Contributing cause:** The stepladder in use was missing one of its rubber non-slip feet.\n*   **Underlying cause:** The pre-work checklist did not include a check of the floor condition.",
+      "reasoning": "*   Question: Was the incident reportable under RIDDOR, and why? Also list the three causes identified.\n    *   Constraint 1: Answer based *only* on the provided documents.\n    *   Constraint 2: If information is missing, say so clearly.\n    *   Constraint 3: Answer in the same language as the question (English).\n\n    *   Document: `en-incident-report-2026-07-14.md`\n    *   Section 4 (RIDDOR): \"Not reportable — the injury did not result in incapacity for more than 7 consecutive days and is not a specified injury.\"\n    *   Section 5 (Causes):\n        *   Immediate cause: \"the floor of the plant area was wet from condensation dripping from an uninsulated pipe, and this had not been noticed or marked.\"\n        *   Contributing cause: \"the stepladder in use was missing one of its rubber non-slip feet.\"\n        *   Underlying cause: \"the pre-work checklist did not include a check of the floor condition.\"\n\n    *   *RIDDOR status:* No, it was not reportable.\n    *   *Reason:* The injury did not result in incapacity for more than 7 consecutive days and is not a specified injury.\n    *   *Causes:*\n        1. Immediate cause: The floor of the plant area was wet from condensation dripping from an uninsulated pipe, and this had not been noticed or marked.\n        2. Contributing cause: The stepladder in use was missing one of its rubber non-slip feet.\n        3. Underlying cause: The pre-work checklist did not include a check of the floor condition.\n\n    *   Did I use outside info? No.\n    *   Is it in English? Yes.\n    *   Is it accurate to the text? Yes.",
+      "tool_calls": null,
+      "ttft_s": 6.445,
+      "total_s": 8.014,
+      "in_tokens": 755,
+      "out_tokens": 529,
+      "tok_s": 75.0,
+      "prompt_tok_s": 1031.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-handbook-carryover",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "5 days, by 30 June, Sarah Whitfield",
+      "check": {
+        "contains_all": [
+          "5",
+          "30 June",
+          "Whitfield"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "A maximum of 5 days of unused leave can be carried over into the next leave year and must be taken by 30 June. All leave requests are approved by the Branch Manager, Sarah Whitfield.",
+      "reasoning": "*   Question: \"How many unused leave days can be carried over, by when must they be taken, and who approves leave requests?\"\n    *   Source Document: `en-uk-handbook-leave.md` (Rossi Installations Ltd — Employee Handbook).\n    *   Constraints: Use only provided documents. If information is missing, say so. Respond in the same language as the question (English).\n\n    *   *Carry-over:* Section 6.3 \"Carry-over\" states: \"A maximum of **5 days** of unused leave may be carried over into the next leave year and must be taken by **30 June**.\"\n    *   *Approval:* Section 6.2 \"Requesting leave\" states: \"All requests are approved by the Branch Manager, **Sarah Whitfield**...\"\n\n    *   Unused leave days carry-over: Maximum of 5 days.\n    *   Deadline to take them: By 30 June.\n    *   Who approves: Branch Manager, Sarah Whitfield.\n\n    *   \"A maximum of 5 days of unused leave can be carried over into the next leave year and must be taken by 30 June. All leave requests are approved by the Branch Manager, Sarah Whitfield.\"",
+      "tool_calls": null,
+      "ttft_s": 4.808,
+      "total_s": 5.31,
+      "in_tokens": 640,
+      "out_tokens": 314,
+      "tok_s": 71.1,
+      "prompt_tok_s": 1035.6,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-es-pagos",
+      "category": "03-documenti",
+      "lang": "es",
+      "expected": "26.880 €; vence el 26 de agosto de 2026; entrega el 27 de julio de 2026",
+      "check": {
+        "contains_any": [
+          "26.880",
+          "26,880",
+          "26 880"
+        ],
+        "contains_all": [
+          "26 de agosto",
+          "27 de julio"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Dopo l'anticipo, rimane da pagare la cifra del 70%, ovvero **26.880,00 euro**.\n\nQuesto pagamento scade il **26 agosto 2026**.\n\nLe unità sono state consegnate il **27 luglio 2026** (come indicato nell'e-mail di Pilar Soler inviata in quella data).",
+      "reasoning": "*   Question: How much is left to pay after the advance payment, on what date does that payment expire, and on what date were the units delivered?\n    *   Constraints: Use only provided documents. If information is missing, say so. Respond in the same language (Italian).\n\n    *   *Document 1 (Contract ES-2026-07):*\n        *   Total price: 38,400.00 euros.\n        *   Advance (30%): 11,520.00 euros.\n        *   Remaining (70%): 26,880.00 euros.\n        *   Payment terms: 70% due 30 days from delivery date.\n    *   *Document 2 (Email thread):*\n        *   Delivery date: Pilar Soler mentions \"Hemos recibido esta mañana\" (We received this morning) in an email dated Monday, July 27, 2026.\n        *   Payment deadline: Giulia Santini mentions \"el pago del 70% restante (26.880,00 euros) vence a los 30 días de la entrega, es decir, el 26 de agosto de 2026.\"\n\n    *   *Amount remaining:* 26.880,00 euros (from Clause 4 and the email).\n    *   *Due date:* 26 de agosto de 2026 (from the email).\n    *   *Delivery date:* 27 de julio de 2026 (from the email \"Hemos recibido esta mañana\" on July 27).\n\n    *   *Amount:* Dopo l'anticipo, rimane da pagare la cifra del 70%, ovvero **26.880,00 euro**.\n    *   *Due date:* Questo pagamento scade il **26 agosto 2026**.\n    *   *Delivery date:* Le unità sono state consegnate il **27 luglio 2026** (come indicato nell'e-mail di Pilar Soler inviata in quella data).\n\n    *   Did I use only provided docs? Yes.\n    *   Is the info there? Yes.\n    *   Is the language correct? Yes (Italian).",
+      "tool_calls": null,
+      "ttft_s": 10.068,
+      "total_s": 11.314,
+      "in_tokens": 1735,
+      "out_tokens": 587,
+      "tok_s": 63.1,
+      "prompt_tok_s": 978.9,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-estrazione-tabella",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "tecnico 42 €/h vs £58/h; chiamata 35 € vs £75; tecnico senior 55 € (UK n/d)",
+      "check": {
+        "contains_all": [
+          "42",
+          "58",
+          "35",
+          "75",
+          "55"
+        ],
+        "contains_any": [
+          "|"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Ecco la tabella richiesta basata sul listino fornito:\n\n| Voce | Prezzo Italia | Prezzo UK |\n|---|---|---|\n| Tecnico | 42,00 €/ora | £58.00 / hour |\n| Tecnico senior (caldaie, pompe di calore, impianti a gas) | 55,00 €/ora | Non specificato |\n| Diritto di chiamata | 35,00 € | £75.00 |",
+      "reasoning": "*   Role: Business assistant.\n    *   Constraint: Use *only* provided documents. If information is missing, say so. Respond in the same language as the question (Italian).\n    *   Input Document: `it-listino-2026.md` (Price list for Rossi Impianti Srl).\n    *   Task: Extract a markdown table with three columns: \"voce\", \"prezzo Italia\", \"prezzo UK\".\n    *   Scope: Only for \"manodopera oraria\" (hourly labor) and \"diritto di chiamata\" (call-out fee).\n\n    *   *Manodopera (Italia):*\n        *   Tecnico: 42,00 €/ora\n        *   Tecnico senior (caldaie, pompe di calore, impianti a gas): 55,00 €/ora\n        *   Diritto di chiamata (per ogni uscita): 35,00 €\n    *   *Labour rates — Rossi Installations Ltd (UK):*\n        *   Engineer: £58.00 / hour\n        *   Call-out fee: £75.00\n\n    *   *Item 1: Tecnico / Engineer*\n        *   Voce: Tecnico / Engineer\n        *   Prezzo Italia: 42,00 €/ora\n        *   Prezzo UK: £58.00 / hour\n    *   *Item 2: Tecnico senior / (No senior equivalent in UK)*\n        *   Voce: Tecnico senior (caldaie, pompe di calore, impianti a gas)\n        *   Prezzo Italia: 55,00 €/ora\n        *   Prezzo UK: [Not specified]\n    *   *Item 3: Diritto di chiamata / Call-out fee*\n        *   Voce: Diritto di chiamata\n        *   Prezzo Italia: 35,00 €\n        *   Prezzo UK: £75.00\n\n    *   The prompt asks for a table with three columns: voce, prezzo Italia, prezzo UK.\n    *   I should list the items found in both sections that correspond to the requested categories.\n\n    *Drafting the table:*\n    | Voce | Prezzo Italia | Prezzo UK |\n    |---|---|---|\n    | Tecnico | 42,00 €/ora | £58.00 / hour |\n    | Tecnico senior (caldaie, pompe di calore, impianti a gas) | 55,00 €/ora | - |\n    | Diritto di chiamata | 35,00 € | £75.00 |\n\n    *   Did I use only the document? Yes.\n    *   Is it in Italian? Yes.\n    *   Are the columns correct? Yes.\n    *   Is the scope correct? Yes (hourly labor and call-out fee).\n\n    *Refining the \"Tecnico senior\" entry:* Since the UK list only has \"Engineer\", I will note that the UK price for \"Tecnico senior\" is not present.\n\n    *Final Table Construction:*\n    | Voce | Prezzo Italia | Prezzo UK |\n    |---|---|---|\n    | Tecnico | 42,00 €/ora | £58.00 / hour |\n    | Tecnico senior (caldaie, pompe di calore, impianti a gas) | 55,00 €/ora | Non specificato |\n    | Diritto di chiamata | 35,00 € | £75.00 |",
+      "tool_calls": null,
+      "ttft_s": 12.362,
+      "total_s": 13.908,
+      "in_tokens": 711,
+      "out_tokens": 911,
+      "tok_s": 71.3,
+      "prompt_tok_s": 955.1,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-multi-persona",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "Verbale (presente, responsabile tecnico/cantieri, aggiorna distinte base); incident report (reviewed by, Technical Manager, 18 luglio); correo (in copia, invierà istruzioni per il pannello)",
+      "check": {
+        "contains_all": [
+          "verbale",
+          "incident",
+          "correo"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Davide Marinelli compare in tutti e tre i documenti con i seguenti ruoli e azioni:\n\n*   **it-verbale-riunione-2026-09-03.md**: È presente alla riunione con il ruolo di **tecnico/cantieri**. Durante la seduta presenta i dati sull'andamento degli interventi (mesi di giugno, luglio e agosto), segnala il rischio di non rispettare i tempi contrattuali di 48 ore e deve aggiornare le distinte base entro la fine di settembre.\n*   **en-incident-report-2026-07-14.md**: Compare nella sezione \"Sign-off\" con il ruolo di **Technical Manager (Macerata)**. Ha revisionato il rapporto dell'incidente in data 18 luglio 2026.\n*   **es-correo-soler-entrega.md**: Compare in copia (CC) nelle email. Viene indicato che invierà le istruzioni per la sostituzione del pannello laterale danneggiato dell'unità RX-9 AIR.",
+      "reasoning": "*   Question: In which of these three documents does Davide Marinelli appear, and what is his role or action in each?\n    *   Constraint 1: Answer based *exclusively* on the provided documents.\n    *   Constraint 2: If information is missing, state it clearly without inventing.\n    *   Constraint 3: Respond in the same language as the question (Italian).\n\n    *   **Document 1: `it-verbale-riunione-2026-09-03.md`**\n        *   *Presence:* Yes.\n        *   *Role/Action:*\n            *   Listed as \"Presenti\" (Present): \"Davide Marinelli (tecnico/cantieri)\".\n            *   Action 1: Presents data on the progress of interventions (July, June, August records).\n            *   Action 2: Reports the risk of not meeting the 48-hour contractual times during peak periods.\n            *   Action 3: Mentioned in point 4 (Fornitori) as the person who will update the \"distinte base\" (base parts lists) by the end of September.\n\n    *   **Document 2: `en-incident-report-2026-07-14.md`**\n        *   *Presence:* Yes.\n        *   *Role/Action:*\n            *   Listed in \"Sign-off\" section: \"Reviewed by: Davide Marinelli, Technical Manager (Macerata), 18 July 2026\".\n\n    *   **Document 3: `es-correo-soler-entrega.md`**\n        *   *Presence:* Yes (in the CC field of the emails).\n        *   *Role/Action:*\n            *   In the email from Giulia Santini to Pilar Soler (July 27, 15:48), he is in CC.\n            *   Action: Giulia Santini mentions that \"Davide os enviará las instrucciones\" (Davide will send you the instructions) regarding the replacement of the side panel.\n\n    *   *Document 1:* Davide Marinelli è presente come \"tecnico/cantieri\". Presenta i dati sull'andamento degli interventi, segnala il rischio di non rispettare i tempi contrattuali e deve aggiornare le distinte base entro fine settembre.\n    *   *Document 2:* Compare nella sezione \"Sign-off\" con il ruolo di \"Technical Manager (Macerata)\". Ha revisionato il rapporto dell'incidente il 18 luglio 2026.\n    *   *Document 3:* Compare in copia (CC) nelle email. Viene indicato che invierà le istruzioni per la sostituzione del pannello laterale danneggiato.\n\n    *   *Document 1:* Davide Marinelli è presente come \"tecnico/cantieri\". Durante la riunione presenta i dati relativi agli interventi (mesi di giugno, luglio e agosto), segnala il rischio di non rispettare i tempi contrattuali di 48 ore e deve aggiornare le distinte base entro la fine di settembre.\n    *   *Document 2:* Compare nella sezione \"Sign-off\" con il ruolo di \"Technical Manager (Macerata)\". Ha revisionato il rapporto dell'incidente il 18 luglio 2026.\n    *   *Document 3:* Compare in copia (CC) nelle email. Viene indicato che invierà le istruzioni per la sostituzione del pannello laterale danneggiato.",
+      "tool_calls": null,
+      "ttft_s": 14.915,
+      "total_s": 18.598,
+      "in_tokens": 2388,
+      "out_tokens": 1006,
+      "tok_s": 62.8,
+      "prompt_tok_s": 1040.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "long-8k-e47",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "guasto al pressostato fumi (sezione 9)",
+      "check": {
+        "contains_any": [
+          "pressostato fumi",
+          "pressostato dei fumi"
+        ]
+      },
+      "grade": null,
+      "ctx": 8192,
+      "vision": false,
+      "response": "Il codice errore E47 sulla caldaia RX-Therm 24 indica un guasto al pressostato fumi.",
+      "reasoning": "*   Question: \"Secondo il manuale, cosa indica il codice errore E47 sulla caldaia RX-Therm 24?\" (According to the manual, what does the error code E47 on the RX-Therm 24 boiler indicate?)\n    *   Constraint: Answer based *exclusively* on the provided documents. If information is missing, say so. Respond in the same language as the question (Italian).\n\n    *   Document: `it-manuale-operativo.md`\n    *   Keywords: \"E47\", \"RX-Therm 24\", \"codice errore\".\n\n    *   Section 9 (Centrali termiche condominiali — Diagnosi dei guasti e interventi correttivi) contains the following sentence:\n        \"Nota operativa: il codice errore E47 sulla caldaia RX-Therm 24 indica guasto al pressostato fumi.\"\n\n    *   The error code E47 on the RX-Therm 24 boiler indicates a fault in the smoke pressure switch (\"guasto al pressostato fumi\").\n\n    *   \"Il codice errore E47 sulla caldaia RX-Therm 24 indica un guasto al pressostato fumi.\"",
+      "tool_calls": null,
+      "ttft_s": 7.74,
+      "total_s": 8.102,
+      "in_tokens": 3601,
+      "out_tokens": 291,
+      "tok_s": 68.1,
+      "prompt_tok_s": 1068.7,
+      "load_s": 0.02,
+      "error": null
+    },
+    {
+      "id": "long-16k-sbrinamento",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "se il ciclo automatico fallisce 3 volte consecutive (sezione 13)",
+      "check": {
+        "contains_any": [
+          "3 volte",
+          "tre volte",
+          "3 cicli",
+          "tre cicli"
+        ]
+      },
+      "grade": null,
+      "ctx": 16384,
+      "vision": false,
+      "response": "La pompa di calore RX-16 AIR richiede uno sbrinamento manuale forzato se il ciclo automatico fallisce 3 volte consecutive.",
+      "reasoning": "*   Question: \"Quando la pompa di calore RX-16 AIR richiede uno sbrinamento manuale forzato?\" (When does the RX-16 AIR heat pump require a forced manual defrost?)\n    *   Constraint: Answer based *exclusively* on the provided documents. If information is missing, say so clearly. Answer in the same language as the question (Italian).\n\n    *   Keywords: \"RX-16 AIR\", \"sbrinamento\", \"manuale\", \"forzato\".\n\n    *   Section 13: \"Unità split e multisplit — Descrizione e principio di funzionamento\"\n    *   Text found: \"Nota operativa: la pompa di calore RX-16 AIR richiede sbrinamento manuale forzato se il ciclo automatico fallisce 3 volte consecutive.\"\n\n    *   The document states that it requires forced manual defrost if the automatic cycle fails 3 consecutive times.\n\n    *   \"La pompa di calore RX-16 AIR richiede uno sbrinamento manuale forzato se il ciclo automatico fallisce 3 volte consecutive.\"",
+      "tool_calls": null,
+      "ttft_s": 28.282,
+      "total_s": 28.695,
+      "in_tokens": 12395,
+      "out_tokens": 276,
+      "tok_s": 68.9,
+      "prompt_tok_s": 1096.7,
+      "load_s": 13.28,
+      "error": null
+    },
+    {
+      "id": "long-16k-assente",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "NON presente nelle sezioni 1-14 (è nella 35); deve dire che non c'è",
+      "check": {
+        "not_contains": [
+          "800 900 999",
+          "800900999"
+        ],
+        "contains_any": [
+          "non",
+          "no "
+        ]
+      },
+      "grade": null,
+      "ctx": 16384,
+      "vision": false,
+      "response": "L'informazione richiesta non è presente nel manuale fornito.",
+      "reasoning": "*   User Question: \"Qual è il numero di telefono per le emergenze gas indicato nel manuale?\" (What is the gas emergency phone number indicated in the manual?)\n    *   Constraint: Answer based *exclusively* on the provided documents. If the information is not present, say so clearly without inventing. Answer in the same language as the question (Italian).\n\n    *   Document: `it-manuale-operativo.md`\n    *   Content: Operational manual for thermal and air conditioning systems maintenance by Rossi Impianti Srl.\n    *   Sections:\n        1.  Gas condensing wall boilers (Description/Operation)\n        2.  Gas condensing wall boilers (Scheduled Maintenance)\n        3.  Gas condensing wall boilers (Fault Diagnosis)\n        4.  Floor boilers and power generators (Description/Operation)\n        5.  Floor boilers and power generators (Scheduled Maintenance)\n        6.  Floor boilers and power generators (Fault Diagnosis)\n        7.  Condominium thermal plants (Description/Operation)\n        8.  Condominium thermal plants (Scheduled Maintenance)\n        9.  Condominium thermal plants (Fault Diagnosis)\n        10. RX AIR air-water heat pumps (Description/Operation)\n        11. RX AIR air-water heat pumps (Scheduled Maintenance)\n        12. RX AIR air-water heat pumps (Fault Diagnosis)\n        13. Split and multisplit units (Description/Operation)\n        14. Split and multisplit units (Scheduled Maintenance)\n\n    *   I am looking for a phone number (numero di telefono) related to gas emergencies (emergenze gas).\n    *   Scanning the text for \"telefono\", \"emergenza\", \"gas\", \"numero\", \"0800\", \"112\", etc.\n    *   The manual contains technical instructions, checklists, reference parameters, and common errors.\n    *   It mentions \"Rossi Impianti Srl\" and \"Rossi Installations Ltd\".\n    *   It mentions \"Responsabile tecnico\" (Technical Manager) and \"Davide Marinelli\".\n    *   It mentions \"procedura PR-07\".\n    *   It mentions \"codice errore E47\".\n    *   *Result:* There is no phone number for gas emergencies mentioned in the document.\n\n    *   The information is not present.\n    *   Language: Italian.\n    *   Draft: \"L'informazione richiesta non è presente nel manuale fornito.\" (The requested information is not present in the provided manual.)",
+      "tool_calls": null,
+      "ttft_s": 9.179,
+      "total_s": 9.386,
+      "in_tokens": 12389,
+      "out_tokens": 569,
+      "tok_s": 64.1,
+      "prompt_tok_s": 29850.9,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "long-32k-legionella",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "portare a 60 °C per almeno 30 minuti una volta a settimana (sezione 27)",
+      "check": {
+        "contains_all": [
+          "60"
+        ],
+        "contains_any": [
+          "30 minuti",
+          "trenta minuti",
+          "mezz'ora"
+        ],
+        "contains_any_2": [
+          "settimana"
+        ]
+      },
+      "grade": null,
+      "ctx": 40960,
+      "vision": false,
+      "response": "Il manuale prescrive che il bollitore ACS deve essere portato a 60 °C per almeno 30 minuti una volta a settimana per la prevenzione della legionella.",
+      "reasoning": "*   Question: \"Cosa prescrive il manuale per la prevenzione della legionella nel bollitore ACS?\" (What does the manual prescribe for the prevention of legionella in the ACS boiler?)\n    *   Constraint: Answer based *exclusively* on the provided documents. If the information is not present, say so clearly. Answer in the same language as the question (Italian).\n\n    *   Keywords: \"legionella\", \"bollitore\", \"ACS\".\n\n    *   Section 22: Produzione acqua calda sanitaria e bollitori — Descrizione e principio di funzionamento.\n    *   Section 23: Produzione acqua calda sanitaria e bollitori — Manutenzione programmata e controlli periodici.\n    *   Section 24: Produzione acqua calda sanitaria e bollitori — Diagnosi dei guasti e interventi correttivi.\n    *   Section 27: Impianti solari termici — Diagnosi dei guasti e interventi correttivi.\n\n    *   In Section 27 (Impianti solari termici — Diagnosi dei guasti e interventi correttivi), I find the following sentence:\n        \"Nota operativa: il bollitore ACS va portato a 60 °C per almeno 30 minuti una volta a settimana per la prevenzione della legionella.\"\n\n    *   The manual specifies that the ACS boiler must be brought to 60 °C for at least 30 minutes once a week for legionella prevention.\n\n    *   \"Il manuale prescrive che il bollitore ACS deve essere portato a 60 °C per almeno 30 minuti una volta a settimana per la prevenzione della legionella.\"",
+      "tool_calls": null,
+      "ttft_s": 50.951,
+      "total_s": 51.444,
+      "in_tokens": 32344,
+      "out_tokens": 400,
+      "tok_s": 64.3,
+      "prompt_tok_s": 931.1,
+      "load_s": 10.27,
+      "error": null
+    },
+    {
+      "id": "long-32k-gas",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "800 900 999, 24/7 (sezione 35)",
+      "check": {
+        "contains_any": [
+          "800 900 999",
+          "800900999",
+          "800-900-999"
+        ],
+        "contains_any_2": [
+          "24",
+          "h24",
+          "sempre"
+        ]
+      },
+      "grade": null,
+      "ctx": 40960,
+      "vision": false,
+      "response": "Il numero per le emergenze gas riportato nel manuale è il 800 900 999 ed è operativo 24/7.",
+      "reasoning": "*   Question: \"Qual è il numero per le emergenze gas riportato nel manuale e quando è operativo?\" (What is the gas emergency number reported in the manual and when is it operational?)\n    *   Constraint: Answer based *exclusively* on the provided documents. If information is missing, say so clearly. Answer in the same language as the question (Italian).\n\n    *   Keywords: \"emergenze gas\", \"numero\", \"operativo\".\n\n    *   Section 35 (Documentazione, libretto di impianto ed emergenze — Manutenzione programmata e controlli periodici) contains the following text:\n        \"Nota operativa: il numero per le emergenze gas è il 800 900 999 (operativo 24/7).\"\n\n    *   Number: 800 900 999\n    *   Operational status: 24/7\n\n    *   \"Il numero per le emergenze gas riportato nel manuale è il 800 900 999 ed è operativo 24/7.\"",
+      "tool_calls": null,
+      "ttft_s": 4.43,
+      "total_s": 4.935,
+      "in_tokens": 32345,
+      "out_tokens": 285,
+      "tok_s": 65.8,
+      "prompt_tok_s": 83744.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "long-32k-multi",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "(1) lavato ogni 3 mesi, sostituito ogni 24 mesi; (2) F-gas categoria I; (3) ogni 6 mesi",
+      "check": {
+        "contains_all": [
+          "3 mesi",
+          "24 mesi",
+          "6 mesi"
+        ],
+        "contains_any": [
+          "categoria I",
+          "categoria 1",
+          "cat. I"
+        ]
+      },
+      "grade": null,
+      "ctx": 40960,
+      "vision": false,
+      "response": "Ecco le risposte basate sul manuale operativo:\n\n1. **Filtro delle unità split:** Il filtro va lavato ogni 3 mesi e sostituito ogni 24 mesi.\n2. **Patentino per R-32:** Per il recupero del gas refrigerante R-32 è richiesto il patentino F-gas categoria I.\n3. **Verifica differenziali:** La verifica dei differenziali nei quadri elettrici va effettuata ogni 6 mesi con il tasto di test e annotata sul registro.",
+      "reasoning": "*   Source material: `it-manuale-operativo.md`.\n    *   Constraint 1: Answer based *exclusively* on the provided documents.\n    *   Constraint 2: If information is missing, state so clearly without inventing.\n    *   Constraint 3: Respond in the same language as the question (Italian).\n    *   Questions to answer:\n        1.  How often should the filter of the split units be washed and replaced?\n        2.  What license/certificate (patentino) is needed to recover R-32?\n        3.  How often should the differential be checked in the electrical panels?\n\n    *   *Question 1: Filter of split units (washing/replacement).*\n        *   Search for \"unità split\" or \"filtro aria\".\n        *   Section 13 (Unità split e multisplit — Descrizione e principio di funzionamento): \"Nota operativa: il filtro delle unità split va lavato ogni 3 mesi e sostituito ogni 24 mesi.\"\n        *   Answer: Lavato ogni 3 mesi, sostituito ogni 24 mesi.\n\n    *   *Question 2: License for R-32 recovery.*\n        *   Search for \"R-32\" or \"patentino\".\n        *   Section 22 (Produzione acqua calda sanitaria e bollitori — Descrizione e principio di funzionamento): \"Nota operativa: il gas refrigerante R-32 richiede il patentino F-gas categoria I per il recupero.\"\n        *   Answer: Patentino F-gas categoria I.\n\n    *   *Question 3: Differential check in electrical panels.*\n        *   Search for \"differenziale\" or \"quadri elettrici\".\n        *   Section 31 (Unità di trattamento aria e ventilazione — Descrizione e principio di funzionamento): \"Nota operativa: la verifica differenziali nei quadri elettrici va fatta ogni 6 mesi con il tasto di test e annotata sul registro.\"\n        *   Answer: Ogni 6 mesi.\n\n    *   (1) Il filtro delle unità split va lavato ogni 3 mesi e sostituito ogni 24 mesi.\n    *   (2) Per il recupero del gas refrigerante R-32 è richiesto il patentino F-gas categoria I.\n    *   (3) La verifica dei differenziali nei quadri elettrici va effettuata ogni 6 mesi (utilizzando il tasto di test e annotando sul registro).\n\n    *   Did I use only the manual? Yes.\n    *   Did I invent anything? No.\n    *   Is it in Italian? Yes.",
+      "tool_calls": null,
+      "ttft_s": 10.383,
+      "total_s": 12.217,
+      "in_tokens": 32389,
+      "out_tokens": 688,
+      "tok_s": 59.4,
+      "prompt_tok_s": 78789.6,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-cf-assente",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Non presente nel documento. Non deve inventare un codice.",
+      "check": {
+        "not_regex": "[A-Z]{6}\\d{2}[A-Z]\\d{2}[A-Z]\\d{3}[A-Z]",
+        "contains_any": [
+          "non",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "L'informazione richiesta non è presente nei documenti forniti.",
+      "reasoning": "*   User question: \"Qual è il codice fiscale di Paolo Bianchi?\" (What is the tax code of Paolo Bianchi?)\n    *   Constraint: Answer based *only* on the provided documents. If the information is missing, say so clearly without inventing. Respond in the same language as the question (Italian).\n\n    *   Document: `it-contratto-manutenzione-2026-114.md`\n    *   Content: Maintenance contract between Rossi Impianti Srl and Bianchi Supermercati Srl.\n    *   Details about Paolo Bianchi: \"in persona del legale rappresentante Paolo Bianchi\".\n    *   Other details: Address of Bianchi Supermercati Srl, P.IVA of Rossi Impianti Srl, dates, costs, etc.\n\n    *   Does the document contain the tax code (codice fiscale) of Paolo Bianchi?\n    *   Scanning the text...\n    *   \"Bianchi Supermercati Srl, con sede in Via Carducci 15, 62012 Civitanova Marche (MC), in persona del legale rappresentante Paolo Bianchi\"\n    *   No tax code is mentioned for Paolo Bianchi.\n\n    *   The information is not present in the document.\n    *   Response: \"L'informazione richiesta non è presente nei documenti forniti.\" (The requested information is not present in the provided documents.)",
+      "tool_calls": null,
+      "ttft_s": 16.436,
+      "total_s": 16.576,
+      "in_tokens": 957,
+      "out_tokens": 315,
+      "tok_s": 71.6,
+      "prompt_tok_s": 846.9,
+      "load_s": 11.04,
+      "error": null
+    },
+    {
+      "id": "hal-telefono-assente",
+      "category": "05-allucinazioni",
+      "lang": "en",
+      "expected": "Not in the document (only Rossi's number +44 116 496 0123 appears). Must not present Rossi's number as the practice's.",
+      "check": {
+        "contains_any": [
+          "not ",
+          "no ",
+          "doesn't",
+          "does not",
+          "isn't"
+        ],
+        "not_contains": [
+          "practice's phone number is +44 116"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "The phone number of Kingsway Dental Practice is not provided in the document.",
+      "reasoning": "*   User's question: \"What is the phone number of Kingsway Dental Practice?\"\n    *   Constraint 1: Answer based *only* on provided documents.\n    *   Constraint 2: If information is missing, say so clearly.\n    *   Constraint 3: Answer in the same language as the question (English).\n\n    *   Document: `en-quotation-Q-UK-2026-031.md`\n    *   Content: Quotation from Rossi Installations Ltd to Dr. Amira Hassan, Kingsway Dental Practice.\n    *   Details for Kingsway Dental Practice:\n        *   Name: Dr. Amira Hassan, Kingsway Dental Practice\n        *   Address: 214 Example Road, Leicester\n    *   Details for Rossi Installations Ltd:\n        *   Phone: +44 116 496 0123\n\n    *   The document provides the address for Kingsway Dental Practice (214 Example Road, Leicester).\n    *   The document provides a phone number for Rossi Installations Ltd (+44 116 496 0123).\n    *   The document *does not* provide a phone number for Kingsway Dental Practice.\n\n    *   The information is not present in the document.\n    *   Response: The phone number of Kingsway Dental Practice is not provided in the document.",
+      "tool_calls": null,
+      "ttft_s": 5.438,
+      "total_s": 5.626,
+      "in_tokens": 824,
+      "out_tokens": 336,
+      "tok_s": 73.9,
+      "prompt_tok_s": 1015.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-premessa-falsa",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Deve correggere entrambe le premesse (4 interventi, penale 2%) e calcolare 18 € (2 × 2% × 450).",
+      "check": {
+        "contains_all": [
+          "2%"
+        ],
+        "contains_any": [
+          "18",
+          "4 interventi",
+          "quattro interventi"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Le informazioni contenute nella tua domanda non corrispondono a quanto riportato nel contratto fornito. Ecco le correzioni basate sul documento:\n\n1.  **Numero di interventi:** Il contratto prevede **4 interventi** di manutenzione programmata all'anno per ciascun punto vendita (Art. 3), non 6.\n2.  **Percentuale penale:** La penale per ogni giorno di ritardo oltre le 48 ore è del **2%** del canone mensile (Art. 6), non del 5%.\n\n**Calcolo basato sui dati del contratto:**\n*   **Canone mensile:** euro 450,00 (Art. 5).\n*   **Penale giornaliera (2%):** euro 9,00.\n*   **Costo per 2 giorni di ritardo:** euro 18,00.",
+      "reasoning": "*   Source document: `it-contratto-manutenzione-2026-114.md`.\n    *   User Question: \"Visto che il contratto prevede 6 interventi programmati all'anno e una penale del 5%, quanto ci costano in totale 2 giorni di ritardo?\" (Given that the contract provides for 6 scheduled interventions per year and a 5% penalty, how much do 2 days of delay cost us in total?)\n\n    *   *Number of interventions:* Art. 3 says \"4 interventi di manutenzione programmata all'anno\" (4 scheduled maintenance interventions per year), not 6.\n    *   *Penalty percentage:* Art. 6 says \"penale pari al 2% del canone mensile\" (penalty equal to 2% of the monthly fee), not 5%.\n    *   *Monthly fee:* Art. 5 says \"canone mensile di euro 450,00 oltre IVA 22%\".\n    *   *Penalty condition:* Art. 6 says the penalty applies for each day of delay beyond 48 hours.\n\n    *   The user's premise contains inaccuracies based on the provided document:\n        *   The document says 4 interventions per year, not 6.\n        *   The document says a 2% penalty, not 5%.\n    *   Calculation based on the *actual* document:\n        *   Monthly fee = €450.00.\n        *   Penalty per day = 2% of €450.00.\n        *   2% of 450 = 0.02 * 450 = €9.00.\n        *   Total for 2 days = 9.00 * 2 = €18.00.\n\n    *   I must state that the information in the question (6 interventions and 5% penalty) does not match the document.\n    *   I must provide the correct information from the document.\n    *   I must calculate the cost based on the document's actual values.\n\n    *   *Correction 1:* The contract specifies 4 interventions per year (Art. 3), not 6.\n    *   *Correction 2:* The penalty is 2% of the monthly fee (Art. 6), not 5%.\n    *   *Calculation:*\n        *   Monthly fee: €450.00.\n        *   Penalty per day: 2% of €450.00 = €9.00.\n        *   Total for 2 days: €18.00.\n\n    \"Le informazioni fornite nella tua domanda non corrispondono a quanto riportato nel contratto:\n\n    1. Il contratto prevede **4 interventi** di manutenzione programmata all'anno (Art. 3), non 6.\n    2. La penale per ogni giorno di ritardo oltre le 48 ore è del **2%** del canone mensile (Art. 6), non del 5%.\n\n    Basandosi sui dati corretti del contratto:\n    - Il canone mensile è di **euro 450,00** (Art. 5).\n    - La penale giornaliera è del 2% di 450,00 €, ovvero **euro 9,00**.\n    - Per 2 giorni di ritardo, il costo totale della penale è di **euro 18,00**.\"",
+      "tool_calls": null,
+      "ttft_s": 12.056,
+      "total_s": 14.743,
+      "in_tokens": 983,
+      "out_tokens": 961,
+      "tok_s": 71.5,
+      "prompt_tok_s": 1043.3,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-entita-confusa",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "No, è stata Idrotec ad aumentare i prezzi; Valvex è il nuovo fornitore.",
+      "check": {
+        "contains_all": [
+          "Idrotec"
+        ],
+        "contains_any": [
+          "no",
+          "non "
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "No, non è vero. Il documento indica che è **Idrotec Srl** ad aver comunicato un aumento dei listini del 18% su valvole e raccorderia. A seguito di questo aumento, è stato deciso di passare a **Valvex Spa** come fornitore principale di valvole dal 1 ottobre 2026.",
+      "reasoning": "*   Question: \"È vero che Valvex ha aumentato i prezzi del 18%?\" (Is it true that Valvex increased prices by 18%?)\n    *   Constraint: Answer based *only* on the provided documents. If information is missing, say so. Respond in the same language (Italian).\n\n    *   Document: `it-verbale-riunione-2026-09-03.md`\n    *   Section 4: \"Fornitori\" (Suppliers)\n    *   Content: \"Idrotec Srl ha comunicato un aumento dei listini del 18% su valvole e raccorderia. Dopo confronto con le offerte ricevute, si decide di passare a Valvex Spa come fornitore principale di valvole dal 1 ottobre 2026.\"\n\n    *   The document states that **Idrotec Srl** communicated a price increase of 18%.\n    *   The company decided to switch to **Valvex Spa** as the main supplier of valves starting October 1, 2026.\n    *   The document does *not* state that Valvex increased prices by 18%.\n\n    *   No, it is not true. It was Idrotec Srl that announced an 18% price increase. Valvex Spa was chosen as the new main supplier of valves starting October 1, 2026.",
+      "tool_calls": null,
+      "ttft_s": 5.74,
+      "total_s": 6.923,
+      "in_tokens": 820,
+      "out_tokens": 389,
+      "tok_s": 66.1,
+      "prompt_tok_s": 997.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-senza-contesto",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Non può saperlo (azienda immaginaria, nessun documento fornito). Non deve dare una cifra.",
+      "check": {
+        "not_regex": "\\d[\\d.,]*\\s*(milioni|€|euro|mln)",
+        "contains_any": [
+          "non ",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Non ho questa informazione. Non dispongo dei dati finanziari privati delle aziende e, inoltre, il fatturato per l'anno 2025 non è ancora disponibile (essendo un dato futuro o non ancora consolidato).",
+      "reasoning": "*   Entity: Rossi Impianti Srl.\n    *   Location: Macerata (Italy).\n    *   Question: Turnover (fatturato) in 2025.\n    *   Constraint: If I don't know, say so.\n\n    *   Current date: May 2024 (based on my internal knowledge cutoff and the current real-world timeline, though the user is asking about 2025).\n    *   *Wait*, it is currently 2024. 2025 hasn't happened yet (or is currently happening depending on the exact date, but financial statements for 2025 won't be available until 2026).\n    *   Even if it were 2025, private company financial data (turnover) is usually not public unless they are listed or have published a report.\n\n    *   I do not have access to the private financial records of \"Rossi Impianti Srl\".\n    *   I do not have real-time access to the future (2025) or specific private company data.\n    *   The company might be a small/medium enterprise (SME) whose turnover is not publicly disclosed in a way that an AI can access.\n\n    *   State clearly that I don't have this information.\n    *   Explain why (private company, future date, lack of public data).\n\n    *   \"Non ho informazioni sul fatturato di Rossi Impianti Srl per l'anno 2025.\"\n    *   Reasoning: 1. It's a private company. 2. 2025 is in the future (or the data isn't out yet). 3. I don't have access to private accounting.\n\n    \"Non ho questa informazione. Non dispongo dei dati finanziari privati delle aziende e, inoltre, il fatturato per l'anno 2025 non è ancora disponibile (essendo un dato futuro o non ancora consolidato).\"",
+      "tool_calls": null,
+      "ttft_s": 8.134,
+      "total_s": 8.834,
+      "in_tokens": 53,
+      "out_tokens": 491,
+      "tok_s": 58.3,
+      "prompt_tok_s": 395.9,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-data-inventata",
+      "category": "05-allucinazioni",
+      "lang": "en",
+      "expected": "Trick question - he had no days of absence. Must say so.",
+      "check": {
+        "contains_any": [
+          "no days",
+          "did not take",
+          "didn't take",
+          "no absence",
+          "no sick leave",
+          "continued working",
+          "not absent",
+          "wasn't absent",
+          "was not absent",
+          "no time off"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "The document states that there were \"No days of absence\" and that Tom Okafor continued working after a 30-minute break on the day of the incident.",
+      "reasoning": "*   User question: \"On what date did Tom Okafor return to work after his sick leave?\"\n    *   Source document: `en-incident-report-2026-07-14.md`.\n    *   Constraint: Answer based *only* on the provided documents. If information is missing, say so. Answer in the same language as the question (English).\n\n    *   Incident date: 14 July 2026.\n    *   Injury: Bruising to the left knee.\n    *   Medical treatment: First aid only.\n    *   Absence: \"No days of absence.\"\n    *   Action after incident: \"Tom continued working after a 30-minute break and completed the shift.\"\n\n    *   The document explicitly states \"No days of absence\" (Section 3).\n    *   It also states he continued working after a 30-minute break on the day of the incident.\n    *   Therefore, there was no sick leave.\n\n    *   The document does not mention any sick leave; it states there were \"No days of absence\" and that Tom Okafor continued working after a 30-minute break on the day of the incident.",
+      "tool_calls": null,
+      "ttft_s": 5.06,
+      "total_s": 5.566,
+      "in_tokens": 750,
+      "out_tokens": 302,
+      "tok_s": 64.0,
+      "prompt_tok_s": 975.9,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-prezzo-assente",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Il listino non riporta il prezzo delle macchine, solo manodopera e forfait (140 € è la manutenzione, non la macchina). Non deve dare un prezzo.",
+      "check": {
+        "not_contains": [
+          "18.450",
+          "18,450",
+          "3.200"
+        ],
+        "contains_any": [
+          "non ",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "L'informazione richiesta non è presente nei documenti forniti. Il listino non riporta il prezzo di acquisto per il modello RX-16 AIR, ma indica solo il costo della manutenzione annuale per una pompa di calore fino a 16 kW (140,00 €).",
+      "reasoning": "*   User Question: \"Quanto costa a listino una pompa di calore RX-16 AIR?\" (How much does an RX-16 AIR heat pump cost according to the price list?)\n    *   Source Document: `it-listino-2026.md` (Rossi Impianti Srl Price List 2026).\n    *   Constraint: Answer based *only* on the provided documents. If information is missing, say so clearly. Answer in the same language as the question (Italian).\n\n    *   Keywords: \"pompa di calore\", \"RX-16 AIR\", \"prezzo\".\n    *   Section \"Manodopera (Italia)\": Mentions \"Tecnico senior (caldaie, pompe di calore, impianti a gas)\" at 55,00 €/ora.\n    *   Section \"Interventi a forfait (Italia)\": Mentions \"Manutenzione annuale pompa di calore fino a 16 kW\" at 140,00 €.\n    *   Section \"Labour rates — Rossi Installations Ltd (UK)\": Mentions \"Engineer\" at £58.00 / hour.\n    *   Section \"Condizioni\": Mentions \"I ricambi sono fatturati a parte secondo il listino del produttore\".\n\n    *   The document lists the price for *annual maintenance* of a heat pump up to 16 kW (140,00 €).\n    *   The document does *not* list the purchase price for a specific model like \"RX-16 AIR\".\n    *   The document states that spare parts (ricambi) are billed separately according to the manufacturer's price list.\n\n    *   The specific price for the \"RX-16 AIR\" model is not in the document.\n    *   I should state that the information is not present.\n\n    *   \"L'informazione richiesta non è presente nei documenti forniti. Il listino riporta il costo della manutenzione annuale per una pompa di calore fino a 16 kW (140,00 €), ma non indica il prezzo di acquisto del modello RX-16 AIR.\"\n\n    *   *Self-Correction during drafting:* The prompt says \"Se l'informazione richiesta non è presente nei documenti, dillo chiaramente senza inventare.\"\n    *   The document doesn't mention \"RX-16 AIR\" at all.\n\n    *   *Final Answer:* L'informazione richiesta non è presente nei documenti forniti. Il listino non riporta il prezzo di acquisto per il modello RX-16 AIR.",
+      "tool_calls": null,
+      "ttft_s": 9.399,
+      "total_s": 10.234,
+      "in_tokens": 694,
+      "out_tokens": 638,
+      "tok_s": 69.2,
+      "prompt_tok_s": 954.1,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-citazione-sezione",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "La sezione 27 non è nel testo fornito (ci sono solo 1-3). Deve dirlo, non inventare contenuti.",
+      "check": {
+        "not_contains": [
+          "60 °C",
+          "60°C",
+          "30 minuti"
+        ],
+        "contains_any": [
+          "non ",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": 8192,
+      "vision": false,
+      "response": "Il documento fornito non contiene una sezione 27 e non menziona la legionella.",
+      "reasoning": "*   User question: \"Cosa dice la sezione 27 del manuale sulla legionella?\" (What does section 27 of the manual say about legionella?)\n    *   Constraint 1: Answer based *exclusively* on the provided documents.\n    *   Constraint 2: If the information is not present, state it clearly without inventing.\n    *   Constraint 3: Respond in the same language as the question (Italian).\n\n    *   Document name: `it-manuale-operativo.md`\n    *   Content: \"Manuale operativo — Manutenzione impianti termici e di climatizzazione\" by Rossi Impianti Srl.\n    *   Structure:\n        *   Section 1: Caldaie murali a gas a condensazione — Descrizione e principio di funzionamento.\n        *   Section 2: Caldaie murali a gas a condensazione — Manutenzione programmata e controlli periodici.\n        *   Section 3: Caldaie murali a gas a condensazione — Diagnosi dei guasti e interventi correttivi.\n\n    *   Does the document have a \"Sezione 27\"? No, it only has sections 1, 2, and 3.\n    *   Does the document mention \"legionella\"? No, the word \"legionella\" does not appear in the text.\n\n    *   The information is not present in the document.\n    *   I must state this clearly.\n\n    *   \"Il documento fornito non contiene una sezione 27 né menziona la legionella.\" (The provided document does not contain a section 27 nor mentions legionella.)",
+      "tool_calls": null,
+      "ttft_s": 8.819,
+      "total_s": 9.076,
+      "in_tokens": 2924,
+      "out_tokens": 385,
+      "tok_s": 64.7,
+      "prompt_tok_s": 1039.5,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-coerenza-numerica",
+      "category": "05-allucinazioni",
+      "lang": "es",
+      "expected": "Corregir - son 12 unidades; total 38.400 €.",
+      "check": {
+        "contains_all": [
+          "12"
+        ],
+        "contains_any": [
+          "38.400",
+          "38,400",
+          "38 400"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "No, el contrato indica que son **12 (doce) unidades**, no 15.\n\nEl precio unitario es de **3.200,00 euros**, lo que supone un importe total de **38.400,00 euros** (impuestos no incluidos).",
+      "reasoning": "*   User's question: \"El contrato dice que son 15 unidades a 3.200 euros, ¿verdad? ¿Cuál es el total?\" (The contract says there are 15 units at 3,200 euros, right? What is the total?)\n    *   Constraint 1: Answer based *only* on the provided documents.\n    *   Constraint 2: If the information is not present, say so clearly without inventing.\n    *   Constraint 3: Answer in the same language as the question (Spanish).\n\n    *   Document: `es-contrato-ES-2026-07.md`\n    *   Clause 1 (Objeto): \"El Proveedor suministrará al Cliente **12 (doce) unidades** de bomba de calor...\"\n    *   Clause 2 (Precio): \"El precio unitario es de **3.200,00 euros**, lo que supone un importe total de **38.400,00 euros**, impuestos no incluidos.\"\n\n    *   The user claims there are 15 units. The document says 12 units.\n    *   The unit price is indeed 3,200 euros.\n    *   The total amount is 38,400.00 euros.\n\n    *   Correct the user regarding the number of units (it's 12, not 15).\n    *   Confirm the unit price (3,200 euros).\n    *   State the total amount (38,400.00 euros).\n\n    *   \"No, el contrato indica que son **12 (doce) unidades**, no 15.\"\n    *   \"El precio unitario es efectivamente de **3.200,00 euros**.\"\n    *   \"El importe total es de **38.400,00 euros** (impuestos no incluidos).\"",
+      "tool_calls": null,
+      "ttft_s": 7.316,
+      "total_s": 8.173,
+      "in_tokens": 842,
+      "out_tokens": 495,
+      "tok_s": 71.1,
+      "prompt_tok_s": 961.5,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-penale-3gg",
+      "category": "10-ragionamento",
+      "lang": "it",
+      "expected": "5 - 2 (48h) = 3 giorni; 3 × 2% × 450 = 27 €",
+      "check": {
+        "contains_any": [
+          "27"
+        ],
+        "contains_all": [
+          "3"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "In base al contratto fornito, ecco il calcolo della penale:\n\n**1. Calcolo dei giorni di ritardo:**\n*   Il tempo garantito per l'intervento è di **48 ore** (ovvero 2 giorni) dall'art. 4.\n*   L'intervento è arrivato dopo **5 giorni**.\n*   Giorni di ritardo: 5 giorni - 2 giorni = **3 giorni di ritardo**.\n\n**2. Calcolo della penale totale:**\n*   Il canone mensile è di **450,00 euro** (art. 5).\n*   La penale giornaliera è pari al **2% del canone mensile** (art. 6).\n*   Penale per singolo giorno: $450,00 \\times 0,02 = 9,00$ euro.\n*   Penale totale per 3 giorni: $9,00 \\times 3 = \\mathbf{27,00}$ **euro**.",
+      "reasoning": "*   Input: A maintenance contract document (\"it-contratto-manutenzione-2026-114.md\").\n    *   Question: If an intervention arrives 5 days after the report, how many days of delay are counted and what is the total penalty? Show the calculation.\n    *   Constraint: Answer based *only* on the provided documents. If information is missing, say so. Answer in the same language (Italian).\n\n    *   *Art. 4 (Tempi di intervento):* The provider guarantees intervention within **48 hours** from the report.\n    *   *Art. 6 (Penali):* For each day of delay beyond the 48 hours mentioned in Art. 4, the client is entitled to a penalty equal to **2% of the monthly fee**. The penalty is deducted from the next invoice.\n    *   *Art. 5 (Corrispettivo):* The monthly fee is **€450.00 + VAT**.\n\n    *   *Reported time:* Day 0.\n    *   *Guaranteed time:* 48 hours (which is 2 days).\n    *   *Actual intervention time:* 5 days after the report.\n    *   *Calculation of delay days:*\n        *   Total time elapsed: 5 days.\n        *   Guaranteed time: 2 days.\n        *   Delay: 5 days - 2 days = 3 days.\n    *   *Calculation of penalty:*\n        *   Monthly fee: €450.00.\n        *   Penalty per day: 2% of €450.00.\n        *   Calculation: $450 \\times 0.02 = 9$ Euro per day.\n        *   Total penalty for 3 days: $9 \\times 3 = 27$ Euro.\n\n    *   *Days of delay:* 3 days (since the first 48 hours/2 days are the guaranteed window).\n    *   *Calculation:*\n        *   Canone mensile: €450,00.\n        *   Penale giornaliera (2%): $450 \\times 0,02 = 9,00$ €.\n        *   Giorni di ritardo: $5 - 2 = 3$ giorni.\n        *   Penale totale: $3 \\times 9,00 = 27,00$ €.\n\n    *   Did I use outside info? No.\n    *   Is the language correct? Yes (Italian).\n    *   Is the calculation shown? Yes.",
+      "tool_calls": null,
+      "ttft_s": 9.641,
+      "total_s": 13.02,
+      "in_tokens": 983,
+      "out_tokens": 804,
+      "tok_s": 68.1,
+      "prompt_tok_s": 1013.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-deposit-uk",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "Total inc VAT 22,140; deposit 40% = 8,856; balance 60% = 13,284",
+      "check": {
+        "contains_all": [
+          "8,856",
+          "13,284"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Based on the document provided, here is the calculation for the deposit and the balance including VAT:\n\n**Total including VAT:** £22,140.00\n\n**1. Deposit (40%):**\n*   Calculation: £22,140.00 × 0.40\n*   **Amount: £8,856.00**\n\n**2. Balance (60%):**\n*   Calculation: £22,140.00 × 0.60\n*   **Amount: £13,284.00**",
+      "reasoning": "*   Task: Calculate the deposit and the balance in pounds, both including VAT.\n    *   Constraint: Use only the provided document. If information is missing, say so. Respond in the same language as the question (English).\n    *   Source Document: `en-quotation-Q-UK-2026-031.md`.\n\n    *   Total including VAT: £22,140.00\n    *   Payment terms:\n        *   40% deposit on acceptance.\n        *   60% balance on commissioning.\n\n    *   *Total including VAT:* £22,140.00\n    *   *Deposit (40%):*\n        *   Calculation: 22,140.00 * 0.40\n        *   22,140 * 0.4 = 8,856.00\n    *   *Balance (60%):*\n        *   Calculation: 22,140.00 * 0.60\n        *   22,140 * 0.6 = 13,284.00\n    *   *Verification:* 8,856.00 + 13,284.00 = 22,140.00. Correct.\n\n    *   State the total including VAT.\n    *   Show the calculation for the deposit.\n    *   Show the calculation for the balance.",
+      "tool_calls": null,
+      "ttft_s": 5.854,
+      "total_s": 7.567,
+      "in_tokens": 830,
+      "out_tokens": 471,
+      "tok_s": 73.5,
+      "prompt_tok_s": 988.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-date-consegna",
+      "category": "10-ragionamento",
+      "lang": "es",
+      "expected": "Firma 15 junio + 45 días = 30 de julio; entrega 27 de julio → cumplido con 3 días de margen",
+      "check": {
+        "contains_any": [
+          "30 de julio",
+          "30/07"
+        ],
+        "contains_all": [
+          "3"
+        ],
+        "contains_any_2": [
+          "cumpl",
+          "a tiempo",
+          "dentro del plazo",
+          "margen"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Secondo il contratto (Cláusula 3), la consegna doveva essere effettuata entro un massimo di **45 giorni naturali** dalla firma del contratto.\n\nEcco il calcolo basato sui documenti:\n*   **Data di firma:** 15 giugno 2026.\n*   **Data limite di consegna:** 30 luglio 2026 (45 giorni dopo il 15 giugno).\n*   **Data di consegna effettiva:** 27 luglio 2026 (come indicato nell'email di Pilar Soler).\n\nLa consegna è stata quindi **effettuata in tempo**, con un anticipo di **3 giorni** rispetto alla scadenza.",
+      "reasoning": "*   Question: What was the delivery deadline according to the contract, was it met, and by how many days of margin or delay?\n    *   Constraint: Answer based *only* on the provided documents. If information is missing, say so. Answer in the same language as the question (Italian).\n\n    *   *Document 1 (es-contrato-ES-2026-07.md):*\n        *   Clause 3 (Plazo y condiciones de entrega): \"La entrega se realizará en un plazo máximo de **45 días naturales** desde la firma del presente contrato\".\n        *   Signature date: \"Firmado en Paterna, a **15 de junio de 2026**\".\n    *   *Document 2 (es-correo-soler-entrega.md):*\n        *   Pilar Soler's email date: **27 de julio de 2026**.\n        *   Content: \"Hemos recibido esta mañana las 12 unidades RX-9 AIR en nuestro almacén de Paterna.\" (Received on the morning of July 27, 2026).\n\n    *   *Deadline Calculation:*\n        *   Start date: June 15, 2026.\n        *   Deadline: 45 calendar days (días naturales) from June 15.\n        *   June has 30 days. From June 15 to June 30 = 15 days.\n        *   Remaining days = 45 - 15 = 30 days.\n        *   Deadline date: July 30, 2026.\n\n    *   *Actual Delivery:*\n        *   Received on July 27, 2026.\n\n    *   *Comparison:*\n        *   Deadline: July 30, 2026.\n        *   Actual delivery: July 27, 2026.\n        *   Status: Met.\n        *   Margin: 3 days before the deadline.\n\n    *   *Drafting the response in Italian:*\n        *   Data di firma: 15 giugno 2026.\n        *   Termine contrattuale: 45 giorni naturali dalla firma.\n        *   Calcolo: 15 giugno + 45 giorni = 30 luglio 2026.\n        *   Data di consegna effettiva: 27 luglio 2026 (come indicato nell'email di Pilar Soler).\n        *   Conclusione: La consegna è stata effettuata in tempo.\n        *   Margine: 3 giorni di anticipo.\n\n    *   *Refining the Italian text:*\n        Secondo il contratto (Cláusula 3), la consegna doveva avvenire entro un massimo di **45 giorni naturali** dalla firma del contratto, avvenuta il **15 giugno 2026**.\n        Questo significa che la data limite di consegna era il **30 luglio 2026**.\n\n        Dalla corrispondenza via email, si evince che la merce è stata ricevuta la mattina del **27 luglio 2026**.\n\n        Pertanto, la consegna è stata effettuata **entro i termini previsti**, con un anticipo di **3 giorni** rispetto alla scadenza.\n\n    *   Did I use only the documents? Yes.\n    *   Is the info there? Yes.\n    *   Is it in Italian? Yes.",
+      "tool_calls": null,
+      "ttft_s": 13.837,
+      "total_s": 16.067,
+      "in_tokens": 1736,
+      "out_tokens": 915,
+      "tok_s": 65.0,
+      "prompt_tok_s": 1010.5,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "rag-ferie",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "Carried over max 5 (2 lost); 25 + 5 = 30; 30 - 9 = 21 remaining (carried days must be used by 30 June).",
+      "check": {
+        "contains_all": [
+          "21",
+          "2"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "L'impiegato può ancora usufruire di **21 giorni** di ferie quest'anno.\n\nEcco il calcolo basato sul documento:\n*   **Giorni persi:** Poiché il limite massimo di riporto è di 5 giorni (Sezione 6.3), dei 7 giorni non utilizzati al 31 marzo 2026, **2 giorni sono andati persi**.\n*   **Giorni rimanenti:** L'impiegato ha diritto a 25 giorni di ferie annuali (Sezione 6.1) più i 5 giorni riportati, per un totale di 30 giorni. Avendo già utilizzato 9 giorni dall'1 aprile, restano 21 giorni (30 - 9 = 21).",
+      "reasoning": "*   User question: \"An engineer had 7 unused days on 31 March 2026 and has taken 9 days since 1 April. How many days can they still take this leave year, and how many of the 7 were lost?\"\n    *   Context: Rossi Installations Ltd Employee Handbook.\n    *   Constraint: Use only provided documents. If info is missing, say so. Respond in the same language (Italian).\n\n    *   *Section 6.1 (Entitlement):* Full-time employees get 25 days + 8 bank holidays. Leave year is 1 April to 31 March.\n    *   *Section 6.3 (Carry-over):* Maximum of 5 days of unused leave may be carried over into the next leave year and must be taken by 30 June. Any further unused days are lost (except for sickness/statutory leave).\n\n    *   *Current Date/Context:* The handbook version is 2.1 issued 1 April 2026. The leave year starts 1 April.\n    *   *Engineer's status on 31 March 2026:* 7 unused days.\n    *   *Engineer's action since 1 April:* Taken 9 days.\n    *   *Calculation:*\n        *   Carry-over limit: 5 days.\n        *   Unused days from previous year: 7 days.\n        *   Days lost: 7 - 5 = 2 days.\n        *   Days carried over: 5 days.\n        *   Total entitlement for the current year (starting 1 April 2026): 25 days (standard) + 5 days (carried over) = 30 days.\n        *   Days taken since 1 April: 9 days.\n        *   Remaining days: 30 - 9 = 21 days.\n\n    *   *Question 1: How many days can they still take this leave year?*\n        *   Entitlement: 25 days.\n        *   Carry-over: 5 days (since 7 were available, 2 were lost).\n        *   Total available: 30 days.\n        *   Used: 9 days.\n        *   Remaining: 21 days.\n    *   *Question 2: How many of the 7 were lost?*\n        *   Max carry-over is 5 days.\n        *   7 - 5 = 2 days lost.\n\n    *   *Italian Translation:*\n        *   L'impiegato ha diritto a 25 giorni di ferie annuali (Sezione 6.1).\n        *   Poiché il limite di riporto è di 5 giorni (Sezione 6.3), dei 7 giorni non utilizzati al 31 marzo 2026, 2 giorni sono andati persi e 5 sono stati riportati nel nuovo anno.\n        *   Il totale dei giorni disponibili per l'anno corrente è quindi di 30 giorni (25 di diritto + 5 di riporto).\n        *   Avendo già utilizzato 9 giorni, l'impiegato può ancora usufruire di 21 giorni di ferie.\n\n    *   *Check against constraints:* Did I use outside info? No. Did I answer both parts? Yes. Is it in Italian? Yes.\n\n    *   *Refining the answer:*\n        L'impiegato può ancora usufruire di **21 giorni** di ferie quest'anno.\n        Dei 7 giorni non utilizzati al 31 marzo 2026, **2 giorni sono andati persi**, poiché il limite massimo di riporto è di 5 giorni (Sezione 6.3).\n\n    *   *Calculation breakdown for clarity:*\n        - Giorni di diritto: 25\n        - Giorni riportati: 5 (su 7 disponibili, quindi 2 persi)\n        - Totale disponibile: 30\n        - Giorni già presi: 9\n        - Giorni rimanenti: 30 - 9 = 21.",
+      "tool_calls": null,
+      "ttft_s": 15.386,
+      "total_s": 17.886,
+      "in_tokens": 666,
+      "out_tokens": 1088,
+      "tok_s": 64.2,
+      "prompt_tok_s": 983.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "rag-logica",
+      "category": "10-ragionamento",
+      "lang": "it",
+      "expected": "Carlo=Macerata (unica opzione); quindi Anna=Recanati (non Fermo); Bruno=Fermo",
+      "check": {
+        "regex": "Carlo[^.]{0,30}Macerata|Macerata[^.]{0,30}Carlo",
+        "regex_2": "Bruno[^.]{0,30}Fermo|Fermo[^.]{0,30}Bruno",
+        "regex_3": "Anna[^.]{0,30}Recanati|Recanati[^.]{0,30}Anna"
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Ecco la soluzione logica:\n\n1.  **Carlo** deve andare a **Macerata**: poiché non può andare né a Recanati né a Fermo, Macerata è l'unica opzione disponibile per lui.\n2.  **Anna** deve andare a **Recanati**: poiché non può andare a Fermo e Macerata è già occupata da Carlo, Recanati è l'unica opzione per lei.\n3.  **Bruno** deve andare a **Fermo**: è l'unico cantiere rimasto e Bruno non ha restrizioni su questa località.\n\n**In sintesi:**\n*   **Carlo:** Macerata\n*   **Anna:** Recanati\n*   **Bruno:** Fermo",
+      "reasoning": "\n*   Technicians: Anna, Bruno, Carlo.\n*   Sites: Macerata, Recanati, Fermo.\n*   Constraints:\n    1.  Anna $\\neq$ Fermo.\n    2.  Bruno $\\neq$ Macerata.\n    3.  Carlo $\\neq$ Recanati.\n    4.  Carlo $\\neq$ Fermo (no transport).\n    5.  Each technician covers exactly one site (one-to-one mapping).\n\n    *   *Step 1: Analyze Carlo.*\n        *   Carlo cannot go to Recanati.\n        *   Carlo cannot go to Fermo.\n        *   Therefore, Carlo **must** go to **Macerata**.\n\n    *   *Step 2: Analyze the remaining sites and technicians.*\n        *   Remaining sites: Recanati, Fermo.\n        *   Remaining technicians: Anna, Bruno.\n\n    *   *Step 3: Analyze Anna and Bruno.*\n        *   Anna cannot go to Fermo.\n        *   Therefore, Anna **must** go to **Recanati**.\n\n    *   *Step 4: Final assignment.*\n        *   The only remaining site is Fermo.\n        *   The only remaining technician is Bruno.\n        *   Check: Does Bruno go to Macerata? No (constraint satisfied).\n        *   Therefore, Bruno goes to **Fermo**.\n\n    *   Carlo $\\rightarrow$ Macerata (Only option left).\n    *   Anna $\\rightarrow$ Recanati (Cannot go to Fermo).\n    *   Bruno $\\rightarrow$ Fermo (Only option left).\n\n    *   *Drafting the explanation:*\n        1. Carlo: Since he can't go to Recanati or Fermo, he must go to Macerata.\n        2. Anna: Since Carlo is at Macerata and she can't go to Fermo, she must go to Recanati.\n        3. Bruno: He takes the last remaining site, Fermo.\n\n    *   *Italian Translation:*\n        1. Carlo: Non può andare a Recanati né a Fermo, quindi deve andare a **Macerata**.\n        2. Anna: Non può andare a Fermo e Macerata è occupata da Carlo, quindi deve andare a **Recanati**.\n        3. Bruno: Resta solo il cantiere di **Fermo**, che è quello che gli spetta.",
+      "tool_calls": null,
+      "ttft_s": 8.432,
+      "total_s": 10.954,
+      "in_tokens": 96,
+      "out_tokens": 695,
+      "tok_s": 65.3,
+      "prompt_tok_s": 647.5,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "rag-aritmetica-contratto",
+      "category": "10-ragionamento",
+      "lang": "it",
+      "expected": "450 × 12 = 5.400 + 22% = 6.588 €; a listino 24 × (2×42 + 35) = 24 × 119 = 2.856 €",
+      "check": {
+        "contains_any": [
+          "6.588",
+          "6588",
+          "6 588"
+        ],
+        "contains_any_2": [
+          "2.856",
+          "2856",
+          "2 856"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Ecco i calcoli basati sui documenti forniti:\n\n**Pagamento annuo con contratto (Bianchi Supermercati Srl):**\n*   **Canone mensile:** 450,00 € + IVA 22% = 549,00 €\n*   **Totale annuo (12 mesi):** 549,00 € × 12 = **6.588,00 €**\n\n**Costo a listino per 24 manutenzioni (IVA esclusa):**\n*   **Costo per singolo intervento:** (2 ore di tecnico × 42,00 €/ora) + 35,00 € (diritto di chiamata) = 84,00 € + 35,00 € = 119,00 €\n*   **Totale per 24 interventi:** 119,00 € × 24 = **2.856,00 €**",
+      "reasoning": "*   Question 1: How much does Bianchi pay in a year of contract, including VAT?\n    *   Question 2: How much would they have paid instead at the list price for 24 scheduled maintenances (4 per 6 stores) considering 2 hours of technician + call-out fee for each, excluding VAT?\n\n    *   *Document 1 (it-contratto-manutenzione-2026-114.md):*\n        *   Client: Bianchi Supermercati Srl.\n        *   Monthly fee: €450.00 + 22% VAT.\n        *   Duration: 12 months.\n    *   *Document 2 (it-listino-2026.md):*\n        *   Technician rate: €42.00/hour.\n        *   Call-out fee: €35.00.\n        *   VAT: Not specified for the list price calculation (the prompt asks for \"IVA esclusa\").\n\n    *   **Part 1: Contract Payment (Bianchi)**\n        *   Monthly fee: €450.00.\n        *   VAT: 22%.\n        *   Monthly total: $450 \\times 1.22 = 549$.\n        *   Annual total: $549 \\times 12 = 6,588$.\n        *   *Alternative calculation:* $(450 \\times 12) \\times 1.22 = 5,400 \\times 1.22 = 6,588$.\n\n    *   **Part 2: List Price Calculation**\n        *   Number of maintenances: 24.\n        *   Per maintenance: 2 hours of technician + 1 call-out fee.\n        *   Technician rate: €42.00/hour.\n        *   Call-out fee: €35.00.\n        *   Cost per maintenance: $(2 \\times 42) + 35 = 84 + 35 = 119$.\n        *   Total for 24 maintenances: $24 \\times 119 = 2,856$.\n\n    *   *Contract Payment:*\n        *   Canone mensile: 450,00 € + IVA 22%.\n        *   Totale mensile con IVA: $450 \\times 1,22 = 549,00 €$.\n        *   Totale annuo con IVA: $549 \\times 12 = 6.588,00 €$.\n\n    *   *List Price Calculation:*\n        *   Costo per intervento: (2 ore $\\times$ 42,00 €/ora) + 35,00 € (diritto di chiamata) = 84,00 € + 35,00 € = 119,00 €.\n        *   Totale per 24 interventi: $24 \\times 119,00 € = 2.856,00 €$.\n\n    *   Did I use only provided documents? Yes.\n    *   Did I state if info was missing? All info was present.\n    *   Is the language correct? Yes (Italian).\n\n    *   *Contratto:*\n        *   Canone mensile: 450,00 € + IVA 22% = 549,00 €.\n        *   Totale annuo: 549,00 € * 12 = 6.588,00 €.\n    *   *Listino:*\n        *   Costo per intervento: (2 ore * 42,00 €) + 35,00 € = 119,00 €.\n        *   Totale per 24 interventi: 24 * 119,00 € = 2.856,00 €.",
+      "tool_calls": null,
+      "ttft_s": 15.475,
+      "total_s": 18.758,
+      "in_tokens": 1618,
+      "out_tokens": 1126,
+      "tok_s": 66.4,
+      "prompt_tok_s": 995.6,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "rag-sql",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "SELECT tecnico, SUM(ore) ... WHERE tipo='guasto' AND data in Sept 2026 GROUP BY tecnico ORDER BY ... DESC",
+      "check": {
+        "regex": "(?is)select.*sum\\s*\\(\\s*ore\\s*\\).*where.*guasto.*group by\\s+tecnico.*order by.*desc"
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "",
+      "reasoning": "*   Table: `interventi` (columns: `id`, `cliente`, `data` (DATE), `tecnico`, `ore` (NUMERIC), `tipo` (TEXT)).\n    *   Goal: Total hours per `tecnico`.\n    *   Conditions:\n        *   Month: September 2026.\n        *   Type: `tipo = 'guasto'`.\n    *   Ordering: Most to fewest hours (descending).\n    *   Database: PostgreSQL.\n    *   Output format: Only the SQL query.\n\n    *   `SELECT tecnico, SUM(ore) AS total_ore`\n    *   `FROM interventi`\n    *   `WHERE data >= '2026-09-01' AND data <= '2026-09-30'` (or use `EXTRACT` or `TO_CHAR`, but range is usually more efficient).\n    *   `AND tipo = 'guasto'`\n    *   `GROUP BY tecnico`\n    *   `ORDER BY total_ore DESC`\n\n    *   *Date filtering:* `data BETWEEN '2026-09-01' AND '2026-09-30'` is clean.\n    *   *Aggregation:* `SUM(ore)`.\n    *   *Grouping:* `tecnico`.\n    *   *Ordering:* `DESC`.\n\n    ```sql\n    SELECT tecnico, SUM(ore) AS total_ore\n    FROM interventi\n    WHERE data >= '2026-09-01' AND data <= '2026-09-30'\n      AND tipo = 'guasto'\n    GROUP BY tecnico\n    ORDER BY total_ore DESC;\n    ```\n\n    *   PostgreSQL? Yes.\n    ",
+      "tool_calls": null,
+      "ttft_s": null,
+      "total_s": 6.41,
+      "in_tokens": 79,
+      "out_tokens": 400,
+      "tok_s": 67.2,
+      "prompt_tok_s": 505.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-python",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "Funzione corretta (es. ceil((arrived-reported - 48h)/24h) × 0.02 × fee, min 0); esempi coerenti (es. 72h → 1 giorno → 9.0 con fee 450).",
+      "check": {
+        "contains_all": [
+          "def penalty",
+          "0.02"
+        ],
+        "contains_any": [
+          "48",
+          "timedelta"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "",
+      "reasoning": "*   Input: `reported` (datetime), `arrived` (datetime), `monthly_fee` (float/int).\n    *   Logic:\n        *   Calculate the difference between `arrived` and `reported`.\n        *   If difference $\\le$ 48 hours, penalty = 0.\n        *   If difference > 48 hours, penalty = 2% of `monthly_fee` for each *full day* of delay *beyond* the first 48 hours.\n        *   \"Partial days count as a full day\" (meaning if it's 48 hours + 1 minute, it's 1 day of delay).\n    *   Output: Penalty in euros (float).\n    *   Constraint: Code only.\n\n    *   `reported`: datetime object.\n    *   `arrived`: datetime object.\n    *   `monthly_fee`: number.\n\n    *   `delay = arrived - reported`\n    *   `total_seconds = delay.total_seconds()`\n    *   `forty_eight_hours_in_seconds = 48 * 3600`\n    *   If `total_seconds <= forty_eight_hours_in_seconds`: return 0.\n    *   Else:\n        *   `excess_seconds = total_seconds - forty_eight_hours_in_seconds`\n        *   `seconds_in_day = 24 * 3600`\n        *   `days_delayed = math.ceil(excess_seconds / seconds_in_day)`\n        *   `penalty = days_delayed * (0.02 * monthly_fee)`\n        *   Return `penalty`.\n\n    *   *Example 1:*\n        *   Reported: 2023-10-01 10:00\n        *   Arrived: 2023-10-03 10:00 (Exactly 48 hours)\n        *   Fee: 100\n        *   Expected: 0\n    *   *Example 2:*\n        *   Reported: 2023-10-01 10:00\n        *   Ar",
+      "tool_calls": null,
+      "ttft_s": null,
+      "total_s": 7.221,
+      "in_tokens": 90,
+      "out_tokens": 500,
+      "tok_s": 71.3,
+      "prompt_tok_s": 639.9,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "tool-ticket-urgente",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "crea_ticket(cliente=Bianchi Supermercati, sede=Porto Recanati, problema=chiller..., priorita=urgente)",
+      "check": {
+        "tool": {
+          "name": "crea_ticket",
+          "args_contain": {
+            "cliente": "Bianchi",
+            "sede": "Porto Recanati",
+            "priorita": "urgente"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "",
+      "reasoning": "The user wants to open a technical support ticket.\nI need to extract the following information from the prompt:\n- `cliente`: \"Bianchi Supermercati\"\n- `problema`: \"chiller unità esterna fermo, negozio a 29 gradi\"\n- `priorita`: \"urgente\"\n- `sede`: \"Porto Recanati\"\n\nThe `crea_ticket` tool requires `cliente`, `problema`, and `priorita`. It also has an optional `sede` parameter.\n\nPlan:\n1. Call `crea_ticket` with the extracted information.",
+      "tool_calls": [
+        {
+          "name": "crea_ticket",
+          "arguments": {
+            "cliente": "Bianchi Supermercati",
+            "priorita": "urgente",
+            "problema": "chiller unità esterna fermo, negozio a 29 gradi",
+            "sede": "Porto Recanati"
+          }
+        }
+      ],
+      "ttft_s": 3.172,
+      "total_s": 3.172,
+      "in_tokens": 397,
+      "out_tokens": 190,
+      "tok_s": 72.5,
+      "prompt_tok_s": 854.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "tool-pianifica-data",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "pianifica_intervento(cliente=Kingsway Dental Practice, data=2026-10-23, ora=09:00, tecnico=Luca Fabbri)",
+      "check": {
+        "tool": {
+          "name": "pianifica_intervento",
+          "args_contain": {
+            "data": "2026-10-23",
+            "ora": "09:00",
+            "tecnico": "Fabbri"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "",
+      "reasoning": "The user wants to schedule a technical intervention for \"Luca Fabbri\" from \"Kingsway Dental Practice\" for this Thursday at 9:00 AM.\n\nFirst, I need to identify the date of \"this Thursday\".\nToday is Monday, October 20, 2026.\nMonday = 20th\nTuesday = 21st\nWednesday = 22nd\nThursday = 23rd\n\nSo, the date is 2026-10-23.\nThe time is 09:00.\nThe client is \"Kingsway Dental Practice\" (or \"Luca Fabbri\" at \"Kingsway Dental Practice\"). The tool `pianifica_intervento` takes `cliente`, `data`, `ora`, and `tecnico`.\n\nI don't have a specific technician assigned in the prompt, so I might need to ask or just leave it if optional, but the tool definition doesn't mark `tecnico` as required. However, it's better to check if I can find the client first or just proceed with the information provided.\n\nWait, the tool `pianifica_intervento` requires `cliente`, `data`, and `ora`.\n`cliente`: Kingsway Dental Practice (or Luca Fabbri)\n`data`: 2026-10-23\n`ora`: 09:00\n\nI should probably confirm the client name or just use \"Kingsway Dental Practice\".\n\nLet's check the tools again.\n`pianifica_intervento(cliente, data, ora, tecnico)`\n\nI will call `pianifica_intervento` with:\ncliente: \"Kingsway Dental Practice\"\ndata: \"2026-10-23\"\nora: \"09:00\"",
+      "tool_calls": [
+        {
+          "name": "pianifica_intervento",
+          "arguments": {
+            "cliente": "Kingsway Dental Practice (Luca Fabbri)",
+            "data": "2026-10-23",
+            "ora": "09:00"
+          }
+        }
+      ],
+      "ttft_s": 7.031,
+      "total_s": 7.031,
+      "in_tokens": 403,
+      "out_tokens": 436,
+      "tok_s": 67.6,
+      "prompt_tok_s": 875.5,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "tool-nessuno-necessario",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "Nessun tool; risposta testuale.",
+      "check": {
+        "no_tool": true,
+        "min_words": 15
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Una caldaia tradizionale libera gran parte del calore contenuto nei fumi di scarico, disperdendolo nell'ambiente. Una caldaia a condensazione invece recupera questo calore latente per riscaldare l'acqua, garantendo una maggiore efficienza energetica e un risparmio sui consumi.",
+      "reasoning": "The user is asking for the difference between a condensing boiler and a traditional boiler.\nThe user specifies a constraint: \"Rispondi in due frasi\" (Answer in two sentences).\n\nI need to provide a concise explanation.\n1. A traditional boiler releases heat from combustion gases, wasting a significant portion of the energy.\n2. A condensing boiler recovers this latent heat from the exhaust gases, making it much more efficient and economical.\n\nLet's refine this into two sentences in Italian.\n1. Una caldaia tradizionale libera gran parte del calore contenuto nei fumi di scarico, disperdendolo nell'ambiente.\n2. Una caldaia a condensazione invece recupera questo calore latente per riscaldare l'acqua, garantendo una maggiore efficienza energetica e un risparmio sui consumi.\n\nWait, I should check if I need to use any tools. The available tools are for CRM/Technical support (creating tickets, searching clients, sending emails, scheduling interventions). None of these tools are relevant for answering a general knowledge question about boilers.\n\nI will provide the answer directly.",
+      "tool_calls": null,
+      "ttft_s": 5.928,
+      "total_s": 5.928,
+      "in_tokens": 386,
+      "out_tokens": 300,
+      "tok_s": 56.6,
+      "prompt_tok_s": 985.1,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "tool-email-da-doc",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "invia_email(a=p.bianchi@bianchisupermercati.example.it, oggetto..., testo contiene penale/ottobre)",
+      "check": {
+        "tool": {
+          "name": "invia_email",
+          "args_contain": {
+            "a": "p.bianchi@bianchisupermercati.example.it",
+            "testo": "ottobre"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "",
+      "reasoning": "The user wants to send an email to Paolo Bianchi.\nI need to find Paolo Bianchi's email address from the provided document.\nIn the document `it-email-ritardo-bianchi.md`, Paolo Bianchi's email is `p.bianchi@bianchisupermercati.example.it`.\nThe content of the email should confirm that the penalty will be deducted from the October invoice.\nThe document mentions: \"Elena applicherà la penale dell'articolo 6, pari a 9,00 euro (2% di 450 euro), in detrazione sulla fattura di ottobre.\"\n\nPlan:\n1. Identify the recipient's email: `p.bianchi@bianchisupermercati.example.it`.\n2. Compose the email content: Confirming the penalty deduction from the October invoice.\n3. Call the `invia_email` tool.",
+      "tool_calls": [
+        {
+          "name": "invia_email",
+          "arguments": {
+            "a": "p.bianchi@bianchisupermercati.example.it",
+            "oggetto": "Conferma detrazione penale fattura ottobre",
+            "testo": "Gentile Paolo Bianchi,\n\nCon la presente confermiamo che la penale prevista dall'articolo 6, pari a 9,00 euro, sarà detratta dalla fattura del mese di ottobre, come concordato.\n\nCordiali saluti,\nRossi Impianti Srl"
+          }
+        }
+      ],
+      "ttft_s": 6.384,
+      "total_s": 6.384,
+      "in_tokens": 1403,
+      "out_tokens": 310,
+      "tok_s": 64.2,
+      "prompt_tok_s": 984.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "tool-ambiguo-chiede",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "Mancano data (e cliente non univoco); il comportamento ideale è chiedere. Accettabile anche cerca_cliente. Sbagliato inventare una data.",
+      "check": {
+        "tool_not": "pianifica_intervento"
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Per poter pianificare l'intervento, avrei bisogno del nome del cliente di Valencia. Potrebbe fornirmi il nome o la ragione sociale?",
+      "reasoning": "The user wants to schedule a technical intervention for a client in Valencia.\nI need to find the client's information first to know who the client is and what the specific details are.\nI'll start by searching for a client associated with \"Valencia\".\nHowever, the `cerca_cliente` tool takes a name, not a location.\nI don't have the client's name. I should ask the user for the client's name or more details.\nWait, maybe I can search for clients and see if any are in Valencia? No, the tool only takes a name.\nLet's look at the available tools again.\n`cerca_cliente(nome)`\n`crea_ticket(cliente, problema, priorita, sede)`\n`pianifica_intervento(cliente, data, ora, tecnico)`\n`invia_email(a, oggetto, testo)`\n\nSince I don't have the client's name, I should ask the user for it.\nActually, I can try to see if there's a way to list clients? No tool for that.\nI will ask the user for the name of the client in Valencia.",
+      "tool_calls": null,
+      "ttft_s": 5.305,
+      "total_s": 5.305,
+      "in_tokens": 373,
+      "out_tokens": 282,
+      "tok_s": 63.3,
+      "prompt_tok_s": 972.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "json-contratto",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "{\"numero\":\"2026/114\",\"cliente\":\"Bianchi Supermercati Srl\",\"decorrenza\":\"2026-02-01\",\"durata_mesi\":12,\"canone_mensile_eur\":450,\"interventi_anno\":4,\"preavviso_recesso_giorni\":60,\"penale_pct\":2}",
+      "check": {
+        "json_equals": {
+          "numero": "2026/114",
+          "decorrenza": "2026-02-01",
+          "durata_mesi": 12,
+          "canone_mensile_eur": 450,
+          "interventi_anno": 4,
+          "preavviso_recesso_giorni": 60,
+          "penale_pct": 2
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "{\n  \"numero\": \"2026/114\",\n  \"cliente\": \"Bianchi Supermercati Srl\",\n  \"decorrenza\": \"2026-02-01\",\n  \"durata_mesi\": 12,\n  \"canone_mensile_eur\": 450.00,\n  \"interventi_anno\": 4,\n  \"preavviso_recesso_giorni\": 60,\n  \"penale_pct\": 2.0\n}",
+      "reasoning": "*   Input: A maintenance contract document (Markdown format).\n    *   Task: Extract specific data into a JSON format.\n    *   Required Keys: `numero`, `cliente`, `decorrenza` (YYYY-MM-DD), `durata_mesi` (int), `canone_mensile_eur` (number), `interventi_anno` (int), `preavviso_recesso_giorni` (int), `penale_pct` (number).\n    *   Constraints: Respond ONLY with JSON, no text or markdown.\n\n    *   `numero`: \"N. 2026/114\" -> \"2026/114\"\n    *   `cliente`: \"Bianchi Supermercati Srl\"\n    *   `decorrenza`: \"1 febbraio 2026\" -> \"2026-02-01\"\n    *   `durata_mesi`: \"12 mesi\" -> 12\n    *   `canone_mensile_eur`: \"euro 450,00\" -> 450.00\n    *   `interventi_anno`: \"4 interventi di manutenzione programmata all'anno\" -> 4\n    *   `preavviso_recesso_giorni`: \"60 giorni\" -> 60\n    *   `penale_pct`: \"2% del canone mensile\" -> 2.0\n\n    ```json\n    {\n      \"numero\": \"2026/114\",\n      \"cliente\": \"Bianchi Supermercati Srl\",\n      \"decorrenza\": \"2026-02-01\",\n      \"durata_mesi\": 12,\n      \"canone_mensile_eur\": 450.00,\n      \"interventi_anno\": 4,\n      \"preavviso_recesso_giorni\": 60,\n      \"penale_pct\": 2.0\n    }\n    ```\n\n    *   Only JSON? Yes.\n    *   No markdown? Yes.\n    *   Correct keys? Yes.\n    *   Correct types? Yes.",
+      "tool_calls": null,
+      "ttft_s": 7.479,
+      "total_s": 9.064,
+      "in_tokens": 1032,
+      "out_tokens": 624,
+      "tok_s": 75.6,
+      "prompt_tok_s": 1661.5,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "json-quotation",
+      "category": "09-tools",
+      "lang": "en",
+      "expected": "Q-UK-2026-031, Kingsway Dental Practice, 2026-08-28, 18450, 20, 22140, 40, 3, 5, 2",
+      "check": {
+        "json_equals": {
+          "quote_number": "Q-UK-2026-031",
+          "date": "2026-08-28",
+          "total_ex_vat": 18450,
+          "vat_rate_pct": 20,
+          "total_inc_vat": 22140,
+          "deposit_pct": 40,
+          "lead_time_weeks": 3,
+          "warranty_years_unit": 5,
+          "warranty_years_labour": 2
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "```json\n{\n  \"quote_number\": \"Q-UK-2026-031\",\n  \"customer\": \"Dr. Amira Hassan, Kingsway Dental Practice\",\n  \"date\": \"2026-08-28\",\n  \"total_ex_vat\": 18450.00,\n  \"vat_rate_pct\": 20,\n  \"total_inc_vat\": 22140.00,\n  \"deposit_pct\": 40,\n  \"lead_time_weeks\": 3,\n  \"warranty_years_unit\": 5,\n  \"warranty_years_labour\": 2\n}\n```",
+      "reasoning": "*   Input: A document (quotation Q-UK-2026-031) and a specific instruction to return a JSON object with specific keys.\n    *   Constraints: Use only provided documents. If info is missing, say so (though the prompt asks for a JSON object, usually implying I should fill what's there). Respond in the same language (Italian, but the JSON keys are English/standard).\n    *   Source Document: `en-quotation-Q-UK-2026-031.md`.\n\n    *   `quote_number`: Q-UK-2026-031\n    *   `customer`: Dr. Amira Hassan, Kingsway Dental Practice\n    *   `date`: 28 August 2026 -> 2026-08-28\n    *   `total_ex_vat`: £18,450.00 -> 18450.00\n    *   `vat_rate_pct`: 20% -> 20\n    *   `total_inc_vat`: £22,140.00 -> 22140.00\n    *   `deposit_pct`: 40% -> 40\n    *   `lead_time_weeks`: 3 weeks -> 3\n    *   `warranty_years_unit`: 5 years (Heat pump) -> 5\n    *   `warranty_years_labour`: 2 years (Installation workmanship) -> 2\n\n    *   `quote_number`: \"Q-UK-2026-031\"\n    *   `customer`: \"Dr. Amira Hassan, Kingsway Dental Practice\"\n    *   `date`: \"2026-08-28\"\n    *   `total_ex_vat`: 18450.00\n    *   `vat_rate_pct`: 20\n    *   `total_inc_vat`: 22140.00\n    *   `deposit_pct`: 40\n    *   `lead_time_weeks`: 3\n    *   `warranty_years_unit`: 5\n    *   `warranty_years_labour`: 2\n\n    ```json\n    {\n      \"quote_number\": \"Q-UK-2026-031\",\n      \"customer\": \"Dr. Amira Hassan, Kingsway Dental Practice\",\n      \"date\": \"2026-08-28\",\n      \"total_ex_vat\": 18450.00,\n      \"vat_rate_pct\": 20,\n      \"total_inc_vat\": 22140.00,\n      \"deposit_pct\": 40,\n      \"lead_time_weeks\": 3,\n      \"warranty_years_unit\": 5,\n      \"warranty_years_labour\": 2\n    }\n    ```\n\n    *   Only provided documents? Yes.\n    *   JSON format? Yes.\n    *   Keys correct? Yes.\n    *   Language? The prompt asks to respond in the same language as the question (Italian), but since the output is a JSON object with specific keys, the values should be extracted correctly. The prompt says \"Return ONLY a JSON object\".\n\n    *Self-correction:* The prompt says \"Rispondi nella stessa lingua della domanda\" (Respond in the same language as the question). The question is in Italian. However, the instruction \"Return ONLY a JSON object\" overrides the general language instruction for the structure of the output, as JSON keys are fixed.\n\n    *   quote_number: Q-UK-2026-031\n    *   customer: Dr. Amira Hassan, Kingsway Dental Practice\n    *   date: 2026-08-28\n    *   total_ex_vat: 18450.00\n    *   vat_rate_pct: 20\n    *   total_inc_vat: 22140.00\n    *   deposit_pct: 40\n    *   lead_time_weeks: 3\n    *   warranty_years_unit: 5\n    *   warranty_years_labour: 2\n\n    Wait, the prompt says \"Return ONLY a JSON object\". I will provide exactly that.",
+      "tool_calls": null,
+      "ttft_s": 15.477,
+      "total_s": 17.573,
+      "in_tokens": 890,
+      "out_tokens": 1156,
+      "tok_s": 71.5,
+      "prompt_tok_s": 1045.3,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "json-lista-decisioni",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "Array JSON valido con ≥4 decisioni (furgone, assunzioni, Valvex, obiettivo UK, Pescara rinviata).",
+      "check": {
+        "json_array_min": 4,
+        "contains_all": [
+          "Valvex",
+          "Transit"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "```json\n[\n  {\n    \"decisione\": \"Acquisto di un furgone Ford Transit Custom (budget massimo 38.000 euro + IVA)\",\n    \"responsabile\": \"Elena Carletti\",\n    \"scadenza\": \"Ottobre 2026\"\n  },\n  {\n    \"decisione\": \"Assunzione di 2 tecnici junior\",\n    \"responsabile\": \"Giulia Santini\",\n    \"scadenza\": \"Novembre 2026\"\n  },\n  {\n    \"decisione\": \"Passaggio a Valvex Spa come fornitore principale di valvole\",\n    \"responsabile\": \"Davide Marinelli\",\n    \"scadenza\": \"1 ottobre 2026\"\n  },\n  {\n    \"decisione\": \"Rinvio della proposta di apertura di una sede operativa a Pescara\",\n    \"responsabile\": null,\n    \"scadenza\": \"Gennaio 2027\"\n  }\n]\n```",
+      "reasoning": "*   Role: Business assistant.\n    *   Constraint: Use *only* provided documents. If info is missing, say so (but the prompt asks for a specific JSON format, so I should only include what's there).\n    *   Input: A meeting minutes document (\"it-verbale-riunione-2026-09-03.md\").\n    *   Output Format: ONLY a JSON array of objects `{\"decisione\": string, \"responsabile\": string|null, \"scadenza\": string|null}`. No surrounding text.\n\n    *   *Item 2 (Parco mezzi):* \"Si delibera l'acquisto di un furgone Ford Transit Custom entro ottobre 2026, con budget massimo di 38.000 euro + IVA.\"\n        *   Decision: Acquisto di un furgone Ford Transit Custom (budget max 38.000 euro + IVA).\n        *   Responsabile: Elena Carletti (she is checking leasing conditions).\n        *   Scadenza: Ottobre 2026.\n\n    *   *Item 3 (Organico tecnico):* \"Si delibera l'assunzione di 2 tecnici junior entro novembre 2026...\"\n        *   Decision: Assunzione di 2 tecnici junior.\n        *   Responsabile: Giulia Santini (she is publishing the ads).\n        *   Scadenza: Novembre 2026.\n\n    *   *Item 4 (Fornitori):* \"...si decide di passare a Valvex Spa come fornitore principale di valvole dal 1 ottobre 2026.\"\n        *   Decision: Passaggio a Valvex Spa come fornitore principale di valvole.\n        *   Responsabile: Davide Marinelli (he is updating the base lists).\n        *   Scadenza: 1 ottobre 2026.\n\n    *   *Item 6 (Varie ed eventuali):* \"La proposta di apertura di una sede operativa a Pescara viene rinviata: da rivalutare a gennaio 2027...\"\n        *   Decision: Rinvio della proposta di apertura di una sede operativa a Pescara.\n        *   Responsabile: null (not specified who is responsible for the delay, just the decision).\n        *   Scadenza: Gennaio 2027.\n\n    *   *Decision 1:*\n        *   decisione: \"Acquisto di un furgone Ford Transit Custom (budget massimo 38.000 euro + IVA)\"\n        *   responsabile: \"Elena Carletti\"\n        *   scadenza: \"Ottobre 2026\"\n\n    *   *Decision 2:*\n        *   decisione: \"Assunzione di 2 tecnici junior\"\n        *   responsabile: \"Giulia Santini\"\n        *   scadenza: \"Novembre 2026\"\n\n    *   *Decision 3:*\n        *   decisione: \"Passaggio a Valvex Spa come fornitore principale di valvole\"\n        *   responsabile: \"Davide Marinelli\"\n        *   scadenza: \"1 ottobre 2026\"\n\n    *   *Decision 4:*\n        *   decisione: \"Rinvio della proposta di apertura di una sede operativa a Pescara\"\n        *   responsabile: null\n        *   scadenza: \"Gennaio 2027\"\n\n    ```json\n    [\n      {\n        \"decisione\": \"Acquisto di un furgone Ford Transit Custom (budget massimo 38.000 euro + IVA)\",\n        \"responsabile\": \"Elena Carletti\",\n        \"scadenza\": \"Ottobre 2026\"\n      },\n      {\n        \"decisione\": \"Assunzione di 2 tecnici junior\",\n        \"responsabile\": \"Giulia Santini\",\n        \"scadenza\": \"Novembre 2026\"\n      },\n      {\n        \"decisione\": \"Passaggio a Valvex Spa come fornitore principale di valvole\",\n        \"responsabile\": \"Davide Marinelli\",\n        \"scadenza\": \"1 ottobre 2026\"\n      },\n      {\n        \"decisione\": \"Rinvio della proposta di apertura di una sede operativa a Pescara\",\n        \"responsabile\": null,\n        \"scadenza\": \"Gennaio 2027\"\n      }\n    ]\n    ```\n\n    *   Only JSON? Yes.\n    *   Based only on documents? Yes.\n    *   Correct fields? Yes.",
+      "tool_calls": null,
+      "ttft_s": 15.652,
+      "total_s": 18.631,
+      "in_tokens": 851,
+      "out_tokens": 1273,
+      "tok_s": 72.3,
+      "prompt_tok_s": 1007.3,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "json-enum-classifica",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "1 guasto alta; 2 preventivo bassa/media; 3 amministrazione bassa/media; 4 altro bassa; 5 guasto bassa/media",
+      "check": {
+        "json_array_min": 5,
+        "json_items": {
+          "1": {
+            "categoria": "guasto",
+            "urgenza": "alta"
+          },
+          "2": {
+            "categoria": "preventivo"
+          },
+          "3": {
+            "categoria": "amministrazione"
+          },
+          "4": {
+            "categoria": "altro"
+          },
+          "5": {
+            "categoria": "guasto"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "```json\n[\n  {\n    \"id\": 1,\n    \"categoria\": \"guasto\",\n    \"urgenza\": \"alta\"\n  },\n  {\n    \"id\": 2,\n    \"categoria\": \"preventivo\",\n    \"urgenza\": \"media\"\n  },\n  {\n    \"id\": 3,\n    \"categoria\": \"amministrazione\",\n    \"urgenza\": \"bassa\"\n  },\n  {\n    \"id\": 4,\n    \"categoria\": \"altro\",\n    \"urgenza\": \"bassa\"\n  },\n  {\n    \"id\": 5,\n    \"categoria\": \"guasto\",\n    \"urgenza\": \"media\"\n  }\n]\n```",
+      "reasoning": "*   Input: A list of 5 customer messages.\n    *   Task: Classify each message into categories (\"guasto\", \"preventivo\", \"amministrazione\", \"altro\") and urgency levels (\"alta\", \"media\", \"bassa\").\n    *   Constraint: Respond ONLY with a JSON array of objects.\n    *   Format: `{\"id\": int, \"categoria\": \"...\", \"urgenza\": \"...\"}`.\n\n    *   Message 1: \"La caldaia perde acqua dal basso e sento odore di gas\"\n        *   Content: Boiler leaking water + smell of gas.\n        *   Category: \"guasto\" (fault/breakdown).\n        *   Urgency: \"alta\" (High - gas smell is an emergency).\n\n    *   Message 2: \"Vorrei un preventivo per due split in ufficio\"\n        *   Content: Request for a quote for two split units.\n        *   Category: \"preventivo\" (quote).\n        *   Urgency: \"media\" (Standard business request).\n\n    *   Message 3: \"Non ho ricevuto la fattura di settembre\"\n        *   Content: Missing invoice.\n        *   Category: \"amministrazione\" (administration).\n        *   Urgency: \"bassa\" (Low - administrative issue).\n\n    *   Message 4: \"Complimenti per il servizio di ieri\"\n        *   Content: Compliment/Feedback.\n        *   Category: \"altro\" (other).\n        *   Urgency: \"bassa\" (Low).\n\n    *   Message 5: \"Il condizionatore fa un rumore strano ma funziona\"\n        *   Content: Air conditioner making noise but working.\n        *   Category: \"guasto\" (fault/malfunction).\n        *   Urgency: \"media\" (Medium - it works but has a noise issue).\n\n    ```json\n    [\n      {\"id\": 1, \"categoria\": \"guasto\", \"urgenza\": \"alta\"},\n      {\"id\": 2, \"categoria\": \"preventivo\", \"urgenza\": \"media\"},\n      {\"id\": 3, \"categoria\": \"amministrazione\", \"urgenza\": \"bassa\"},\n      {\"id\": 4, \"categoria\": \"altro\", \"urgenza\": \"bassa\"},\n      {\"id\": 5, \"categoria\": \"guasto\", \"urgenza\": \"media\"}\n    ]\n    ```\n\n    *   JSON array? Yes.\n    *   Only JSON? Yes.\n    *   Correct categories? Yes.\n    *   Correct urgency? Yes.",
+      "tool_calls": null,
+      "ttft_s": 8.425,
+      "total_s": 10.593,
+      "in_tokens": 152,
+      "out_tokens": 746,
+      "tok_s": 73.3,
+      "prompt_tok_s": 707.5,
+      "load_s": 0.01,
+      "error": null
+    }
+  ]
+}

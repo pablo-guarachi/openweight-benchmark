@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "tag": "local",
+    "users": 1,
+    "think": false,
+    "suite": "smoke.yaml",
+    "n": 3,
+    "errors": 0,
+    "wall_s": 12.5,
+    "avg_ttft_s": 0.52,
+    "avg_tok_s_per_user": 19.5,
+    "server_tok_s": 16.4,
+    "vram_before_mb": 11371,
+    "vram_peak_mb": 11372,
+    "timestamp": "2026-10-20T02:01:00"
+  },
+  "results": [
+    {
+      "id": "smoke-conv-it",
+      "category": "conversazione",
+      "lang": "it",
+      "response": "Un assistente AI può aiutarti a organizzare automaticamente gli appuntamenti dei clienti e gestire le chiamate in arrivo mentre sei occupato con i lavori in officina.\nPuò inoltre creare preventivi rapidi e personalizzati inviandoli direttamente via email o WhatsApp ai clienti, risparmiandoti tempo prezioso.\nInfine, può analizzare i tuoi dati storici per suggerirti quando ordinare ricambi o pianificare la manutenzione ordinaria dei tuoi macchinari, evitando fermi macchina costosi.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 0.905,
+      "total_s": 6.309,
+      "in_tokens": 56,
+      "out_tokens": 100,
+      "tok_s": 18.5
+    },
+    {
+      "id": "smoke-summary-en",
+      "category": "riassunto",
+      "lang": "en",
+      "response": "After initial confusion caused by a 48-hour delay in reflecting paper shift swaps, the Example General Hospital resolved the issue by June through software updates and staff training. This successful rollout significantly improved swap processing times to under four hours and boosted staff satisfaction, with plans now underway to extend the system to community teams in 2027.",
+      "reasoning": null,
+      "expected": null,
+      "error": null,
+      "ttft_s": 0.333,
+      "total_s": 3.951,
+      "in_tokens": 125,
+      "out_tokens": 71,
+      "tok_s": 19.6
+    },
+    {
+      "id": "smoke-halluc-it",
+      "category": "allucinazioni",
+      "lang": "it",
+      "response": "L'informazione non è presente nel documento fornito. Il documento indica solo il nome del cliente (Rossi Impianti Srl), ma non ne specifica l'indirizzo.",
+      "reasoning": null,
+      "expected": "Deve dire che l'indirizzo non è presente nel documento.",
+      "error": null,
+      "ttft_s": 0.332,
+      "total_s": 2.01,
+      "in_tokens": 119,
+      "out_tokens": 34,
+      "tok_s": 20.3
+    }
+  ]
+}

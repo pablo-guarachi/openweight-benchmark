@@ -1,0 +1,44 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — gemma4:12b, thinking off
+# Cross-cutting note: with an Italian system prompt it answers in ITALIAN even to English questions
+# (hal-telefono-assente, hal-data-inventata, wr-faq-generate). Tends to give 3 options when one is asked for.
+conv-memoria-it: 4            # perfect recap; promises a reply within 30 minutes
+conv-cambio-tema-en: 3        # returns to the topic but answers as a generic consultant (brands, table); closes well by pointing to the quote
+conv-riferimento-pronome-it: 5
+conv-support-es: 5
+conv-correzione-it: 4         # correct, without acknowledging the mistake
+conv-tono-en: 4               # realistic; promises a supervisor within 30 minutes
+doc-estrazione-tabella: 3     # omits the senior technician (hourly labour)
+doc-multi-persona: 2          # claims Marinelli does NOT appear in the incident report: false ("Reviewed by")
+sum-email-3punti: 4
+sum-incident-50w: 5
+sum-verbale-decisioni: 5
+sum-es-in-italiano: 5
+sum-manuale-sezioni: 4
+sum-fedelta-trappola: 4
+hal-cf-assente: 5
+hal-telefono-assente: 3       # right content, wrong language (Italian to an English question)
+hal-premessa-falsa: 5         # corrects and calculates the €18
+hal-senza-contesto: 4
+hal-data-inventata: 3         # right content, wrong language
+hal-prezzo-assente: 5
+hal-citazione-sezione: 5
+img-rapporto-descrizione: 5
+img-grafico-tendenza: 5
+img-tabella-confronto: 5
+img-fattura-assente: 5
+wr-email-cliente-it: 5
+wr-report-en-struttura: 5
+wr-propuesta-es: 5            # also calculates the €1,680 total
+wr-riscrittura-tono: 3        # asked for one rewrite, gives three and gets truncated
+wr-faq-generate: 2            # FAQ in Italian instead of English (UK handbook for UK employees)
+wr-vincoli-formali: 4
+ml-it-su-es: 5
+ml-en-su-it: 5
+ml-es-su-en: 5
+ml-traduzione-it-en: 3        # three versions + glossary when one was needed; high quality
+ml-traduzione-en-es: 4        # excellent translation + unrequested notes
+ml-istruzione-lingua: 5
+ml-registro-it: 5
+ml-idiomi-en: 5
+tool-ambiguo-chiede: 4        # cerca_cliente("Valencia"): acceptable
+rag-python: 4                 # correct logic, examples truncated

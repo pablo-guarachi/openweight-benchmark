@@ -1,0 +1,995 @@
+{
+  "summary": {
+    "model": "gemma4:e4b",
+    "file": "20261021-131002_all_u1.json",
+    "auto_pass": 65,
+    "auto_total": 78,
+    "errors": 0,
+    "by_category": {
+      "02-conversation": "4/4",
+      "03-documents": "16/18",
+      "04-summaries": "6/6",
+      "05-hallucinations": "8/9",
+      "06-images": "7/10",
+      "07-writing": "4/6",
+      "08-multilingual": "7/8",
+      "09-tools": "8/9",
+      "10-reasoning": "5/8"
+    }
+  },
+  "rows": [
+    {
+      "id": "vel-short-it",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 90.0,
+      "ttft_s": 12.126,
+      "in_tokens": 30
+    },
+    {
+      "id": "vel-short-en",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 96.4,
+      "ttft_s": 0.062,
+      "in_tokens": 23
+    },
+    {
+      "id": "vel-medium-gen",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 93.8,
+      "ttft_s": 0.082,
+      "in_tokens": 42
+    },
+    {
+      "id": "vel-long-gen",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 93.5,
+      "ttft_s": 0.072,
+      "in_tokens": 46
+    },
+    {
+      "id": "vel-doc-4k",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 122.2,
+      "ttft_s": 0.992,
+      "in_tokens": 2583
+    },
+    {
+      "id": "vel-doc-12k",
+      "category": "01-speed",
+      "passed": null,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 116.1,
+      "ttft_s": 14.363,
+      "in_tokens": 10644
+    },
+    {
+      "id": "conv-memoria-it",
+      "category": "02-conversation",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 95.9,
+      "ttft_s": 10.156,
+      "in_tokens": 171
+    },
+    {
+      "id": "conv-cambio-tema-en",
+      "category": "02-conversation",
+      "passed": null,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 101.2,
+      "ttft_s": 0.1,
+      "in_tokens": 128
+    },
+    {
+      "id": "conv-riferimento-pronome-it",
+      "category": "02-conversation",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 123.6,
+      "ttft_s": 0.313,
+      "in_tokens": 733
+    },
+    {
+      "id": "conv-support-es",
+      "category": "02-conversation",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 119.3,
+      "ttft_s": 0.133,
+      "in_tokens": 167
+    },
+    {
+      "id": "conv-correzione-it",
+      "category": "02-conversation",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 141.9,
+      "ttft_s": 0.39,
+      "in_tokens": 1015
+    },
+    {
+      "id": "conv-tono-en",
+      "category": "02-conversation",
+      "passed": null,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 84.8,
+      "ttft_s": 0.099,
+      "in_tokens": 73
+    },
+    {
+      "id": "doc-contratto-recesso",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 156.9,
+      "ttft_s": 0.392,
+      "in_tokens": 967
+    },
+    {
+      "id": "doc-contratto-penale-cross",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 119.5,
+      "ttft_s": 0.41,
+      "in_tokens": 1938
+    },
+    {
+      "id": "doc-email-ricambio",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 130.3,
+      "ttft_s": 0.448,
+      "in_tokens": 1041
+    },
+    {
+      "id": "doc-verbale-fornitore",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 131.0,
+      "ttft_s": 0.353,
+      "in_tokens": 823
+    },
+    {
+      "id": "doc-procedura-incidenti",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 177.5,
+      "ttft_s": 0.402,
+      "in_tokens": 967
+    },
+    {
+      "id": "doc-quotation-total",
+      "category": "03-documents",
+      "passed": false,
+      "failed": [
+        "contains_all"
+      ],
+      "grade": false,
+      "error": false,
+      "tok_s": 97.3,
+      "ttft_s": 0.351,
+      "in_tokens": 834
+    },
+    {
+      "id": "doc-quotation-warranty",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 102.1,
+      "ttft_s": 0.078,
+      "in_tokens": 827
+    },
+    {
+      "id": "doc-incident-riddor",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 98.2,
+      "ttft_s": 0.337,
+      "in_tokens": 753
+    },
+    {
+      "id": "doc-handbook-carryover",
+      "category": "03-documents",
+      "passed": false,
+      "failed": [
+        "contains_all"
+      ],
+      "grade": false,
+      "error": false,
+      "tok_s": 93.6,
+      "ttft_s": 0.279,
+      "in_tokens": 638
+    },
+    {
+      "id": "doc-es-pagos",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 114.2,
+      "ttft_s": 0.688,
+      "in_tokens": 1733
+    },
+    {
+      "id": "doc-estrazione-tabella",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 155.8,
+      "ttft_s": 0.341,
+      "in_tokens": 709
+    },
+    {
+      "id": "doc-multi-persona",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 129.7,
+      "ttft_s": 0.917,
+      "in_tokens": 2386
+    },
+    {
+      "id": "long-8k-e47",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 151.5,
+      "ttft_s": 1.361,
+      "in_tokens": 3599
+    },
+    {
+      "id": "long-16k-sbrinamento",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 156.1,
+      "ttft_s": 14.857,
+      "in_tokens": 12393
+    },
+    {
+      "id": "long-16k-assente",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 118.3,
+      "ttft_s": 0.167,
+      "in_tokens": 12387
+    },
+    {
+      "id": "long-32k-legionella",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 115.5,
+      "ttft_s": 25.351,
+      "in_tokens": 32342
+    },
+    {
+      "id": "long-32k-gas",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 124.3,
+      "ttft_s": 0.299,
+      "in_tokens": 32343
+    },
+    {
+      "id": "long-32k-multi",
+      "category": "03-documents",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 113.3,
+      "ttft_s": 0.315,
+      "in_tokens": 32387
+    },
+    {
+      "id": "sum-email-3punti",
+      "category": "04-summaries",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 125.2,
+      "ttft_s": 10.543,
+      "in_tokens": 1039
+    },
+    {
+      "id": "sum-incident-50w",
+      "category": "04-summaries",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 72.9,
+      "ttft_s": 0.32,
+      "in_tokens": 746
+    },
+    {
+      "id": "sum-verbale-decisioni",
+      "category": "04-summaries",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 162.2,
+      "ttft_s": 0.342,
+      "in_tokens": 830
+    },
+    {
+      "id": "sum-es-in-italiano",
+      "category": "04-summaries",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 113.1,
+      "ttft_s": 0.342,
+      "in_tokens": 836
+    },
+    {
+      "id": "sum-manuale-sezioni",
+      "category": "04-summaries",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 101.8,
+      "ttft_s": 1.041,
+      "in_tokens": 2749
+    },
+    {
+      "id": "sum-fedelta-trappola",
+      "category": "04-summaries",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 138.7,
+      "ttft_s": 0.306,
+      "in_tokens": 660
+    },
+    {
+      "id": "hal-cf-assente",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 148.0,
+      "ttft_s": 0.394,
+      "in_tokens": 955
+    },
+    {
+      "id": "hal-telefono-assente",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 145.4,
+      "ttft_s": 0.356,
+      "in_tokens": 822
+    },
+    {
+      "id": "hal-premessa-falsa",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 132.8,
+      "ttft_s": 0.404,
+      "in_tokens": 981
+    },
+    {
+      "id": "hal-entita-confusa",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 136.1,
+      "ttft_s": 0.355,
+      "in_tokens": 818
+    },
+    {
+      "id": "hal-senza-contesto",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 93.3,
+      "ttft_s": 0.078,
+      "in_tokens": 51
+    },
+    {
+      "id": "hal-data-inventata",
+      "category": "05-hallucinations",
+      "passed": false,
+      "failed": [
+        "contains_any"
+      ],
+      "grade": true,
+      "error": false,
+      "tok_s": 84.0,
+      "ttft_s": 0.315,
+      "in_tokens": 748
+    },
+    {
+      "id": "hal-prezzo-assente",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 98.4,
+      "ttft_s": 0.31,
+      "in_tokens": 692
+    },
+    {
+      "id": "hal-citazione-sezione",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 104.0,
+      "ttft_s": 1.083,
+      "in_tokens": 2922
+    },
+    {
+      "id": "hal-coerenza-numerica",
+      "category": "05-hallucinations",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 88.8,
+      "ttft_s": 0.37,
+      "in_tokens": 840
+    },
+    {
+      "id": "img-fattura-campi",
+      "category": "06-images",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 158.2,
+      "ttft_s": 1.452,
+      "in_tokens": 1102
+    },
+    {
+      "id": "img-fattura-iban",
+      "category": "06-images",
+      "passed": false,
+      "failed": [
+        "contains_any"
+      ],
+      "grade": false,
+      "error": false,
+      "tok_s": 155.4,
+      "ttft_s": 0.24,
+      "in_tokens": 1094
+    },
+    {
+      "id": "img-rapporto-campi",
+      "category": "06-images",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 136.6,
+      "ttft_s": 1.143,
+      "in_tokens": 1019
+    },
+    {
+      "id": "img-rapporto-descrizione",
+      "category": "06-images",
+      "passed": false,
+      "failed": [
+        "contains_all"
+      ],
+      "grade": true,
+      "error": false,
+      "tok_s": 96.3,
+      "ttft_s": 0.181,
+      "in_tokens": 1005
+    },
+    {
+      "id": "img-grafico-massimo",
+      "category": "06-images",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 126.7,
+      "ttft_s": 0.426,
+      "in_tokens": 382
+    },
+    {
+      "id": "img-grafico-tendenza",
+      "category": "06-images",
+      "passed": false,
+      "failed": [
+        "contains_any"
+      ],
+      "grade": true,
+      "error": false,
+      "tok_s": 97.3,
+      "ttft_s": 0.391,
+      "in_tokens": 384
+    },
+    {
+      "id": "img-tabella-confronto",
+      "category": "06-images",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 134.6,
+      "ttft_s": 0.375,
+      "in_tokens": 338
+    },
+    {
+      "id": "img-targhetta-seriale",
+      "category": "06-images",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 160.7,
+      "ttft_s": 0.376,
+      "in_tokens": 290
+    },
+    {
+      "id": "img-targhetta-potenza",
+      "category": "06-images",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 114.0,
+      "ttft_s": 0.361,
+      "in_tokens": 291
+    },
+    {
+      "id": "img-fattura-assente",
+      "category": "06-images",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 120.8,
+      "ttft_s": 0.266,
+      "in_tokens": 1092
+    },
+    {
+      "id": "wr-email-cliente-it",
+      "category": "07-writing",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 111.2,
+      "ttft_s": 0.472,
+      "in_tokens": 1089
+    },
+    {
+      "id": "wr-report-en-struttura",
+      "category": "07-writing",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 120.8,
+      "ttft_s": 0.345,
+      "in_tokens": 777
+    },
+    {
+      "id": "wr-propuesta-es",
+      "category": "07-writing",
+      "passed": false,
+      "failed": [
+        "contains_all"
+      ],
+      "grade": true,
+      "error": false,
+      "tok_s": 90.7,
+      "ttft_s": 0.615,
+      "in_tokens": 1516
+    },
+    {
+      "id": "wr-riscrittura-tono",
+      "category": "07-writing",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 103.9,
+      "ttft_s": 0.101,
+      "in_tokens": 85
+    },
+    {
+      "id": "wr-faq-generate",
+      "category": "07-writing",
+      "passed": false,
+      "failed": [
+        "contains_any"
+      ],
+      "grade": true,
+      "error": false,
+      "tok_s": 99.4,
+      "ttft_s": 0.297,
+      "in_tokens": 659
+    },
+    {
+      "id": "wr-vincoli-formali",
+      "category": "07-writing",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 115.8,
+      "ttft_s": 0.113,
+      "in_tokens": 94
+    },
+    {
+      "id": "ml-it-su-es",
+      "category": "08-multilingual",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 120.2,
+      "ttft_s": 0.203,
+      "in_tokens": 825
+    },
+    {
+      "id": "ml-en-su-it",
+      "category": "08-multilingual",
+      "passed": false,
+      "failed": [
+        "contains_any",
+        "lang"
+      ],
+      "grade": true,
+      "error": false,
+      "tok_s": 155.7,
+      "ttft_s": 0.425,
+      "in_tokens": 964
+    },
+    {
+      "id": "ml-es-su-en",
+      "category": "08-multilingual",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 109.6,
+      "ttft_s": 0.296,
+      "in_tokens": 639
+    },
+    {
+      "id": "ml-traduzione-it-en",
+      "category": "08-multilingual",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 139.2,
+      "ttft_s": 0.093,
+      "in_tokens": 96
+    },
+    {
+      "id": "ml-traduzione-en-es",
+      "category": "08-multilingual",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 125.9,
+      "ttft_s": 0.089,
+      "in_tokens": 77
+    },
+    {
+      "id": "ml-istruzione-lingua",
+      "category": "08-multilingual",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 130.9,
+      "ttft_s": 0.304,
+      "in_tokens": 661
+    },
+    {
+      "id": "ml-registro-it",
+      "category": "08-multilingual",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 102.4,
+      "ttft_s": 0.103,
+      "in_tokens": 107
+    },
+    {
+      "id": "ml-idiomi-en",
+      "category": "08-multilingual",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 93.8,
+      "ttft_s": 0.093,
+      "in_tokens": 94
+    },
+    {
+      "id": "tool-ticket-urgente",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 167.4,
+      "ttft_s": 0.571,
+      "in_tokens": 395
+    },
+    {
+      "id": "tool-pianifica-data",
+      "category": "09-tools",
+      "passed": false,
+      "failed": [
+        "tool"
+      ],
+      "grade": false,
+      "error": false,
+      "tok_s": 115.4,
+      "ttft_s": 0.473,
+      "in_tokens": 401
+    },
+    {
+      "id": "tool-nessuno-necessario",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 83.0,
+      "ttft_s": 0.891,
+      "in_tokens": 384
+    },
+    {
+      "id": "tool-email-da-doc",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 118.3,
+      "ttft_s": 1.497,
+      "in_tokens": 1401
+    },
+    {
+      "id": "tool-ambiguo-chiede",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 110.6,
+      "ttft_s": 0.95,
+      "in_tokens": 371
+    },
+    {
+      "id": "json-contratto",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 151.8,
+      "ttft_s": 0.432,
+      "in_tokens": 1030
+    },
+    {
+      "id": "json-quotation",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 169.8,
+      "ttft_s": 0.376,
+      "in_tokens": 888
+    },
+    {
+      "id": "json-lista-decisioni",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 153.0,
+      "ttft_s": 0.365,
+      "in_tokens": 849
+    },
+    {
+      "id": "json-enum-classifica",
+      "category": "09-tools",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 170.8,
+      "ttft_s": 0.128,
+      "in_tokens": 145
+    },
+    {
+      "id": "rag-penale-3gg",
+      "category": "10-reasoning",
+      "passed": false,
+      "failed": [
+        "contains_any"
+      ],
+      "grade": false,
+      "error": false,
+      "tok_s": 127.3,
+      "ttft_s": 0.412,
+      "in_tokens": 981
+    },
+    {
+      "id": "rag-deposit-uk",
+      "category": "10-reasoning",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 130.5,
+      "ttft_s": 0.372,
+      "in_tokens": 828
+    },
+    {
+      "id": "rag-date-consegna",
+      "category": "10-reasoning",
+      "passed": false,
+      "failed": [
+        "contains_any"
+      ],
+      "grade": false,
+      "error": false,
+      "tok_s": 130.7,
+      "ttft_s": 0.564,
+      "in_tokens": 1734
+    },
+    {
+      "id": "rag-ferie",
+      "category": "10-reasoning",
+      "passed": false,
+      "failed": [
+        "contains_all"
+      ],
+      "grade": false,
+      "error": false,
+      "tok_s": 95.3,
+      "ttft_s": 0.346,
+      "in_tokens": 664
+    },
+    {
+      "id": "rag-logica",
+      "category": "10-reasoning",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 134.0,
+      "ttft_s": 0.098,
+      "in_tokens": 89
+    },
+    {
+      "id": "rag-aritmetica-contratto",
+      "category": "10-reasoning",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 132.5,
+      "ttft_s": 0.665,
+      "in_tokens": 1616
+    },
+    {
+      "id": "rag-sql",
+      "category": "10-reasoning",
+      "passed": true,
+      "failed": [],
+      "grade": false,
+      "error": false,
+      "tok_s": 137.0,
+      "ttft_s": 0.1,
+      "in_tokens": 72
+    },
+    {
+      "id": "rag-python",
+      "category": "10-reasoning",
+      "passed": true,
+      "failed": [],
+      "grade": true,
+      "error": false,
+      "tok_s": 134.1,
+      "ttft_s": 0.08,
+      "in_tokens": 83
+    }
+  ]
+}

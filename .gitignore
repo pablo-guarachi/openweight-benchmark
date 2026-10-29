@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+*.gguf
+*.safetensors
+models/
+results/raw/
+open-webui-data/
+results/*.log
+.impeccable/

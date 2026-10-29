@@ -1,0 +1,177 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "tag": "local",
+    "backend": "ollama",
+    "users": 1,
+    "think": false,
+    "suites": [
+      "02-conversazione"
+    ],
+    "n": 6,
+    "errors": 0,
+    "wall_s": 24.8,
+    "avg_ttft_s": 0.4,
+    "avg_tok_s": 51.9,
+    "server_tok_s": 46.4,
+    "vram_before_mb": 7456,
+    "vram_peak_mb": 7456,
+    "timestamp": "2026-10-21T11:12:58"
+  },
+  "results": [
+    {
+      "id": "conv-memoria-it",
+      "category": "02-conversazione",
+      "lang": "it",
+      "expected": "Deve ricordare che il cliente si chiama Paolo, ha 6 punti vendita e il problema è un chiller a Porto Recanati; propone un passo concreto.",
+      "check": {
+        "contains_all": [
+          "Porto Recanati"
+        ],
+        "contains_any": [
+          "sei",
+          "6"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Gentile Sig. Bianchi, grazie per aver fornito il numero del contratto **2026/114**.\n\nEcco la situazione immediata e le azioni che stiamo attivando:\n\n**1. Situazione di Emergenza:**\nLa mancanza di refrigerazione con temperature interne a 29°C rappresenta un rischio critico per la sicurezza alimentare (rischio di deperimento delle merci) e per il comfort dei clienti. Considerando l'urgenza, **abbiamo già inviato una squadra di emergenza** che partirà immediatamente per recarsi al punto vendita di Porto Recanati.\n\n**2. Cosa succede adesso:**\n*   **Intervento sul posto:** Il tecnico arriverà nel più breve tempo possibile (dipende dalla distanza operativa della nostra officina, ma l'obiettivo è essere lì entro le prossime ore).\n*   **Diagnosi rapida:** Una volta giunti, il tecnico valuterà se si tratta di una semplice anomalia (es. perdita di gas, blocco compressore) o se è necessario un intervento più complesso.\n*   **Soluzione temporanea:** Se l'attrezzatura non può essere riparata immediatamente, attiviamo la procedura per fornire un chiller di sostituzione o un supporto refrigerativo temporaneo per proteggere le merci e garantire il servizio al cliente nel frattempo.\n\n**3. Prossimi passi:**\nLe invierò un SMS con il numero del tecnico che interverrà e l'orario stimato di arrivo. Nel frattempo, se ha modo di contattare direttamente la direzione del negozio o i responsabili della sicurezza alimentare, informiamoli che siamo già in movimento per risolvere la questione.\n\nResto a sua disposizione per qualsiasi altro chiarimento. In attesa di un suo riscontro, cordiali saluti.\n\n**Rossi Impianti Srl - Servizio Clienti Urgenze**",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.697,
+      "total_s": 8.074,
+      "in_tokens": 174,
+      "out_tokens": 381,
+      "tok_s": 51.6,
+      "prompt_tok_s": 595.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-cambio-tema-en",
+      "category": "02-conversazione",
+      "lang": "en",
+      "expected": "Deve tornare al tema iniziale (preventivo pompa di calore 16 kW per uno studio dentistico) e rispondere alla domanda sulla garanzia senza perdere il contesto, chiedendo o indicando che la garanzia standard è 5 anni macchina / 2 manodopera se lo sa, oppure dicendo che dipende dal preventivo.",
+      "check": null,
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "For a 16 kW heat pump installation in your dental practice, the warranty you receive will depend heavily on two main factors: the **brand of the unit** and the **installer's accreditation**.\n\nHere is what you can typically expect:\n\n*   **Manufacturer Warranty**: Most reputable brands (like Daikin, Mitsubishi, Viessmann, or Airwell) offer a standard **7-year parts warranty** on their heat pump units. Some premium models may come with 10 years or even lifetime warranties on specific components like the compressor, but this is less common for commercial-sized units unless you purchase an extended package.\n*   **Installer Warranty**: This is often more critical than the manufacturer's warranty. If you use an installer who is accredited by schemes like **NAPIT** or **STROMA**, they can often provide a separate **10-year installation warranty**. This covers labor and any faults arising from the installation work itself, which is distinct from the unit's internal components.\n*   **Commercial vs. Domestic**: Since this is for a dental practice (a commercial application), ensure you clarify if the warranty terms are specifically designed for commercial use, as some domestic warranties may have different exclusions or claim processes for business premises.\n\nTo get the exact figures, I would need to know which specific model you are considering or which installer you plan to use, as their specific guarantee packages will vary. Would you like me to help you compare a few popular models available in Leicester that fit your 16 kW requirement?",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.18,
+      "total_s": 6.194,
+      "in_tokens": 129,
+      "out_tokens": 312,
+      "tok_s": 51.9,
+      "prompt_tok_s": 1090.2,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-riferimento-pronome-it",
+      "category": "02-conversazione",
+      "lang": "it",
+      "expected": "“Lo” si riferisce al tecnico senior Luca Fabbri; deve rispondere che costa 55 €/ora (dal listino) e non confondere con il tecnico base (42).",
+      "check": {
+        "contains_any": [
+          "55"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Secondo il documento fornito, il costo per l'intervento di un tecnico senior (che copre pompe di calore) è di **55,00 € all'ora**.\n\nTuttavia, il listino specifica che:\n*   La prima ora è sempre fatturata per intero.\n*   Le ore successive vengono fatturate a frazioni di 30 minuti.\n*   A questo prezzo si aggiungono eventuali costi fissi come il \"Diritto di chiamata\" (35,00 €) e il chilometraggio se l'intervento avviene oltre i 30 km dalla sede.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.482,
+      "total_s": 2.998,
+      "in_tokens": 710,
+      "out_tokens": 131,
+      "tok_s": 52.1,
+      "prompt_tok_s": 1700.4,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-support-es",
+      "category": "02-conversazione",
+      "lang": "es",
+      "expected": "Risponde in spagnolo, cortese, ricorda che il pannello arriva il 31 luglio e che la formazione è il 20 agosto; non inventa dati nuovi.",
+      "check": {
+        "contains_any": [
+          "31 de julio",
+          "31/07",
+          "31 julio"
+        ],
+        "contains_all": [
+          "20 de agosto"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Esperar un panel lateral nuevo para la unidad abollada, con entrega prevista el 31 de julio. Además, confirmamos su formación técnica programada del 20 al 24 de agosto.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.24,
+      "total_s": 1.104,
+      "in_tokens": 172,
+      "out_tokens": 45,
+      "tok_s": 52.1,
+      "prompt_tok_s": 1149.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-correzione-it",
+      "category": "02-conversazione",
+      "lang": "it",
+      "expected": "Deve accettare la correzione dell'utente (il numero giusto è 4 interventi, non 6), scusarsi brevemente e ricalcolare con 4.",
+      "check": {
+        "contains_any": [
+          "4 interventi",
+          "quattro interventi",
+          "4 visite",
+          "quattro visite"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Hai ragione, mi scuso per l'errore precedente. Basandomi esclusivamente sul documento fornito:\n\n*   **Interventi per punto vendita:** Il contratto include **4** interventi di manutenzione programmata all'anno per ciascun punto vendita (uno per trimestre), come specificato nell'**Art. 3**.\n*   **Totale per tutti i punti vendita:** Poiché il contratto copre **6** punti vendita (come indicato nell'**Art. 1**), il numero totale degli interventi programmati all'anno è di **24** (4 interventi x 6 punti vendita).",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.614,
+      "total_s": 3.004,
+      "in_tokens": 977,
+      "out_tokens": 124,
+      "tok_s": 51.9,
+      "prompt_tok_s": 1757.3,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-tono-en",
+      "category": "02-conversazione",
+      "lang": "en",
+      "expected": "Tono empatico ma professionale, non promette ciò che non può (es. tempi precisi), propone un'azione (es. raccogliere dettagli, verificare il contratto). Deve rispondere in inglese.",
+      "check": null,
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "I sincerely apologize for the disruption this has caused your practice, particularly given the urgency of your situation with patients in a cold building. This is unacceptable, and we take full responsibility.\n\nHere is our immediate action plan:\n\n1.  **Urgent Dispatch:** I am personally authorizing an engineer to travel directly to your site in Leicester within the next hour.\n2.  **Direct Contact:** You will receive a call from this engineer immediately upon arrival confirmation, and they will contact you again once on-site.\n3.  **Compensation:** We will process a full refund for the missed appointment today and offer a discount on future services as a gesture of goodwill.\n\nPlease keep your phone line open; our team is prioritizing your call above all others right now.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.161,
+      "total_s": 3.221,
+      "in_tokens": 76,
+      "out_tokens": 159,
+      "tok_s": 52.0,
+      "prompt_tok_s": 788.8,
+      "load_s": 0.0,
+      "error": null
+    }
+  ]
+}

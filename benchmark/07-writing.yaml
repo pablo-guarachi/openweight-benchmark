@@ -1,0 +1,53 @@
+# Complex writing: structured texts with constraints. Rubric 1-5 + format checks.
+tests:
+  - id: wr-email-cliente-it
+    lang: it
+    grade: true
+    max_tokens: 500
+    doc: [docs/it-email-ritardo-bianchi.md]
+    prompt: "Scrivi, a nome di Davide Marinelli, l'email con cui propone a Paolo Bianchi le date del controllo straordinario gratuito: 2 e 3 dicembre 2026, tre punti vendita al giorno. Massimo 150 parole, tono professionale e cordiale, chiudi chiedendo conferma entro il 20 novembre."
+    expected: "Email consistent with the thread: mentions 2-3 December, 3 stores per day, confirmation by 20 November, signed by Marinelli, ≤150 words, no invented details."
+    check: {max_words: 170, contains_all: ["dicembre", "20 novembre"], contains_any: ["Marinelli"]}
+
+  - id: wr-report-en-struttura
+    lang: en
+    grade: true
+    max_tokens: 700
+    doc: [docs/en-incident-report-2026-07-14.md]
+    prompt: "Rewrite this incident as a short management briefing with exactly these four headings: Summary, Root causes, Actions taken, Recommendations. Under Recommendations add two new suggestions not in the report. Keep it under 250 words."
+    expected: "4 exact headings, faithful content, 2 new and sensible recommendations, ≤250 words."
+    check: {max_words: 280, contains_all: ["Summary", "Root causes", "Actions taken", "Recommendations"]}
+
+  - id: wr-propuesta-es
+    lang: es
+    grade: true
+    max_tokens: 600
+    doc: [docs/es-contrato-ES-2026-07.md, docs/it-listino-2026.md]
+    prompt: "Escribe una breve propuesta comercial (máximo 200 palabras) para ofrecer a Climatizaciones Soler un contrato anual de mantenimiento de las 12 bombas de calor, con un precio a tanto alzado de 140 € por unidad y año, visita anual incluida, y un 10% de descuento en repuestos. Tono formal, estructura con título, 3 párrafos y una llamada a la acción."
+    expected: "Correct Spanish, €140/unit (total €1,680), 10% off parts, title + 3 paragraphs + CTA, ≤200 words."
+    check: {max_words: 230, contains_all: ["140", "10%"]}
+
+  - id: wr-riscrittura-tono
+    lang: it
+    grade: true
+    max_tokens: 400
+    prompt: "Riscrivi questo messaggio in tono formale e cortese, mantenendo tutte le informazioni: «Oh ragazzi, il furgone nuovo quando arriva?? Marinelli dice entro ottobre ma siamo già al 15 e niente. Mi serve per il cantiere di Recanati lunedì, se no vado con la macchina mia e mi pagate la benzina.»"
+    expected: "Formal and complete (van, October, the 15th, Recanati on Monday, alternative of using own car with fuel refund); no information lost or added."
+    check: {contains_all: ["Recanati", "ottobre"], not_contains: ["ragazzi", "??"]}
+
+  - id: wr-faq-generate
+    lang: en
+    grade: true
+    max_tokens: 700
+    doc: [docs/en-uk-handbook-leave.md]
+    prompt: "Turn Section 6 of this handbook into 6 FAQ entries for new employees. Each entry: a question in bold, an answer of at most 2 sentences. Do not add rules that are not in the text."
+    expected: "6 faithful Q&As (25 days + bank holidays, 1 Apr-31 Mar, 2 weeks' notice, 5 days carried over to be used by 30 June, max 2 on leave at the same time in peak season, sickness - call by 8:00, fit note from day 8)."
+    check: {contains_all: ["25", "5"], contains_any: ["30 June"]}
+
+  - id: wr-vincoli-formali
+    lang: it
+    grade: true
+    max_tokens: 400
+    prompt: "Scrivi un avviso per i clienti sulla chiusura estiva dell'ufficio dal 10 al 21 agosto 2026. Vincoli: titolo di massimo 8 parole, poi esattamente 3 punti elenco, poi una riga finale con il numero di reperibilità +39 333 1234567 (solo clienti con contratto). Niente altro."
+    expected: "Follows the structure exactly (title ≤8 words, 3 bullets, final line with the number). Closure 10-21 August."
+    check: {bullets: 3, contains_all: ["+39 333 1234567"], contains_any: ["10", "21"]}

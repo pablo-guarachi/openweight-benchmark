@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open-weight LLM Test Report</title>
+<meta name="description" content="Which open-weight LLM is good enough to run privately on a 12 GB consumer GPU? 86 tests, 10 models, automatic checks plus manual grades, and the ways the models failed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@400;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --page: #e9ecef;
+  --sheet: #fbfcfc;
+  --ink: #101418;
+  --ink-2: #49525c;
+  --muted: #6b7480;
+  --rule: #c9d0d7;
+  --rule-strong: #101418;
+  --wash: #eef2f6;
+  --blue: #1f5fb8;
+  --blue-wash: #e3edf9;
+  --carmine: #b4233a;
+  --carmine-wash: #f8e8eb;
+  --sel: #cfe0f7;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0b0e12;
+    --sheet: #13181e;
+    --ink: #e8ecf0;
+    --ink-2: #b3bcc6;
+    --muted: #8a94a0;
+    --rule: #2b333c;
+    --rule-strong: #c9d0d7;
+    --wash: #1a2028;
+    --blue: #6ea3ec;
+    --blue-wash: #17263a;
+    --carmine: #f07a8c;
+    --carmine-wash: #2e1a1f;
+    --sel: #23406a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0b0e12; --sheet: #13181e; --ink: #e8ecf0; --ink-2: #b3bcc6; --muted: #8a94a0;
+  --rule: #2b333c; --rule-strong: #c9d0d7; --wash: #1a2028; --blue: #6ea3ec; --blue-wash: #17263a;
+  --carmine: #f07a8c; --carmine-wash: #2e1a1f; --sel: #23406a;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--serif);
+  font-optical-sizing: auto;
+}
+::selection { background: var(--sel); color: var(--ink); }
+a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+code, .mono { font-family: var(--mono); font-size: 0.86em; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--sheet); padding: 8px 12px; z-index: 10; font-family: var(--sans); }
+.skip:focus { left: 16px; top: 16px; }
+
+/* ---------- the sheet ---------- */
+.sheet {
+  max-width: 1120px;
+  margin: 32px auto 48px;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 12px 32px -12px rgb(0 0 0 / 0.12);
+  padding: 0 0 8px;
+}
+.running-head {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 10px 40px;
+  border-bottom: 1px solid var(--rule);
+  font: 600 0.8rem/1.4 var(--sans);
+  letter-spacing: 0.02em; color: var(--muted);
+}
+.running-head .mono { text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 0.75rem; }
+
+header.title-block { padding: 40px 40px 0; }
+.title-block h1 {
+  font: 800 clamp(2rem, 4.4vw, 3.25rem)/1.05 var(--sans);
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+.title-block .dek {
+  font: 400 1.25rem/1.45 var(--serif);
+  color: var(--ink-2);
+  max-width: 58ch;
+  margin: 0 0 32px;
+}
+
+/* particulars grid: the certificate's ruled table */
+.particulars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 2px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule);
+  margin: 0;
+}
+.particulars div { padding: 12px 16px 14px 0; border-bottom: 1px solid var(--rule); }
+.particulars div:nth-last-child(-n+3) { border-bottom: 0; }
+.particulars div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.particulars div:nth-child(3n+1) { border-left: 0; padding-left: 0; }
+.particulars dt { font: 600 0.7rem/1.3 var(--sans); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.particulars dd { margin: 0; font: 400 0.95rem/1.45 var(--sans); }
+
+/* layout: contents rail + column */
+.body { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 48px; padding: 40px 40px 24px; }
+nav.contents { position: sticky; top: 24px; align-self: start; font-family: var(--sans); }
+nav.contents h2 { font: 600 0.7rem/1.3 var(--sans); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+nav.contents ol { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--rule); }
+nav.contents a {
+  display: block; padding: 6px 0 6px 14px; margin-left: -1px;
+  border-left: 2px solid transparent;
+  color: var(--ink-2); text-decoration: none; font-size: 0.9rem; line-height: 1.35;
+}
+nav.contents a:hover { color: var(--ink); }
+nav.contents a[aria-current="true"] { color: var(--ink); border-left-color: var(--blue); font-weight: 600; }
+nav.contents .clause { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); margin-right: 6px; }
+.repo-links { margin-top: 28px; font-size: 0.88rem; line-height: 1.7; }
+.repo-links a { display: block; }
+
+main { min-width: 0; }
+section { padding-bottom: 8px; margin-bottom: 48px; scroll-margin-top: 20px; }
+section > h2 {
+  display: flex; align-items: baseline; gap: 14px;
+  font: 700 1.6rem/1.2 var(--sans); letter-spacing: -0.015em;
+  margin: 0 0 18px; padding-top: 14px; border-top: 2px solid var(--rule-strong);
+  text-wrap: balance;
+}
+section > h2 .clause { font: 600 0.9rem/1 var(--mono); color: var(--muted); min-width: 1.8em; }
+h3 { font: 700 1.08rem/1.3 var(--sans); margin: 32px 0 8px; letter-spacing: -0.005em; }
+p, ul, ol { max-width: 68ch; }
+p { margin: 0 0 14px; }
+li { margin-bottom: 6px; }
+.lede { font-size: 1.2rem; line-height: 1.5; }
+
+/* verdict: the certificate's statement of result */
+.verdict {
+  border: 1px solid var(--rule-strong);
+  padding: 20px 22px 18px;
+  margin: 4px 0 28px;
+  max-width: 72ch;
+  position: relative;
+}
+.verdict .label { font: 700 0.7rem/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 10px; }
+.verdict p { font-size: 1.16rem; line-height: 1.5; margin: 0 0 10px; }
+.verdict p:last-child { margin: 0; }
+.pass-word { color: var(--blue); font-weight: 600; }
+.fail-word { color: var(--carmine); font-weight: 600; }
+
+/* evidence references: the numeral that ties a claim to its file */
+.ref {
+  font: 400 0.78rem/1 var(--mono);
+  color: var(--muted);
+  white-space: nowrap;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+}
+.ref:hover { color: var(--blue); border-bottom-color: var(--blue); }
+.source { font: 400 0.8rem/1.5 var(--mono); color: var(--muted); margin: 6px 0 0; max-width: none; overflow-wrap: anywhere; }
+.source a { color: var(--muted); }
+.source a:hover { color: var(--blue); }
+
+/* figures */
+figure { margin: 24px 0 32px; }
+figure picture, figure img { display: block; width: 100%; height: auto; }
+figure img { border: 1px solid var(--rule); background: var(--sheet); }
+figcaption { font: 400 0.92rem/1.5 var(--sans); color: var(--ink-2); margin-top: 10px; max-width: 72ch; }
+figcaption b { color: var(--ink); font-weight: 700; margin-right: 6px; }
+
+/* results schedule */
+.table-wrap { overflow-x: auto; margin: 16px 0 6px; border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); }
+table { border-collapse: collapse; width: 100%; font: 400 0.9rem/1.35 var(--sans); font-variant-numeric: tabular-nums; }
+caption { text-align: left; font: 600 0.7rem/1.3 var(--sans); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); padding: 0 0 8px; caption-side: top; }
+th, td { padding: 9px 10px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; padding-left: 0; }
+thead th { font: 600 0.72rem/1.3 var(--sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); vertical-align: bottom; }
+thead th button { all: unset; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+thead th button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+thead th button:hover { color: var(--ink); }
+thead th[aria-sort] button::after { content: ""; width: 0; height: 0; border: 4px solid transparent; }
+thead th[aria-sort="descending"] button::after { border-top-color: currentColor; margin-top: 4px; }
+thead th[aria-sort="ascending"] button::after { border-bottom-color: currentColor; margin-bottom: 4px; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr.usable td { background: var(--blue-wash); }
+tbody tr.usable td:first-child { font-weight: 700; }
+td .note { font-size: 0.78rem; color: var(--muted); margin-left: 6px; font-weight: 400; }
+td.low { color: var(--carmine); font-weight: 600; }
+.table-key { font: 400 0.82rem/1.5 var(--sans); color: var(--muted); max-width: 80ch; }
+
+/* findings list */
+ol.findings { padding-left: 0; list-style: none; counter-reset: f; }
+ol.findings > li { counter-increment: f; position: relative; padding-left: 2.6em; margin-bottom: 16px; }
+ol.findings > li::before { content: counter(f); position: absolute; left: 0; top: 0.1em; font: 600 0.82rem/1.6 var(--mono); color: var(--muted); }
+ol.findings strong { font-family: var(--sans); font-weight: 700; }
+
+/* failure modes: examiner's ink */
+.failures { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.failure { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 0 12px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
+.failure .fid { font: 600 0.82rem/1.6 var(--mono); color: var(--carmine); padding-top: 2px; }
+.failure h3 { margin: 0 0 4px; }
+.failure .meta { font: 400 0.82rem/1.5 var(--sans); color: var(--muted); margin-bottom: 10px; }
+.failure .meta code { font-size: 0.95em; }
+blockquote.output {
+  margin: 0 0 10px;
+  padding: 10px 14px;
+  background: var(--carmine-wash);
+  border-left: 1px solid var(--carmine);
+  font: 400 0.84rem/1.55 var(--mono);
+  color: var(--ink);
+  max-width: 76ch;
+  overflow-wrap: anywhere;
+}
+blockquote.output mark { background: none; color: var(--carmine); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.failure p { font-size: 1rem; }
+.expected { font: 400 0.88rem/1.5 var(--sans); color: var(--ink-2); margin-bottom: 8px; }
+.expected b { color: var(--ink); }
+
+.correction {
+  border: 1px solid var(--carmine);
+  padding: 14px 18px;
+  margin: 18px 0;
+  max-width: 72ch;
+}
+.correction .label { font: 700 0.7rem/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--carmine); display: block; margin-bottom: 8px; }
+.correction p { margin: 0 0 8px; font-size: 1rem; }
+.correction p:last-child { margin: 0; }
+
+pre {
+  font: 400 0.84rem/1.6 var(--mono);
+  background: var(--wash);
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  padding: 14px 16px; overflow-x: auto; max-width: 80ch; margin: 10px 0 18px;
+}
+
+footer.sign-off {
+  margin: 8px 40px 24px; padding-top: 16px;
+  border-top: 2px solid var(--rule-strong);
+  display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  font: 400 0.84rem/1.5 var(--sans); color: var(--muted);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .body { grid-template-columns: 1fr; gap: 0; }
+  nav.contents { position: static; margin-bottom: 32px; }
+  nav.contents ol { display: flex; flex-wrap: wrap; border-left: 0; gap: 4px 16px; }
+  nav.contents a { padding: 4px 0; border-left: 0; margin: 0; }
+  nav.contents a[aria-current="true"] { border-left: 0; text-decoration: underline; text-decoration-color: var(--blue); }
+  .repo-links { display: none; }
+}
+@media (max-width: 640px) {
+  .sheet { margin: 0; border-left: 0; border-right: 0; box-shadow: none; }
+  .running-head, header.title-block, .body { padding-left: 16px; padding-right: 16px; }
+  footer.sign-off { margin-left: 16px; margin-right: 16px; }
+  .running-head .hide-sm { display: none; }
+  .particulars { grid-template-columns: 1fr 1fr; }
+  .particulars div, .particulars div + div { border-left: 0; padding-left: 0; }
+  .particulars div:nth-child(2n) { padding-left: 12px; border-left: 1px solid var(--rule); }
+  .particulars div:nth-last-child(-n+3) { border-bottom: 1px solid var(--rule); }
+  .particulars div:nth-last-child(-n+2) { border-bottom: 0; }
+  .failure { grid-template-columns: 1fr; }
+  .failure .fid { padding: 0 0 4px; }
+  body { font-size: 1rem; }
+  .verdict p { font-size: 1.06rem; }
+}
+@media print {
+  body { background: #fff; }
+  .sheet { box-shadow: none; border: 0; margin: 0; }
+  nav.contents { display: none; }
+  .body { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#answer">Skip to the answer</a>
+
+<div class="sheet">
+  <div class="running-head">
+    <span>Test report · open-weight LLMs on consumer hardware</span>
+    <span class="hide-sm">Run A (local) · <span class="mono">21 Oct 2026</span></span>
+  </div>
+
+  <header class="title-block">
+    <h1>Which open-weight model is good enough to run privately on a 12 GB GPU?</h1>
+    <p class="dek">Ten models, 86 tests on a fictional company's documents, scans and tools, graded automatically and by hand. Two models passed. Here is how they were measured, and how all of them fail.</p>
+    <dl class="particulars">
+      <div><dt>Items under test</dt><dd>10 open-weight models, 2B to 26B parameters</dd></div>
+      <div><dt>Rig</dt><dd>RTX 3060 12 GB · i7-8700K · 16 GB RAM</dd></div>
+      <div><dt>Runtime</dt><dd>Ollama 0.40.7 · Q4_K_M · temperature 0.2</dd></div>
+      <div><dt>Suite</dt><dd>86 tests, 10 capabilities, Italian / English / Spanish</dd></div>
+      <div><dt>Grading</dt><dd>Automatic checks + manual 1–5 rubric</dd></div>
+      <div><dt>Corpus</dt><dd>"Rossi Impianti", a fictional installer: 12 documents, 5 images, a 30k-token manual</dd></div>
+    </dl>
+  </header>
+
+  <div class="body">
+    <nav class="contents" aria-label="Contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#answer"><span class="clause">1</span>Answer</a></li>
+        <li><a href="#method"><span class="clause">2</span>Method</a></li>
+        <li><a href="#results"><span class="clause">3</span>Results</a></li>
+        <li><a href="#findings"><span class="clause">4</span>Findings</a></li>
+        <li><a href="#failures"><span class="clause">5</span>Failure modes</a></li>
+        <li><a href="#limits"><span class="clause">6</span>Limitations</a></li>
+        <li><a href="#reproduce"><span class="clause">7</span>Reproduce</a></li>
+      </ol>
+      <div class="repo-links">
+        <a href="../README.md">README</a>
+        <a href="../docs/failure-modes.md">Failure modes (full)</a>
+        <a href="../results/SUMMARY.md">Raw summary tables</a>
+        <a href="../benchmark/">Test suite</a>
+      </div>
+    </nav>
+
+    <main>
+      <section id="answer" aria-labelledby="h-answer">
+        <h2 id="h-answer"><span class="clause">1</span>Answer</h2>
+        <div class="verdict">
+          <span class="label">Result</span>
+          <p><span class="pass-word">Qwen 3.5 9B</span> (97% of automatic checks, 4.3 / 5 manual) and <span class="pass-word">Gemma 4 12B</span> (94%, 4.3 / 5) are good enough for a private document assistant on a 12 GB card. The 2024 models, Llama 3.1 8B and Mistral Nemo 12B, are not.</p>
+          <p>Quality is not the bottleneck; concurrency is. With four people asking at once, the first word arrives after about 17 seconds on both usable models.</p>
+        </div>
+        <p>The question came from a practical one: can a small business keep its documents in-house and still get a useful AI assistant, without a datacentre GPU? This first run covers what fits on one consumer card. Larger models on rented GPUs are planned but not yet tested.</p>
+        <p class="source">Evidence: <a href="../results/SUMMARY.md">results/SUMMARY.md</a> · <a href="../results/scores/">results/scores/*.yaml</a></p>
+      </section>
+
+      <section id="method" aria-labelledby="h-method">
+        <h2 id="h-method"><span class="clause">2</span>Method</h2>
+        <p>Every model got the same 86 prompts through the same script, one run each, with thinking turned off. Documents went into the prompt whole, with no retrieval, so the test measures the model rather than a RAG pipeline.</p>
+        <h3>Ten capabilities</h3>
+        <p>Speed · multi-turn conversation · document Q&amp;A (up to 30k tokens) · summarisation · hallucination traps · reading scanned images · business writing · multilingual answers · tool calling and JSON · multi-step reasoning and code.</p>
+        <h3>Two kinds of grading</h3>
+        <ul>
+          <li><strong>Automatic checks</strong> (78 tests; 68 for text-only models, which skip the image tests): substring, regex, language, JSON-schema and tool-argument rules, scored against <a href="../corpus/facts.yaml"><code>corpus/facts.yaml</code></a>, the single source of truth every document and image was generated from.</li>
+          <li><strong>Manual grades</strong> (41 tests per model): a 1–5 rubric. 5 = perfect; 4 = correct with minor flaws; 3 = usable after correction; 2 = substantive errors; 1 = unusable or invented.</li>
+        </ul>
+        <div class="correction">
+          <span class="label">Who graded</span>
+          <p>Manual quality scores were assigned by Claude (Anthropic) against a rubric I defined, and I reviewed every score, correcting it where needed. Each score has a one-line justification next to it in <a href="../results/scores/"><code>results/scores/</code></a>.</p>
+        </div>
+      </section>
+
+      <section id="results" aria-labelledby="h-results">
+        <h2 id="h-results"><span class="clause">3</span>Results</h2>
+
+        <figure>
+          <picture>
+            <source srcset="charts/quality-by-model-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="charts/quality-by-model-light.svg" width="1200" height="690"
+                 alt="Bar chart of automatic checks passed per model: Qwen 3.5 9B 97%, Gemma 4 26B 94%, Gemma 4 12B 94%, Qwen 3.5 4B 88%, Mistral Nemo 85%, gpt-oss 20B 85%, Gemma 4 E4B 83%, Gemma 4 E2B 78%, Llama 3.1 8B 74%.">
+          </picture>
+          <figcaption><b>Fig. 1</b>Automatic pass rate with the mean manual grade. Gemma 4 26B matches the 12B on quality but does not fit in 12 GB and runs partly on the CPU.</figcaption>
+        </figure>
+
+        <div class="table-wrap">
+          <table id="schedule">
+            <caption>Schedule of results</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-key="label"><button type="button">Model</button></th>
+                <th scope="col" data-key="auto_pct" aria-sort="descending"><button type="button">Auto</button></th>
+                <th scope="col" data-key="grade_mean"><button type="button">Manual</button></th>
+                <th scope="col" data-key="tok_s_1user"><button type="button">tok/s</button></th>
+                <th scope="col" data-key="vram_peak_gb"><button type="button">VRAM</button></th>
+                <th scope="col" data-key="ttft_4users_s"><button type="button">4 users, 1st token</button></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="table-key">Auto = automatic checks passed. Manual = mean 1–5 grade. tok/s = generation speed, one user. VRAM = peak GPU memory. 4 users = mean time to first token with 4 parallel users (Ollama queues them). Click a column heading to sort. Shaded rows = usable. <span class="fail-word">Red</span> = below 80% of checks.</p>
+        <noscript><p>The table needs JavaScript. The same numbers are in <a href="../results/SUMMARY.md">results/SUMMARY.md</a>.</p></noscript>
+
+        <figure>
+          <picture>
+            <source srcset="charts/quality-vs-vram-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="charts/quality-vs-vram-light.svg" width="1200" height="720"
+                 alt="Scatter plot of pass rate against peak VRAM. Qwen 3.5 9B reaches 97% at 8.2 GB; Llama 3.1 8B uses 10.2 GB for 74%; the two partly offloaded models, Gemma 4 26B and gpt-oss 20B, sit near the 12 GB limit.">
+          </picture>
+          <figcaption><b>Fig. 2</b>More memory did not buy more accuracy. The best model uses 8.2 GB; Llama 3.1 8B uses 10.2 GB and is last.</figcaption>
+        </figure>
+
+        <figure>
+          <picture>
+            <source srcset="charts/speed-by-model-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="charts/speed-by-model-light.svg" width="1200" height="690"
+                 alt="Bar chart of generation speed for one user: Gemma 4 E2B 121, E4B 102, Qwen 3.5 4B 76, Llama 3.1 8B 60, Qwen 3.5 9B 52, Gemma 4 12B 46, Mistral Nemo 43, gpt-oss 20B 39, Gemma 4 26B 29 tokens per second.">
+          </picture>
+          <figcaption><b>Fig. 3</b>For one user every model is faster than reading. Long documents are the cost: a 10k-token contract takes 5–10 s to read before the first word on the 9–12B models.</figcaption>
+        </figure>
+        <p class="source">Charts: <a href="../scripts/make_charts.py">scripts/make_charts.py</a>, built from the stored results only · data: <a href="charts/data.json">charts/data.json</a></p>
+      </section>
+
+      <section id="findings" aria-labelledby="h-findings">
+        <h2 id="h-findings"><span class="clause">4</span>Findings</h2>
+        <ol class="findings">
+          <li><strong>Two models are usable today.</strong> Qwen 3.5 9B is the most reliable on documents, hallucination traps, JSON and images. Gemma 4 12B writes better but often answers in the wrong language.</li>
+          <li><strong>Small models read scans well.</strong> Qwen 3.5 9B, Gemma 4 12B and even Qwen 3.5 4B read all 10 image checks (invoices, forms, a rating plate, charts). Gemma 4 E2B could not read images at all.</li>
+          <li><strong>Nobody is ready for customer service without guardrails.</strong> Seven of ten models promised engineers "within the hour", refunds or replacement equipment that nobody had authorised.</li>
+          <li><strong>Thinking mode did not pay off locally.</strong> With reasoning on, Qwen 3.5 9B went from 43/44 to 31/44 correct and from 4.9 s to 30.5 s per answer; 14 answers were empty because reasoning used up the token budget.</li>
+          <li><strong>Mixture-of-experts survives CPU offload.</strong> Gemma 4 26B (3.8B active) kept 29–36 tok/s half on the CPU; dense Mistral Nemo collapsed to 1.7 tok/s at 30k tokens of context.</li>
+          <li><strong>Dates, arithmetic and permissions belong outside the model.</strong> Most failures below are fixed by the system around the model (absolute dates, tools, an explicit list of allowed actions), not by a bigger model.</li>
+        </ol>
+        <p class="source">Evidence: <a href="../results/SUMMARY.md">results/SUMMARY.md</a> (thinking on/off table) · <a href="../docs/conclusions-track-a.md">docs/conclusions-track-a.md</a> (full conclusions)</p>
+      </section>
+
+      <section id="failures" aria-labelledby="h-failures">
+        <h2 id="h-failures"><span class="clause">5</span>Failure modes</h2>
+        <p>Pass rates hide how a model fails. These excerpts are copied from the stored outputs, unedited. Full context, translations and expected answers are in <a href="../docs/failure-modes.md">docs/failure-modes.md</a>.</p>
+
+        <div class="failures">
+          <article class="failure">
+            <div class="fid">F1</div>
+            <div>
+              <h3>Confident, specific, invented details</h3>
+              <div class="meta">gpt-oss 20B · <code>conv-memoria-it</code> · manual grade 1/5</div>
+              <p class="expected"><b>Asked:</b> summarise a customer's chiller breakdown and say what happens next. The assistant has no ticketing system.</p>
+              <blockquote class="output">Il nostro tecnico di riferimento, <mark>**Marco Rossi**</mark>, è stato assegnato al <mark>ticket #2026/114‑PR</mark>. […] tramite l'app <mark>"Rossi Impianti Monitor"</mark> […] (link: <mark>https://www.rossiimpianti.it/reclamo</mark>) […] al numero <mark>**+39 0734 123456**</mark></blockquote>
+              <p>Every highlighted detail is invented. Marco Rossi is the managing director, not a technician, and the real number is 0733, one digit away. The answer still passed its automatic check.</p>
+            </div>
+          </article>
+
+          <article class="failure">
+            <div class="fid">F2</div>
+            <div>
+              <h3>Promises nobody authorised</h3>
+              <div class="meta">Qwen 3.5 9B, the best model · <code>conv-tono-en</code> · manual grade 2/5</div>
+              <p class="expected"><b>Asked:</b> reply to an angry customer whose engineer did not show up. Be empathetic; do not promise what you cannot deliver.</p>
+              <blockquote class="output">I am personally authorizing an engineer to travel directly to your site in Leicester <mark>within the next hour</mark>. […] We will process <mark>a full refund</mark> for the missed appointment today and offer <mark>a discount on future services</mark></blockquote>
+              <p>Written commitments the company never made. The fix is a list of allowed actions in the system prompt and real tools instead of free-text promises.</p>
+            </div>
+          </article>
+
+          <article class="failure">
+            <div class="fid">F3</div>
+            <div>
+              <h3>"Done", with no tool call</h3>
+              <div class="meta">Mistral Nemo 12B · <code>tool-pianifica-data</code> · automatic check</div>
+              <p class="expected"><b>Asked:</b> book a technician for "Thursday of this week" using the <code>pianifica_intervento</code> tool.</p>
+              <blockquote class="output">Il cliente Luca Fabbri da Kingsway Dental Practice <mark>è stato pianificato</mark> per <mark>giovedì 25 ottobre</mark> alle 9:00.</blockquote>
+              <p>"Has been scheduled", but no tool was called, and 25 October 2026 is a Sunday. Other models swapped the client and technician fields or dropped the technician.</p>
+            </div>
+          </article>
+
+          <article class="failure">
+            <div class="fid">F4</div>
+            <div>
+              <h3>The right answer in the wrong language</h3>
+              <div class="meta">Gemma 4 12B · <code>hal-telefono-assente</code> · manual grade 3/5</div>
+              <p class="expected"><b>Asked (in English):</b> "What is the phone number of Kingsway Dental Practice?" The system prompt says to answer in the language of the question.</p>
+              <blockquote class="output"><mark>Il numero di telefono di Kingsway Dental Practice non è presente nel documento fornito.</mark> […]</blockquote>
+              <p>Correct content, in Italian. My automatic check passed it by accident: it looks for <code>"no "</code>, which <code>"telefono "</code> contains. The manual grade caught it.</p>
+            </div>
+          </article>
+
+          <article class="failure">
+            <div class="fid">F5</div>
+            <div>
+              <h3>One day becomes five</h3>
+              <div class="meta">Qwen 3.5 9B · <code>conv-support-es</code> · manual grade 2/5</div>
+              <p class="expected"><b>Asked:</b> summarise in two lines. The message on screen says the training day is Thursday 20 August.</p>
+              <blockquote class="output">Además, confirmamos su formación técnica programada <mark>del 20 al 24 de agosto</mark>.</blockquote>
+              <p>An earlier run of the same test got it right, so this is sampling variance, which a single run per test cannot rule out.</p>
+            </div>
+          </article>
+
+          <article class="failure">
+            <div class="fid">F6</div>
+            <div>
+              <h3>Two rules in a row</h3>
+              <div class="meta">Gemma 4 12B · <code>rag-ferie</code> · automatic check</div>
+              <p class="expected"><b>Asked:</b> 7 unused days at year end, 5 may carry over, 25 a year, 9 taken. Expected: 25 + 5 − 9 = <b>21</b> left.</p>
+              <blockquote class="output">il totale dei giorni disponibili per quest'anno è di <mark>16 (7 + 9)</mark>. Avendo già utilizzato 9 giorni, gli rimangono <mark>**7 giorni**</mark></blockquote>
+              <p>Applies the carry-over rule, then loses the annual allowance and adds where it should subtract. Only Qwen 3.5 9B got 21.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="limits" aria-labelledby="h-limits">
+        <h2 id="h-limits"><span class="clause">6</span>Limitations</h2>
+        <ul>
+          <li><strong>One run per test</strong> at temperature 0.2. F5 shows the same prompt can pass on one run and fail on the next.</li>
+          <li><strong>One machine, one quantisation</strong> (Q4_K_M on an RTX 3060). Other cards, runtimes or Q8 weights may rank differently.</li>
+          <li><strong>Manual grades come from an LLM grader</strong> using my rubric, not from a panel of humans (see <a href="#method">2</a>).</li>
+          <li><strong>Automatic checks are string rules.</strong> They can pass a wrong answer (F4) and fail a right one written differently.</li>
+          <li><strong>Small, synthetic corpus.</strong> One fictional company, 86 tests: enough to separate the models, not a statistically powered benchmark.</li>
+          <li><strong>Corpus revised after the runs.</strong> Results were measured on a previous revision of the corpus. The later edits only anonymised two UK addresses and one hospital name in a smoke test; no fact that a test checks was changed.</li>
+          <li><strong>Test ids keep their original Italian identifiers</strong> (for example <code>tool-pianifica-data</code>), and the test data stays in its original language.</li>
+        </ul>
+        <div class="correction">
+          <span class="label">Correction found during review</span>
+          <p>The tool test says "today is Monday 20 October 2026", but 20 October 2026 is a Tuesday. "Thursday of this week" therefore has two defensible answers, and the check accepts only one, so some models were marked wrong on 22 October although they used the real calendar. A few weekdays in the corpus have the same problem. The stored results are unchanged; the test will be fixed before the next run.</p>
+        </div>
+      </section>
+
+      <section id="reproduce" aria-labelledby="h-reproduce">
+        <h2 id="h-reproduce"><span class="clause">7</span>Reproduce</h2>
+        <p>Needs Python 3.10+, <a href="https://ollama.com">Ollama</a> and the models pulled locally. Results land in <code>results/local/&lt;model&gt;/</code>.</p>
+<pre>python -m venv .venv
+.venv/Scripts/pip install openai pyyaml httpx matplotlib
+.venv/Scripts/python scripts/run.py --model qwen3.5:9b --suite all
+.venv/Scripts/python scripts/evaluate.py results/local/qwen3.5_9b
+.venv/Scripts/python scripts/report.py        # results/SUMMARY.md
+.venv/Scripts/python scripts/make_charts.py   # docs/charts/ and this page's data</pre>
+        <p>Full instructions are in the <a href="../README.md">README</a>.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="sign-off">
+    <span>Test report, run A (local). Results dated 21 October 2026.</span>
+    <span>Numbers on this page are read from <span class="mono">site/data.js</span>, generated from the stored results.</span>
+  </footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  var data = (window.BENCH && window.BENCH.models) || [];
+  var rows = data.filter(function (m) { return !m.excluded; });
+  var tbody = document.querySelector('#schedule tbody');
+  var sortKey = 'auto_pct', dir = -1;
+
+  function fmt(v, d) { return v == null ? '–' : Number(v).toFixed(d); }
+  function render() {
+    rows.sort(function (a, b) {
+      var x = a[sortKey], y = b[sortKey];
+      if (typeof x === 'string') return dir * x.localeCompare(y);
+      return dir * ((x == null ? -1 : x) - (y == null ? -1 : y));
+    });
+    tbody.innerHTML = '';
+    rows.forEach(function (m) {
+      var tr = document.createElement('tr');
+      if (m.usable) tr.className = 'usable';
+      var note = m.offload ? '<span class="note">partly on CPU</span>' : '';
+      tr.innerHTML =
+        '<td>' + m.label + note + '</td>' +
+        '<td' + (m.auto_pct < 80 ? ' class="low"' : '') + '>' + fmt(m.auto_pct, 0) + '% <span class="note">' + m.auto_passed + '/' + m.auto_total + '</span></td>' +
+        '<td>' + fmt(m.grade_mean, 1) + '</td>' +
+        '<td>' + fmt(m.tok_s_1user, 0) + '</td>' +
+        '<td>' + fmt(m.vram_peak_gb, 1) + ' GB</td>' +
+        '<td>' + fmt(m.ttft_4users_s, 1) + ' s</td>';
+      tbody.appendChild(tr);
+    });
+  }
+  document.querySelectorAll('#schedule thead th').forEach(function (th) {
+    th.querySelector('button').addEventListener('click', function () {
+      var key = th.getAttribute('data-key');
+      dir = key === sortKey ? -dir : (key === 'label' || key === 'vram_peak_gb' || key === 'ttft_4users_s' ? 1 : -1);
+      sortKey = key;
+      document.querySelectorAll('#schedule thead th').forEach(function (o) { o.removeAttribute('aria-sort'); });
+      th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+      render();
+    });
+  });
+  if (tbody) render();
+
+  // contents rail: mark the section being read
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.contents ol a'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.setAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id ? 'true' : 'false'); });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    document.querySelectorAll('main section').forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>

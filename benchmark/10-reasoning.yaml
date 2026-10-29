@@ -1,0 +1,57 @@
+# Reasoning, arithmetic, dates, code/SQL. Exact answers that can be checked.
+tests:
+  - id: rag-penale-3gg
+    lang: it
+    doc: [docs/it-contratto-manutenzione-2026-114.md]
+    prompt: Se un intervento arriva 5 giorni dopo la segnalazione, quanti giorni di ritardo si contano e quanto vale la penale totale? Mostra il calcolo.
+    expected: "5 - 2 (48h) = 3 days; 3 × 2% × 450 = €27"
+    check: {contains_any: ["27"], contains_all: ["3"]}
+
+  - id: rag-deposit-uk
+    lang: en
+    doc: [docs/en-quotation-Q-UK-2026-031.md]
+    prompt: Calculate the deposit and the balance in pounds, both including VAT. Show your working.
+    expected: Total inc VAT 22,140; deposit 40% = 8,856; balance 60% = 13,284
+    check: {contains_all: ["8,856", "13,284"]}
+
+  - id: rag-date-consegna
+    lang: es
+    doc: [docs/es-contrato-ES-2026-07.md, docs/es-correo-soler-entrega.md]
+    prompt: ¿Cuál era la fecha límite de entrega según el contrato y se cumplió? ¿Con cuántos días de margen o retraso?
+    expected: "Signed 15 June + 45 days = 30 July; delivered 27 July → deadline met with 3 days to spare"
+    check: {contains_any: ["30 de julio", "30/07"], contains_all: ["3"], contains_any_2: ["cumpl", "a tiempo", "dentro del plazo", "margen"]}
+
+  - id: rag-ferie
+    lang: en
+    doc: [docs/en-uk-handbook-leave.md]
+    prompt: An engineer had 7 unused days on 31 March 2026 and has taken 9 days since 1 April. How many days can they still take this leave year, and how many of the 7 were lost?
+    expected: Carried over max 5 (2 lost); 25 + 5 = 30; 30 - 9 = 21 remaining (carried days must be used by 30 June).
+    check: {contains_all: ["21", "2"]}
+
+  - id: rag-logica
+    lang: it
+    prompt: "Tre tecnici (Anna, Bruno, Carlo) devono coprire tre cantieri (Macerata, Recanati, Fermo). Anna non può andare a Fermo. Bruno non va a Macerata. Carlo non va a Recanati e non ha il mezzo per arrivare a Fermo. Ogni tecnico copre un solo cantiere. Chi va dove? Spiega brevemente."
+    expected: "Carlo=Macerata (only option); therefore Anna=Recanati (not Fermo); Bruno=Fermo"
+    check: {regex: "Carlo[^.]{0,30}Macerata|Macerata[^.]{0,30}Carlo", regex_2: "Bruno[^.]{0,30}Fermo|Fermo[^.]{0,30}Bruno", regex_3: "Anna[^.]{0,30}Recanati|Recanati[^.]{0,30}Anna"}
+
+  - id: rag-aritmetica-contratto
+    lang: it
+    doc: [docs/it-contratto-manutenzione-2026-114.md, docs/it-listino-2026.md]
+    prompt: Quanto paga Bianchi in un anno di contratto, IVA inclusa? E quanto avrebbe pagato invece a listino per 24 manutenzioni programmate (4 per 6 negozi) considerando per ciascuna 2 ore di tecnico più il diritto di chiamata, IVA esclusa?
+    expected: "450 × 12 = 5,400 + 22% = €6,588; at list price 24 × (2×42 + 35) = 24 × 119 = €2,856"
+    check: {contains_any: ["6.588", "6588", "6 588"], contains_any_2: ["2.856", "2856", "2 856"]}
+
+  - id: rag-sql
+    lang: en
+    max_tokens: 400
+    prompt: "Table interventi(id, cliente, data DATE, tecnico, ore NUMERIC, tipo TEXT). Write one SQL query (PostgreSQL) returning, for each tecnico, the total hours in September 2026 only for tipo = 'guasto', sorted from most to fewest hours. Return only the SQL."
+    expected: SELECT tecnico, SUM(ore) ... WHERE tipo='guasto' AND data in Sept 2026 GROUP BY tecnico ORDER BY ... DESC
+    check: {regex: "(?is)select.*sum\\s*\\(\\s*ore\\s*\\).*where.*guasto.*group by\\s+tecnico.*order by.*desc"}
+
+  - id: rag-python
+    lang: en
+    grade: true
+    max_tokens: 500
+    prompt: "Write a Python function `penalty(reported, arrived, monthly_fee)` taking two datetime objects and a fee, returning the penalty in euros: 2% of the fee per full day of delay beyond 48 hours (partial days count as a full day), 0 if within 48 hours. Include two example calls with expected results. Code only."
+    expected: "Correct function (e.g. ceil((arrived-reported - 48h)/24h) × 0.02 × fee, min 0); consistent examples (e.g. 72h → 1 day → 9.0 with fee 450)."
+    check: {contains_all: ["def penalty", "0.02"], contains_any: ["48", "timedelta"]}

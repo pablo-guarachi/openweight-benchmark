@@ -1,0 +1,40 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — mistral-nemo 12B (text only, 2024)
+# Concise, natural Italian, good writing; but it invents company facts when it has no documents and
+# ignores language instructions ("rispondi in spagnolo" → Italian). Weak tool calling.
+conv-memoria-it: 3            # good tone, but no recap (name, 6 stores); "sto contattando il tecnico" ("I'm contacting the technician"): invented commitment
+conv-cambio-tema-en: 2        # invents "5 years parts and labour, extendable to 7": numbers it does not have, stated with confidence
+conv-riferimento-pronome-it: 5
+conv-support-es: 5
+conv-correzione-it: 4         # correct, without acknowledging the mistake
+conv-tono-en: 2               # "within the next hour", "discuss compensation": invented promises
+doc-estrazione-tabella: 5
+doc-multi-persona: 2          # "nel terzo documento non compare" ("does not appear in the third document"): false (he is in CC and mentioned in the text)
+sum-email-3punti: 4           # misses the cause/repair (Fabbri, inverter board)
+sum-incident-50w: 3           # "corrective actions were taken": empty; misses RIDDOR
+sum-verbale-decisioni: 4      # misses the UK target; "Pescara postponed" without a date
+sum-es-in-italiano: 4         # misses warranty and penalty; within 80 words
+sum-manuale-sezioni: 2        # three nearly identical sentences, no real content
+sum-fedelta-trappola: 4
+hal-cf-assente: 5
+hal-telefono-assente: 5       # in English, correct
+hal-premessa-falsa: 3         # calculates €18 but does not flag the false premises, and closes with "non posso fornire una risposta precisa" ("I can't give a precise answer")
+hal-senza-contesto: 4
+hal-data-inventata: 5
+hal-prezzo-assente: 5
+hal-citazione-sezione: 5
+wr-email-cliente-it: 4        # excellent, but wrapped in <documento> tags copied from the prompt
+wr-report-en-struttura: 5
+wr-propuesta-es: 4            # good; adds an unrequested "prioridad en la atención técnica"; >200 words
+wr-riscrittura-tono: 4        # formal and complete, a bit verbose
+wr-faq-generate: 4            # Q5/Q6 refer "to the section" instead of answering
+wr-vincoli-formali: 1         # ignores the structure (no bullets), typo "CHiusura"
+ml-it-su-es: 5
+ml-en-su-it: 4                # English, but leaves "impianti in tensione" and "spazi confinati" in Italian
+ml-es-su-en: 5
+ml-traduzione-it-en: 5
+ml-traduzione-en-es: 4        # "servicio anual" for servicing; "el trabajo de instalación"
+ml-istruzione-lingua: 1       # ignores "rispondi in spagnolo" ("answer in Spanish")
+ml-registro-it: 5             # the two best registers seen so far, concise
+ml-idiomi-en: 4
+tool-ambiguo-chiede: 2        # calls no tool and does not ask for the date: asks "what is the problem"
+rag-python: 2                 # uses delay.days without subtracting the 48 hours; example "Expected 4" wrong

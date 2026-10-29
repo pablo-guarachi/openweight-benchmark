@@ -1,0 +1,35 @@
+# Speed: prompts of different lengths. Run with --users 1 and --users 4.
+# No quality checks: what counts is tok/s, TTFT, prompt_tok_s.
+tests:
+  - id: vel-short-it
+    lang: it
+    max_tokens: 150
+    prompt: Spiega in 3 frasi cosa fa un'azienda di impiantistica termoidraulica.
+
+  - id: vel-short-en
+    lang: en
+    max_tokens: 150
+    prompt: In three sentences, explain what an air-source heat pump does.
+
+  - id: vel-medium-gen
+    lang: it
+    max_tokens: 400
+    prompt: Scrivi una lista di 10 consigli pratici per ridurre i consumi di riscaldamento in un negozio, ognuno con una frase di spiegazione.
+
+  - id: vel-long-gen
+    lang: en
+    max_tokens: 700
+    prompt: Write a detailed, well-structured 500-word briefing for a small business owner on the pros and cons of replacing a gas boiler with a heat pump in the UK.
+
+  - id: vel-doc-4k
+    lang: it
+    max_tokens: 200
+    doc: [docs/it-contratto-manutenzione-2026-114.md, docs/it-procedura-PR07-sicurezza.md, docs/it-verbale-riunione-2026-09-03.md]
+    prompt: Elenca in 5 righe i punti principali di questi documenti.
+
+  - id: vel-doc-12k
+    lang: it
+    max_tokens: 200
+    ctx: 16384
+    doc: [{path: docs/it-manuale-operativo.md, sections: [1, 12]}]
+    prompt: Di cosa trattano le sezioni di questo manuale? Rispondi in 5 righe.

@@ -1,0 +1,45 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — gemma4:latest = E4B (blob downloaded 6 months ago, "requires 0.20.0")
+# WARNING: IMAGES DO NOT REACH the model (it answers "please provide the image"): old blob without a vision projector.
+#    To be repeated with a re-downloaded `gemma4:e4b`. Image grades = 1 until it is repeated.
+# Like the 12B: answers in Italian to English questions; tends to give 3 options instead of one.
+conv-memoria-it: 4
+conv-cambio-tema-en: 2        # "Since I am an AI and not a specific HVAC company": breaks role
+conv-riferimento-pronome-it: 5
+conv-support-es: 5
+conv-correzione-it: 4         # correct but with LaTeX formulas in the text and without acknowledging the mistake
+conv-tono-en: 5               # the best: asks for the case reference, no invented promises
+doc-estrazione-tabella: 5
+doc-multi-persona: 5
+sum-email-3punti: 4
+sum-incident-50w: 3           # misses RIDDOR and "no absence"; "improving equipment" is vague
+sum-verbale-decisioni: 4
+sum-es-in-italiano: 4         # "il fornitura": grammatical error
+sum-manuale-sezioni: 4
+sum-fedelta-trappola: 4
+hal-cf-assente: 5
+hal-telefono-assente: 3       # right but in Italian
+hal-premessa-falsa: 3         # corrects and calculates €18, then adds VAT (21.96) for no reason
+hal-senza-contesto: 5
+hal-data-inventata: 2         # misses that there was NO absence
+hal-prezzo-assente: 4
+hal-citazione-sezione: 2      # talks about "section 2", does not say section 27 is missing
+img-rapporto-descrizione: 1   # image not received (old blob)
+img-grafico-tendenza: 1
+img-tabella-confronto: 1
+img-fattura-assente: 1
+wr-email-cliente-it: 4
+wr-report-en-struttura: 5
+wr-propuesta-es: 5
+wr-riscrittura-tono: 3        # three options + guidance on choosing, truncated
+wr-faq-generate: 2            # in Italian
+wr-vincoli-formali: 3         # structure ok but empty bullets ("numero indicato")
+ml-it-su-es: 5
+ml-en-su-it: 2                # answers in Italian to an English question: defeats the purpose of the test
+ml-es-su-en: 5
+ml-traduzione-it-en: 3        # three versions
+ml-traduzione-en-es: 3        # three versions + glossary
+ml-istruzione-lingua: 5
+ml-registro-it: 4
+ml-idiomi-en: 4
+tool-ambiguo-chiede: 5
+rag-python: 4

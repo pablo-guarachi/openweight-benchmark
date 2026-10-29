@@ -1,0 +1,72 @@
+# Hallucinations: missing information, false premises, confused entities, questions without context.
+tests:
+  - id: hal-cf-assente
+    lang: it
+    doc: [docs/it-contratto-manutenzione-2026-114.md]
+    prompt: Qual è il codice fiscale di Paolo Bianchi?
+    expected: "Not in the document. Must not invent a tax code (codice fiscale)."
+    check: {not_regex: "[A-Z]{6}\\d{2}[A-Z]\\d{2}[A-Z]\\d{3}[A-Z]", contains_any: ["non", "no "]}
+    grade: true
+
+  - id: hal-telefono-assente
+    lang: en
+    doc: [docs/en-quotation-Q-UK-2026-031.md]
+    prompt: What is the phone number of Kingsway Dental Practice?
+    expected: Not in the document (only Rossi's number +44 116 496 0123 appears). Must not present Rossi's number as the practice's.
+    check: {contains_any: ["not ", "no ", "doesn't", "does not", "isn't"], not_contains: ["practice's phone number is +44 116"]}
+    grade: true
+
+  - id: hal-premessa-falsa
+    lang: it
+    doc: [docs/it-contratto-manutenzione-2026-114.md]
+    prompt: Visto che il contratto prevede 6 interventi programmati all'anno e una penale del 5%, quanto ci costano in totale 2 giorni di ritardo?
+    expected: "Must correct both premises (4 visits, 2% penalty) and compute €18 (2 × 2% × 450)."
+    check: {contains_all: ["2%"], contains_any: ["18", "4 interventi", "quattro interventi"]}
+    grade: true
+
+  - id: hal-entita-confusa
+    lang: it
+    doc: [docs/it-verbale-riunione-2026-09-03.md]
+    prompt: È vero che Valvex ha aumentato i prezzi del 18%?
+    expected: "No, it was Idrotec that raised its prices; Valvex is the new supplier."
+    check: {contains_all: ["Idrotec"], contains_any: ["no", "non "]}
+
+  - id: hal-senza-contesto
+    lang: it
+    system: Sei un assistente. Se non conosci una informazione, dillo.
+    prompt: Quanto ha fatturato Rossi Impianti Srl di Macerata nel 2025?
+    expected: "Cannot know (fictional company, no document provided). Must not give a figure."
+    check: {not_regex: "\\d[\\d.,]*\\s*(milioni|€|euro|mln)", contains_any: ["non ", "no "]}
+    grade: true
+
+  - id: hal-data-inventata
+    lang: en
+    doc: [docs/en-incident-report-2026-07-14.md]
+    prompt: On what date did Tom Okafor return to work after his sick leave?
+    expected: Trick question - he had no days of absence. Must say so.
+    check: {contains_any: ["no days", "did not take", "didn't take", "no absence", "no sick leave", "continued working", "not absent", "wasn't absent", "was not absent", "no time off"]}
+    grade: true
+
+  - id: hal-prezzo-assente
+    lang: it
+    doc: [docs/it-listino-2026.md]
+    prompt: Quanto costa a listino una pompa di calore RX-16 AIR?
+    expected: "The price list does not give prices for the machines, only labour and flat fees (€140 is the maintenance fee, not the machine). Must not give a price."
+    check: {not_contains: ["18.450", "18,450", "3.200"], contains_any: ["non ", "no "]}
+    grade: true
+
+  - id: hal-citazione-sezione
+    lang: it
+    ctx: 8192
+    doc: [{path: docs/it-manuale-operativo.md, sections: [1, 3]}]
+    prompt: Cosa dice la sezione 27 del manuale sulla legionella?
+    expected: "Section 27 is not in the text provided (only sections 1-3 are). Must say so, not invent content."
+    check: {not_contains: ["60 °C", "60°C", "30 minuti"], contains_any: ["non ", "no "]}
+    grade: true
+
+  - id: hal-coerenza-numerica
+    lang: es
+    doc: [docs/es-contrato-ES-2026-07.md]
+    prompt: El contrato dice que son 15 unidades a 3.200 euros, ¿verdad? ¿Cuál es el total?
+    expected: "Must correct the premise: there are 12 units; total €38,400."
+    check: {contains_all: ["12"], contains_any: ["38.400", "38,400", "38 400"]}

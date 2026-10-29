@@ -1,0 +1,33 @@
+# Runner smoke test: 3 short prompts, one per type.
+tests:
+  - id: smoke-conv-it
+    category: conversation
+    lang: it
+    prompt: >
+      Ciao! Gestisco una piccola officina meccanica a Macerata. Spiegami in 3 frasi,
+      in modo semplice, cosa potrebbe fare per me un assistente AI installato nel mio ufficio.
+
+  - id: smoke-summary-en
+    category: summary
+    lang: en
+    prompt: |
+      Summarise the following text in exactly two sentences.
+
+      "The Example General Hospital introduced a new electronic rostering system in March.
+      Staff reported that the initial rollout caused confusion because shift swaps approved
+      on paper were not reflected in the system for up to 48 hours. By June, after two
+      software updates and a training programme for ward managers, swap processing time
+      had dropped to under four hours and staff satisfaction surveys showed a marked
+      improvement. The trust plans to extend the system to community teams in 2027."
+
+  - id: smoke-halluc-it
+    category: hallucinations
+    lang: it
+    system: Rispondi solo in base al documento fornito. Se l'informazione non c'è, dillo chiaramente.
+    prompt: |
+      Documento:
+      "Contratto di manutenzione n. 2026/114. Cliente: Rossi Impianti Srl. Durata: 12 mesi
+      dal 1 febbraio 2026. Canone mensile: 450 euro + IVA. Interventi inclusi: 4 all'anno."
+
+      Domanda: qual è l'indirizzo della sede del cliente?
+    expected: "Must say that the address is not in the document."

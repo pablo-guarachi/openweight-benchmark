@@ -1,0 +1,44 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — qwen3.5:4b, thinking off
+# Surprising for a 4B: reads images well, handles hallucination traps, JSON/tools ok. Flaws: answers in Italian to
+# English questions (like the Gemmas), invents commitments in conversations, numerical errors (deposit £9,000, 45 days = 29 July).
+conv-memoria-it: 2            # recap ok, but invents "ing. Rossi arriva tra 30 minuti" ("engineer Rossi arrives in 30 minutes"), "remote monitoring from our premises"
+conv-cambio-tema-en: 3        # returns to the topic, cites 5/2 years (plausible) but adds invented "CWM", "10 commercial years"
+conv-riferimento-pronome-it: 5
+conv-support-es: 5
+conv-correzione-it: 5         # acknowledges the mistake and recalculates
+conv-tono-en: 2               # "dispatched an engineer... within the hour", "[Insert Phone Number]"
+doc-estrazione-tabella: 5
+doc-multi-persona: 5
+sum-email-3punti: 3           # generic: no €9 penalty, no cause, no Fabbri
+sum-incident-50w: 2           # in Italian (English requested); "scala mobile" ("escalator") for stepladder; misses RIDDOR
+sum-verbale-decisioni: 4
+sum-es-in-italiano: 3         # correct but thin (misses warranty, penalty)
+sum-manuale-sezioni: 5
+sum-fedelta-trappola: 5
+hal-cf-assente: 5
+hal-telefono-assente: 3       # right, in Italian
+hal-premessa-falsa: 4         # corrects and calculates €18, with too many caveats
+hal-senza-contesto: 3         # does not invent, but "siamo ancora nel 2024" ("we are still in 2024")
+hal-data-inventata: 3         # right, in Italian
+hal-prezzo-assente: 5
+hal-citazione-sezione: 4
+img-rapporto-descrizione: 5   # "chillere" typo
+img-grafico-tendenza: 5
+img-tabella-confronto: 4      # misses "chilometraggio n/a" (mileage n/a)
+img-fattura-assente: 5
+wr-email-cliente-it: 3        # "Le proposte sono due date" + "quali giorni preferisce" ("which days do you prefer"): muddles the proposal
+wr-report-en-struttura: 5
+wr-propuesta-es: 3            # invents "pruebas de análisis de humos" (flue-gas analysis) for heat pumps; €1,680 total ok
+wr-riscrittura-tono: 4        # "prendere atto della situazione" a bit clumsy
+wr-faq-generate: 2            # in Italian; "quattro mesi di preavviso" ("four months' notice"; it was 4 weeks)
+wr-vincoli-formali: 2         # 2 bullets instead of 3; "Ripertura" typo
+ml-it-su-es: 5
+ml-en-su-it: 2                # Italian to an English question
+ml-es-su-en: 5
+ml-traduzione-it-en: 5
+ml-traduzione-en-es: 5
+ml-istruzione-lingua: 5
+ml-registro-it: 3             # formal version with invented details (advance bank transfer, "parametri di sicurezza"); informal one truncated
+ml-idiomi-en: 3               # "Ritardo della consegna" ("delivery delay") is a wrong label; English reply refuses the discount for no reason
+tool-ambiguo-chiede: 4        # cerca_cliente("Valencia")
+rag-python: 2                 # int() truncates instead of rounding up: partial days NOT counted (explicit requirement)

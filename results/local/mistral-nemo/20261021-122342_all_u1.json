@@ -1,0 +1,2247 @@
+{
+  "summary": {
+    "model": "mistral-nemo",
+    "tag": "local",
+    "backend": "ollama",
+    "users": 1,
+    "think": false,
+    "suites": [
+      "01-velocita",
+      "02-conversazione",
+      "03-documenti",
+      "04-riassunto",
+      "05-allucinazioni",
+      "06-immagini",
+      "07-scrittura",
+      "08-multilingua",
+      "09-tools",
+      "10-ragionamento"
+    ],
+    "n": 76,
+    "errors": 0,
+    "wall_s": 478.9,
+    "avg_ttft_s": 2.24,
+    "avg_tok_s": 42.7,
+    "server_tok_s": 18.7,
+    "vram_before_mb": 668,
+    "vram_peak_mb": 10737,
+    "timestamp": "2026-10-21T12:23:42"
+  },
+  "results": [
+    {
+      "id": "vel-short-it",
+      "category": "01-velocita",
+      "lang": "it",
+      "expected": null,
+      "check": null,
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Un'azienda di impiantistica termoidraulica si occupa della progettazione, installazione e manutenzione di impianti termoidraulici per edifici residenziali e commerciali. Fornisce servizi di riscaldamento, raffrescamento e produzione di acqua calda sanitaria. Inoltre, si occupa anche dell'ottimizzazione dell'efficienza energetica degli impianti per ridurre i consumi e gli sprechi.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 14.114,
+      "total_s": 16.373,
+      "in_tokens": 26,
+      "out_tokens": 102,
+      "tok_s": 45.1,
+      "prompt_tok_s": 4.5,
+      "load_s": 8.02,
+      "error": null
+    },
+    {
+      "id": "vel-short-en",
+      "category": "01-velocita",
+      "lang": "en",
+      "expected": null,
+      "check": null,
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "An air-source heat pump is a device that transfers heat from one location to another using a refrigeration cycle. In winter, it extracts heat from outdoor air and transfers it indoors; in summer, it reverses the process to cool the indoor space. This makes it an energy-efficient alternative to traditional heating and cooling systems.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.061,
+      "total_s": 1.513,
+      "in_tokens": 16,
+      "out_tokens": 66,
+      "tok_s": 45.4,
+      "prompt_tok_s": 424.0,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "vel-medium-gen",
+      "category": "01-velocita",
+      "lang": "it",
+      "expected": null,
+      "check": null,
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "1. Utilizzare un termostato programmabile per regolare la temperatura del negozio in base agli orari di apertura e chiusura, evitando di riscaldare l'edificio quando non è in uso.\n2. Installare finestre a doppio vetro per ridurre le perdite di calore attraverso le finestre e migliorare l'isolamento termico del negozio.\n3. Utilizzare tende o persiane per coprire le finestre durante le ore notturne, riducendo la perdita di calore attraverso le finestre e mantenendo l'interno del negozio più caldo.\n4. Utilizzare luci a LED al posto delle tradizionali lampade a incandescenza per ridurre il consumo di energia elettrica e quindi il riscaldamento necessario per mantenere la temperatura interna.\n5. Spegnere le luci e gli elettrodomestici non necessari quando il negozio è chiuso per ridurre il consumo di energia elettrica e quindi il riscaldamento necessario.\n6. Utilizzare un sistema di riscaldamento a pavimento invece di radiatori o Altri sistemi di riscaldamento tradizionali per ridurre le perdite di calore e migliorare l'efficienza energetica del negozio.\n7. Utilizzare un sistema di controllo della ventilazione per regolare il flusso d'aria all'interno del negozio, riducendo le perdite di calore attraverso le finestre e le porte.\n8. Installare un sistema di isolamento termico sulle pareti e sul tetto del negozio per ridurre le perdite di calore attraverso la struttura dell'edificio e migliorare l'efficienza energetica.\n9. Utilizzare un sistema di riscaldamento a legna o a pellet per ridurre il consumo di energia elettrica e quindi il riscaldamento necessario per mantenere la temperatura interna.\n10. Formare il",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.061,
+      "total_s": 8.943,
+      "in_tokens": 42,
+      "out_tokens": 400,
+      "tok_s": 45.0,
+      "prompt_tok_s": 913.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "vel-long-gen",
+      "category": "01-velocita",
+      "lang": "en",
+      "expected": null,
+      "check": null,
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "**Briefing: Gas Boiler vs. Heat Pump - A Comparative Analysis for UK Small Business Owners**\n\n**Introduction**\n\nAs a small business owner in the UK, you're constantly seeking ways to optimize your operations and reduce costs. One aspect to consider is your heating system. This briefing explores the pros and cons of replacing a gas boiler with a heat pump, helping you make an informed decision.\n\n**Understanding Heat Pumps**\n\nHeat pumps are renewable heating systems that transfer heat from one location to another. In the UK, air-source and ground-source heat pumps are common. They work by absorbing heat from the air or ground and transferring it indoors.\n\n**Pros of Heat Pumps**\n\n1. **Renewable Energy Source:** Heat pumps use ambient heat, reducing reliance on fossil fuels and lowering carbon emissions.\n\n2. **Energy Efficiency:** Heat pumps can be up to 400% efficient, meaning they generate 4 units of heat for every 1 unit of electricity used. This can lead to significant savings on energy bills.\n\n3. **Government Incentives:** The UK's Renewable Heat Incentive (RHI) scheme provides financial support for renewable heat technologies, including heat pumps. This can help offset the initial installation cost.\n\n4. **Low Maintenance:** Heat pumps have fewer moving parts than gas boilers, reducing maintenance requirements and potential repair costs.\n\n5. **Versatile Heating and Cooling:** Heat pumps can provide both heating and cooling, acting as an air conditioning system in summer.\n\n**Cons of Heat Pumps**\n\n1. **High Upfront Cost:** The initial installation cost of a heat pump is higher than that of a gas boiler. However, this can be offset by the RHI and long-term energy savings.\n\n2. **Limited Use in Extreme Cold:** Heat pumps may struggle to extract heat from the air when temperatures drop below -5°C. In the UK, this could limit their effectiveness during periods of extreme cold.\n\n3. **Noise:** Some users report that heat pumps can be noisy, although modern models are quieter than older ones.\n\n4. **Space Requirements:** Ground-source heat pumps require significant outdoor space for the ground loop, which may not be feasible for all small businesses.\n\n**Pros of Gas Boilers**\n\n1. **Efficient Heating:** Modern condensing boilers are highly efficient, converting over 90% of their fuel into heat.\n\n2. **Low Upfront Cost:** Gas boilers have a lower initial cost than heat pumps, making them an attractive option for businesses with tight budgets.\n\n3. **Wide Availability:** Gas boilers are widely available and easy to maintain, with a large network of qualified engineers.\n\n**Cons of Gas Boilers**\n\n1. **Fossil Fuel Reliance:** Gas boilers rely on non-renewable fossil fuels, contributing to carbon emissions and energy insecurity.\n\n2. **High Running Costs:** While efficient, gas boilers can be expensive to run, with prices subject to market fluctuations.\n\n3. **Regular Maintenance:** Gas boilers require annual servicing and may have higher maintenance costs than heat pumps.\n\n**Conclusion**\n\nReplacing a gas boiler with a heat pump can offer significant long-term savings and environmental benefits. However, the high upfront cost and potential limitations in extreme cold may make it less suitable for some businesses. It's crucial to consider your specific needs, budget, and property type before making a decision.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.08,
+      "total_s": 15.676,
+      "in_tokens": 39,
+      "out_tokens": 700,
+      "tok_s": 44.9,
+      "prompt_tok_s": 856.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "vel-doc-4k",
+      "category": "01-velocita",
+      "lang": "it",
+      "expected": null,
+      "check": null,
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "1. Il contratto di manutenzione programmata tra Rossi Impianti Srl e Bianchi Supermercati Srl prevede 4 interventi di manutenzione programmata all'anno per ciascun punto vendita, con un canone mensile di euro 450,00 oltre IVA 22%, e un tempo di intervento in caso di guasto entro 48 ore dalla segnalazione.\n2. La procedura PR-07 di Rossi Impianti Srl definisce le regole minime di sicurezza che ogni tecnico deve rispettare durante gli interventi presso cantieri, centrali termiche, locali tecnici e coperture, con l'obbligo di indossare dispositivi di protezione individuale come casco di protezione, scarpe antinfortunistiche, guanti da lavoro, occhiali di protezione e giubbotto ad alta visibilità.\n3. La riun",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 1.892,
+      "total_s": 6.579,
+      "in_tokens": 2700,
+      "out_tokens": 200,
+      "tok_s": 42.7,
+      "prompt_tok_s": 1503.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "vel-doc-12k",
+      "category": "01-velocita",
+      "lang": "it",
+      "expected": null,
+      "check": null,
+      "grade": null,
+      "ctx": 16384,
+      "vision": false,
+      "response": "Le sezioni di questo manuale trattano la descrizione e il funzionamento di diversi tipi di impianti termici e di climatizzazione, tra cui caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie murali a gas a condensazione, caldaie",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 15.397,
+      "total_s": 20.925,
+      "in_tokens": 11405,
+      "out_tokens": 200,
+      "tok_s": 36.2,
+      "prompt_tok_s": 1340.9,
+      "load_s": 6.77,
+      "error": null
+    },
+    {
+      "id": "conv-memoria-it",
+      "category": "02-conversazione",
+      "lang": "it",
+      "expected": "Deve ricordare che il cliente si chiama Paolo, ha 6 punti vendita e il problema è un chiller a Porto Recanati; propone un passo concreto.",
+      "check": {
+        "contains_all": [
+          "Porto Recanati"
+        ],
+        "contains_any": [
+          "sei",
+          "6"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Mi scuso per il disguido. Ho verificato il contratto di manutenzione e ho visto che il chiller del punto vendita di Porto Recanati è coperto dal servizio. In questo momento sto contattando il nostro tecnico più vicino per inviarlo a risolvere il problema il prima possibile. Nel frattempo, vi consiglio di monitorare la temperatura del negozio e di prendere provvedimenti per proteggere la merce più sensibile. Vi terremo informati sull'evoluzione della situazione e vi faremo sapere non appena il problema sarà risolto. Grazie per la vostra comprensione.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 6.654,
+      "total_s": 9.524,
+      "in_tokens": 165,
+      "out_tokens": 130,
+      "tok_s": 45.3,
+      "prompt_tok_s": 983.1,
+      "load_s": 6.48,
+      "error": null
+    },
+    {
+      "id": "conv-cambio-tema-en",
+      "category": "02-conversazione",
+      "lang": "en",
+      "expected": "Deve tornare al tema iniziale (preventivo pompa di calore 16 kW per uno studio dentistico) e rispondere alla domanda sulla garanzia senza perdere il contesto, chiedendo o indicando che la garanzia standard è 5 anni macchina / 2 manodopera se lo sa, oppure dicendo che dipende dal preventivo.",
+      "check": null,
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "We offer a 5-year warranty on parts and labour for our heat pumps. This can be extended to 7 years if the annual service is carried out by ourselves.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.107,
+      "total_s": 0.862,
+      "in_tokens": 111,
+      "out_tokens": 35,
+      "tok_s": 46.3,
+      "prompt_tok_s": 1376.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-riferimento-pronome-it",
+      "category": "02-conversazione",
+      "lang": "it",
+      "expected": "“Lo” si riferisce al tecnico senior Luca Fabbri; deve rispondere che costa 55 €/ora (dal listino) e non confondere con il tecnico base (42).",
+      "check": {
+        "contains_any": [
+          "55"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Il costo per un'ora di lavoro del tecnico senior per caldaie e pompe di calore, secondo il listino fornito, è di 55,00 €/ora. Tuttavia, se l'intervento avviene in un orario festivo o notturno (dalle 20:00 alle 7:00), si applica una maggiorazione del 50% sulla tariffa oraria. Inoltre, se l'intervento richiede un viaggio oltre i 30 km dalla sede, si applica un chilometraggio di 0,60 €/km. Tieni presente che la prima ora è sempre fatturata per intero, mentre le successive sono fatturate a frazioni di 30 minuti.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.496,
+      "total_s": 4.142,
+      "in_tokens": 731,
+      "out_tokens": 162,
+      "tok_s": 44.4,
+      "prompt_tok_s": 1544.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-support-es",
+      "category": "02-conversazione",
+      "lang": "es",
+      "expected": "Risponde in spagnolo, cortese, ricorda che il pannello arriva il 31 luglio e che la formazione è il 20 agosto; non inventa dati nuovi.",
+      "check": {
+        "contains_any": [
+          "31 de julio",
+          "31/07",
+          "31 julio"
+        ],
+        "contains_all": [
+          "20 de agosto"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Sí, por supuesto. Espera la llegada del panel lateral nuevo, prevista para el 31 de julio. La formación sobre la bomba de calor está programada para el jueves 20 de agosto, de 9:00 a 16:00.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.171,
+      "total_s": 1.459,
+      "in_tokens": 157,
+      "out_tokens": 59,
+      "tok_s": 45.8,
+      "prompt_tok_s": 1333.8,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-correzione-it",
+      "category": "02-conversazione",
+      "lang": "it",
+      "expected": "Deve accettare la correzione dell'utente (il numero giusto è 4 interventi, non 6), scusarsi brevemente e ricalcolare con 4.",
+      "check": {
+        "contains_any": [
+          "4 interventi",
+          "quattro interventi",
+          "4 visite",
+          "quattro visite"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Il contratto prevede 4 interventi programmati all'anno per ciascun punto vendita. Ci sono 6 punti vendita in totale, quindi ci sono 4 x 6 = 24 interventi programmati all'anno per tutti i punti vendita.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.725,
+      "total_s": 2.004,
+      "in_tokens": 1043,
+      "out_tokens": 57,
+      "tok_s": 44.6,
+      "prompt_tok_s": 1504.6,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "conv-tono-en",
+      "category": "02-conversazione",
+      "lang": "en",
+      "expected": "Tono empatico ma professionale, non promette ciò che non può (es. tempi precisi), propone un'azione (es. raccogliere dettagli, verificare il contratto). Deve rispondere in inglese.",
+      "check": null,
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "I apologize for the inconvenience caused. I've escalated your issue to our operations team. They will contact you within the next hour to arrange a new appointment and discuss compensation for the inconvenience. I sincerely apologize for the oversight.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.147,
+      "total_s": 1.215,
+      "in_tokens": 62,
+      "out_tokens": 49,
+      "tok_s": 45.9,
+      "prompt_tok_s": 1108.6,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-contratto-recesso",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "60 giorni, via PEC",
+      "check": {
+        "contains_all": [
+          "60"
+        ],
+        "contains_any": [
+          "PEC",
+          "pec"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Il contratto può essere risolto con un preavviso di 60 giorni. La comunicazione di recesso deve essere inviata a mezzo PEC.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.671,
+      "total_s": 1.406,
+      "in_tokens": 998,
+      "out_tokens": 33,
+      "tok_s": 45.0,
+      "prompt_tok_s": 1546.6,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-contratto-penale-cross",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "9,00 € = 2% di 450 € per 1 giorno di ritardo; art. 6",
+      "check": {
+        "contains_any": [
+          "9,00",
+          "9.00",
+          "9 euro",
+          "9 €",
+          "9€"
+        ],
+        "contains_all": [
+          "2%"
+        ],
+        "regex": "[Aa]rt(icolo|\\.)?\\s*6"
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "La penale applicata per il ritardo dell'intervento di Porto Recanati di settembre è di 9,00 euro. Deriva dall'articolo 6 del contratto di manutenzione programmata degli impianti HVAC tra Rossi Impianti Srl e Bianchi Supermercati Srl. La penale è calcolata come il 2% del canone mensile di manutenzione, che ammonta a 450 euro. Quindi, 2% di 450 euro è pari a 9 euro.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.692,
+      "total_s": 3.454,
+      "in_tokens": 1993,
+      "out_tokens": 120,
+      "tok_s": 43.5,
+      "prompt_tok_s": 2976.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-email-ricambio",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "Luca Fabbri, mercoledì 24 settembre 2026, scheda inverter dell'unità esterna",
+      "check": {
+        "contains_all": [
+          "Fabbri",
+          "24",
+          "inverter"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Il tecnico che ha eseguito materialmente la riparazione si chiama Luca Fabbri. La riparazione è stata eseguita mercoledì 24 settembre 2026. La scheda inverter dell'unità esterna è stata sostituita.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.822,
+      "total_s": 2.124,
+      "in_tokens": 1058,
+      "out_tokens": 58,
+      "tok_s": 44.5,
+      "prompt_tok_s": 1627.2,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-verbale-fornitore",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "Valvex Spa dal 1 ottobre 2026; Idrotec ha aumentato i listini del 18%",
+      "check": {
+        "contains_all": [
+          "Valvex",
+          "18%"
+        ],
+        "contains_any": [
+          "1 ottobre",
+          "1° ottobre",
+          "primo ottobre",
+          "01/10"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Il nuovo fornitore principale di valvole è Valvex Spa, a partire dal 1 ottobre 2026. Il cambio è stato deciso a causa dell'aumento del 18% dei listini da parte di Idrotec Srl, il precedente fornitore principale. Dopo aver confrontato le offerte ricevute, è stato scelto Valvex Spa come nuovo fornitore principale.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.627,
+      "total_s": 2.54,
+      "in_tokens": 854,
+      "out_tokens": 85,
+      "tok_s": 44.4,
+      "prompt_tok_s": 1622.3,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-procedura-incidenti",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "entro 24 ore, al Responsabile tecnico (Davide Marinelli), modulo MOD-09",
+      "check": {
+        "contains_all": [
+          "24",
+          "MOD-09"
+        ],
+        "contains_any": [
+          "Responsabile tecnico",
+          "responsabile tecnico",
+          "Marinelli"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Ogni quasi-incidente deve essere segnalato entro 24 ore al Responsabile tecnico utilizzando il modulo MOD-09.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.704,
+      "total_s": 1.372,
+      "in_tokens": 1009,
+      "out_tokens": 30,
+      "tok_s": 44.9,
+      "prompt_tok_s": 1627.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-quotation-total",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "£22,140 incl. VAT; deposit 40% = £8,856; balance on commissioning",
+      "check": {
+        "contains_any": [
+          "22,140",
+          "22140",
+          "22 140"
+        ],
+        "contains_all": [
+          "8,856"
+        ],
+        "contains_any_2": [
+          "commissioning"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "The total price including VAT is £22,140.00. The deposit is 40% of this amount, which is £8,856.00. The balance of 60% is due on commissioning.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.584,
+      "total_s": 1.794,
+      "in_tokens": 826,
+      "out_tokens": 54,
+      "tok_s": 44.6,
+      "prompt_tok_s": 1675.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-quotation-warranty",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "5 years heat pump (subject to annual servicing), 2 years workmanship",
+      "check": {
+        "contains_all": [
+          "5",
+          "2"
+        ],
+        "contains_any": [
+          "annual servic",
+          "serviced annually",
+          "yearly servic",
+          "manutenzione annuale",
+          "mantenimiento anual"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "The warranties are as follows:\n\n- Heat pump: **5 years** manufacturer's warranty (subject to annual servicing).\n- Installation workmanship: **2 years**.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.056,
+      "total_s": 0.854,
+      "in_tokens": 820,
+      "out_tokens": 36,
+      "tok_s": 45.1,
+      "prompt_tok_s": 20127.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-incident-riddor",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "Not reportable (no absence over 7 days, not a specified injury); wet floor from condensation; missing non-slip foot; checklist without floor check",
+      "check": {
+        "contains_any": [
+          "not reportable",
+          "not required",
+          "non riportabile",
+          "non era segnalabile",
+          "non è segnalabile",
+          "non segnalabile",
+          "no, "
+        ],
+        "contains_all": [
+          "7",
+          "checklist"
+        ],
+        "contains_any_2": [
+          "wet",
+          "bagnato"
+        ],
+        "contains_any_3": [
+          "non-slip",
+          "antiscivolo"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "No, the incident was not reportable under RIDDOR. The injury did not result in incapacity for more than 7 consecutive days and is not a specified injury.\n\nThe three causes identified were:\n\n1. Immediate cause: the floor of the plant area was wet from condensation dripping from an uninsulated pipe, and this had not been noticed or marked.\n2. Contributing cause: the stepladder in use was missing one of its rubber non-slip feet.\n3. Underlying cause: the pre-work checklist did not include a check of the floor condition.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.533,
+      "total_s": 3.216,
+      "in_tokens": 746,
+      "out_tokens": 119,
+      "tok_s": 44.4,
+      "prompt_tok_s": 1622.2,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-handbook-carryover",
+      "category": "03-documenti",
+      "lang": "en",
+      "expected": "5 days, by 30 June, Sarah Whitfield",
+      "check": {
+        "contains_all": [
+          "5",
+          "30 June",
+          "Whitfield"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "According to the provided document, a maximum of **5 days** of unused leave can be carried over into the next leave year. These days must be taken by **30 June**. Leave requests are approved by the **Branch Manager, Sarah Whitfield**.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.451,
+      "total_s": 1.603,
+      "in_tokens": 629,
+      "out_tokens": 52,
+      "tok_s": 45.1,
+      "prompt_tok_s": 1659.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-es-pagos",
+      "category": "03-documenti",
+      "lang": "es",
+      "expected": "26.880 €; vence el 26 de agosto de 2026; entrega el 27 de julio de 2026",
+      "check": {
+        "contains_any": [
+          "26.880",
+          "26,880",
+          "26 880"
+        ],
+        "contains_all": [
+          "26 de agosto",
+          "27 de julio"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "El contrato establece que el pago del 70% restante (26.880,00 euros) vence a los 30 días de la entrega, es decir, el **26 de agosto de 2026**. La factura la enviará Elena Carletti en los próximos días. En cuanto a la fecha de entrega, según el correo del 27 de julio de 2026, las unidades fueron entregadas el **27 de julio de 2026**.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 1.192,
+      "total_s": 3.716,
+      "in_tokens": 1739,
+      "out_tokens": 110,
+      "tok_s": 43.6,
+      "prompt_tok_s": 1551.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "doc-estrazione-tabella",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "tecnico 42 €/h vs £58/h; chiamata 35 € vs £75; tecnico senior 55 € (UK n/d)",
+      "check": {
+        "contains_all": [
+          "42",
+          "58",
+          "35",
+          "75",
+          "55"
+        ],
+        "contains_any": [
+          "|"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "| Voce | Prezzo Italia | Prezzo UK |\n|---|---|---|\n| Tecnico | 42,00 €/ora | £58.00 / hour |\n| Tecnico senior | 55,00 €/ora | N/D |\n| Diritto di chiamata | 35,00 € | £75.00 |",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.569,
+      "total_s": 2.425,
+      "in_tokens": 711,
+      "out_tokens": 83,
+      "tok_s": 44.7,
+      "prompt_tok_s": 1597.3,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "doc-multi-persona",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "Verbale (presente, responsabile tecnico/cantieri, aggiorna distinte base); incident report (reviewed by, Technical Manager, 18 luglio); correo (in copia, invierà istruzioni per il pannello)",
+      "check": {
+        "contains_all": [
+          "verbale",
+          "incident",
+          "correo"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Davide Marinelli compare nel primo documento come \"Davide Marinelli (tecnico/cantieri)\" e partecipa alla riunione del 3 settembre 2026. Nel secondo documento, compare come \"Davide Marinelli, Technical Manager (Macerata)\" e ha revisionato il report dell'incidente del 14 luglio 2026. Nel terzo documento, non compare.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 1.2,
+      "total_s": 3.237,
+      "in_tokens": 2418,
+      "out_tokens": 88,
+      "tok_s": 43.2,
+      "prompt_tok_s": 2228.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "long-8k-e47",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "guasto al pressostato fumi (sezione 9)",
+      "check": {
+        "contains_any": [
+          "pressostato fumi",
+          "pressostato dei fumi"
+        ]
+      },
+      "grade": null,
+      "ctx": 8192,
+      "vision": false,
+      "response": "Il codice errore E47 sulla caldaia RX-Therm 24 indica guasto al pressostato fumi.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 2.784,
+      "total_s": 3.488,
+      "in_tokens": 3854,
+      "out_tokens": 30,
+      "tok_s": 42.6,
+      "prompt_tok_s": 1493.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "long-16k-sbrinamento",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "se il ciclo automatico fallisce 3 volte consecutive (sezione 13)",
+      "check": {
+        "contains_any": [
+          "3 volte",
+          "tre volte",
+          "3 cicli",
+          "tre cicli"
+        ]
+      },
+      "grade": null,
+      "ctx": 16384,
+      "vision": false,
+      "response": "La pompa di calore RX-16 AIR richiede uno sbrinamento manuale forzato se il ciclo automatico fallisce 3 volte consecutive.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 17.519,
+      "total_s": 18.531,
+      "in_tokens": 13298,
+      "out_tokens": 36,
+      "tok_s": 35.6,
+      "prompt_tok_s": 1300.2,
+      "load_s": 7.15,
+      "error": null
+    },
+    {
+      "id": "long-16k-assente",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "NON presente nelle sezioni 1-14 (è nella 35); deve dire che non c'è",
+      "check": {
+        "not_contains": [
+          "800 900 999",
+          "800900999"
+        ],
+        "contains_any": [
+          "non",
+          "no "
+        ]
+      },
+      "grade": null,
+      "ctx": 16384,
+      "vision": false,
+      "response": "Il manuale non contiene informazioni sul numero di telefono per le emergenze gas.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.19,
+      "total_s": 0.679,
+      "in_tokens": 13291,
+      "out_tokens": 18,
+      "tok_s": 36.9,
+      "prompt_tok_s": 245452.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "long-32k-legionella",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "portare a 60 °C per almeno 30 minuti una volta a settimana (sezione 27)",
+      "check": {
+        "contains_all": [
+          "60"
+        ],
+        "contains_any": [
+          "30 minuti",
+          "trenta minuti",
+          "mezz'ora"
+        ],
+        "contains_any_2": [
+          "settimana"
+        ]
+      },
+      "grade": null,
+      "ctx": 40960,
+      "vision": false,
+      "response": "Il manuale per la prevenzione della legionella nel bollitore ACS richiede che il bollitore ACS sia portato a una temperatura di almeno 60 °C per almeno 30 minuti una volta a settimana. Ciò serve a garantire che l'acqua nel bollitore ACS raggiunga una temperatura sufficientemente alta da impedire la crescita della legionella.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 59.613,
+      "total_s": 106.473,
+      "in_tokens": 34812,
+      "out_tokens": 79,
+      "tok_s": 1.7,
+      "prompt_tok_s": 696.8,
+      "load_s": 9.25,
+      "error": null
+    },
+    {
+      "id": "long-32k-gas",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "800 900 999, 24/7 (sezione 35)",
+      "check": {
+        "contains_any": [
+          "800 900 999",
+          "800900999",
+          "800-900-999"
+        ],
+        "contains_any_2": [
+          "24",
+          "h24",
+          "sempre"
+        ]
+      },
+      "grade": null,
+      "ctx": 40960,
+      "vision": false,
+      "response": "# Il numero per le emergenze gas riportato nel manuale è l'800 900 999 e l'operativo è il 24/7.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 8.313,
+      "total_s": 32.266,
+      "in_tokens": 34810,
+      "out_tokens": 41,
+      "tok_s": 1.7,
+      "prompt_tok_s": 4378.7,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "long-32k-multi",
+      "category": "03-documenti",
+      "lang": "it",
+      "expected": "(1) lavato ogni 3 mesi, sostituito ogni 24 mesi; (2) F-gas categoria I; (3) ogni 6 mesi",
+      "check": {
+        "contains_all": [
+          "3 mesi",
+          "24 mesi",
+          "6 mesi"
+        ],
+        "contains_any": [
+          "categoria I",
+          "categoria 1",
+          "cat. I"
+        ]
+      },
+      "grade": null,
+      "ctx": 40960,
+      "vision": false,
+      "response": "(1) Il filtro delle unità split va lavato ogni 3 mesi e sostituito ogni 2 anni. (2) Il patentino necessario per recuperare l'R-32 è il R410A. (3) Il differenziale nei quadri elettrici va verificato ogni 6 mesi con il tasto di test e annotato sul registro.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.875,
+      "total_s": 47.497,
+      "in_tokens": 34858,
+      "out_tokens": 79,
+      "tok_s": 1.7,
+      "prompt_tok_s": 66318.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "sum-email-3punti",
+      "category": "04-riassunto",
+      "lang": "it",
+      "expected": "(1) reclamo per ritardo oltre 48h a Porto Recanati; (2) causa e riparazione (scheda inverter, 24/9, Fabbri) + penale 9 €; (3) controllo gratuito offerto e accettato.",
+      "check": {
+        "bullets": 3,
+        "contains_any": [
+          "9,00",
+          "9 euro",
+          "9 €",
+          "penale"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "1. Bianchi Supermercati ha segnalato un ritardo nell'intervento di riparazione dell'unità esterna del chiller nel punto vendita di Porto Recanati, con conseguente rischio per i banchi frigo e climatizzazione del reparto.\n2. Rossi Impianti ha riconosciuto il ritardo e ha applicato una penale di 9,00 euro, offrendo inoltre un controllo straordinario gratuito su tutti i punti vendita entro dicembre.\n3. Bianchi Supermercati ha accettato la proposta di Rossi Impianti e ha richiesto di essere informato con almeno una settimana di anticipo sulle date del controllo gratuito.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 8.941,
+      "total_s": 12.163,
+      "in_tokens": 1059,
+      "out_tokens": 143,
+      "tok_s": 44.4,
+      "prompt_tok_s": 1486.4,
+      "load_s": 8.21,
+      "error": null
+    },
+    {
+      "id": "sum-incident-50w",
+      "category": "04-riassunto",
+      "lang": "en",
+      "expected": "Tom Okafor slipped from a stepladder on 14 July 2026 at Kingsway Dental, bruised knee, no absence, not RIDDOR-reportable; causes wet floor + ladder foot; ladders replaced and checklist updated.",
+      "check": {
+        "max_words": 55,
+        "contains_all": [
+          "Okafor"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "On 14 July 2026, Tom Okafor slipped from a stepladder while working at Kingsway Dental Practice, injuring his left knee. The incident was caused by a wet floor and a ladder with a missing non-slip foot. Corrective actions were taken to prevent future incidents.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.52,
+      "total_s": 1.969,
+      "in_tokens": 740,
+      "out_tokens": 65,
+      "tok_s": 44.8,
+      "prompt_tok_s": 1652.3,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "sum-verbale-decisioni",
+      "category": "04-riassunto",
+      "lang": "it",
+      "expected": "furgone Transit Custom entro ottobre (38.000 €); 2 tecnici junior entro novembre; Valvex dal 1 ottobre; obiettivo 6 installazioni UK; rinvio Pescara a gennaio 2027; prossima riunione 8 ottobre.",
+      "check": {
+        "contains_all": [
+          "Transit",
+          "Valvex",
+          "Pescara"
+        ],
+        "contains_any": [
+          "2 tecnici",
+          "due tecnici"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "* Acquisto di un furgone Ford Transit Custom entro ottobre 2026, con budget massimo di 38.000 euro + IVA\n* Assunzione di 2 tecnici junior entro novembre 2026\n* Passaggio a Valvex Spa come fornitore principale di valvole dal 1 ottobre 2026\n* Rinvio della proposta di apertura di una sede operativa a Pescara",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.598,
+      "total_s": 2.752,
+      "in_tokens": 861,
+      "out_tokens": 96,
+      "tok_s": 44.6,
+      "prompt_tok_s": 1583.9,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "sum-es-in-italiano",
+      "category": "04-riassunto",
+      "lang": "it",
+      "expected": "12 pompe di calore RX-9 AIR a 3.200 € = 38.400 €; 30% alla firma, 70% a 30 gg dalla consegna; consegna entro 45 giorni DAP Paterna; garanzia 3 anni; penale 0,5%/settimana max 5%.",
+      "check": {
+        "max_words": 90,
+        "contains_any": [
+          "38.400",
+          "38400",
+          "38 400"
+        ],
+        "contains_all": [
+          "45"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Il contratto prevede la fornitura di 12 unità di pompe di calore aria-acqua modello RX-9 AIR da 9 kW di potenza nominale, al prezzo unitario di 3.200,00 euro cadauna. Il prezzo totale è di 38.400,00 euro, tasse non incluse. La consegna avverrà entro 45 giorni naturali dalla firma del contratto, in condizioni DAP Paterna, con una comunicazione della data di spedizione almeno 5 giorni prima. Il pagamento del 30% alla firma del contratto e del 70% entro 30 giorni dalla consegna.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.574,
+      "total_s": 3.877,
+      "in_tokens": 841,
+      "out_tokens": 147,
+      "tok_s": 44.5,
+      "prompt_tok_s": 1640.3,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "sum-manuale-sezioni",
+      "category": "04-riassunto",
+      "lang": "it",
+      "expected": "Pompe di calore aria-acqua RX AIR; funzionamento, manutenzione programmata, diagnosi guasti; componenti (compressore inverter, valvola 4 vie, sonda sbrinamento...); regole generali (sezionamento, ricambi originali, strumenti tarati).",
+      "check": {
+        "contains_any": [
+          "pompa di calore",
+          "pompe di calore"
+        ]
+      },
+      "grade": true,
+      "ctx": 8192,
+      "vision": false,
+      "response": "Il manuale operativo di Rossi Impianti Srl descrive le attività di manutenzione e riparazione per pompe di calore aria-acqua RX AIR. La sezione 10 descrive le attività da svolgere durante le visite programmate e in caso di chiamata per guasto, con una checklist di controlli da effettuare e parametri di riferimento da verificare. La sezione 11 descrive la manutenzione programmata e i controlli periodici da effettuare su queste pompe di calore, con una checklist di attività da svolgere e parametri di riferimento da verificare. La sezione 12 descrive la diagnosi dei guasti e gli interventi correttivi da effettuare su queste pompe di calore, con una checklist di controlli da effettuare e parametri di riferimento da verificare.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 1.997,
+      "total_s": 6.261,
+      "in_tokens": 2946,
+      "out_tokens": 182,
+      "tok_s": 42.7,
+      "prompt_tok_s": 1563.2,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "sum-fedelta-trappola",
+      "category": "04-riassunto",
+      "lang": "it",
+      "expected": "orari, reperibilità solo con contratto, tempi 48h, costi (35 € chiamata, 42/55 €/h), caldaia 95 €, pompe di calore con garanzie 5/2, sconto 10% ricambi, disdetta 60 gg PEC, zone, F-gas. Non deve inventare prezzi o servizi.",
+      "check": {
+        "not_contains": [
+          "gratuit",
+          "weekend",
+          "sabato aperti"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Gli orari di apertura dell'azienda sono dal lunedì al venerdì, dalle 8:00 alle 12:30 e dalle 14:00 alle 18:00, mentre il sabato è chiuso salvo interventi programmati. L'azienda offre un servizio di reperibilità 24 ore su 24 e 7 giorni su 7 solo per i clienti con contratto di manutenzione. In caso di guasto, l'azienda interviene entro 48 ore dalla segnalazione per i clienti con contratto di manutenzione, mentre per gli altri clienti non è possibile garantire tempi. Il diritto di chiamata per un intervento è di 35 euro più la manodopera a ore e i ricambi eventualmente necessari.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.552,
+      "total_s": 4.516,
+      "in_tokens": 678,
+      "out_tokens": 177,
+      "tok_s": 44.6,
+      "prompt_tok_s": 1698.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-cf-assente",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Non presente nel documento. Non deve inventare un codice.",
+      "check": {
+        "not_regex": "[A-Z]{6}\\d{2}[A-Z]\\d{2}[A-Z]\\d{3}[A-Z]",
+        "contains_any": [
+          "non",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Il documento fornito non contiene informazioni sul codice fiscale di Paolo Bianchi.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.675,
+      "total_s": 1.042,
+      "in_tokens": 987,
+      "out_tokens": 17,
+      "tok_s": 46.3,
+      "prompt_tok_s": 1602.9,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-telefono-assente",
+      "category": "05-allucinazioni",
+      "lang": "en",
+      "expected": "Not in the document (only Rossi's number +44 116 496 0123 appears). Must not present Rossi's number as the practice's.",
+      "check": {
+        "contains_any": [
+          "not ",
+          "no ",
+          "doesn't",
+          "does not",
+          "isn't"
+        ],
+        "not_contains": [
+          "practice's phone number is +44 116"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "The document provided does not contain the phone number of Kingsway Dental Practice.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.55,
+      "total_s": 0.894,
+      "in_tokens": 814,
+      "out_tokens": 16,
+      "tok_s": 46.6,
+      "prompt_tok_s": 1669.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-premessa-falsa",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Deve correggere entrambe le premesse (4 interventi, penale 2%) e calcolare 18 € (2 × 2% × 450).",
+      "check": {
+        "contains_all": [
+          "2%"
+        ],
+        "contains_any": [
+          "18",
+          "4 interventi",
+          "quattro interventi"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Il contratto prevede 4 interventi programmati all'anno per ciascun punto vendita, quindi 24 interventi in totale. La penale per ogni giorno di ritardo oltre le 48 ore è pari al 2% del canone mensile, che ammonta a euro 450,00. Quindi, la penale per un giorno di ritardo è di euro 9,00 (2% di 450,00). Per 2 giorni di ritardo, la penale sarebbe di euro 18,00. Tuttavia, il documento non specifica il costo totale per 2 giorni di ritardo, quindi non posso fornire una risposta precisa.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.135,
+      "total_s": 3.565,
+      "in_tokens": 1013,
+      "out_tokens": 152,
+      "tok_s": 44.3,
+      "prompt_tok_s": 21568.8,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "hal-entita-confusa",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "No, è stata Idrotec ad aumentare i prezzi; Valvex è il nuovo fornitore.",
+      "check": {
+        "contains_all": [
+          "Idrotec"
+        ],
+        "contains_any": [
+          "no",
+          "non "
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Sì, è vero che Valvex ha aumentato i prezzi del 18%. Lo si può dedurre dal punto 4 del verbale della riunione del 3 settembre 2026, dove si dice che Idrotec Srl ha comunicato un aumento dei listini del 18% su valvole e raccorderia.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.138,
+      "total_s": 1.816,
+      "in_tokens": 849,
+      "out_tokens": 75,
+      "tok_s": 44.7,
+      "prompt_tok_s": 21169.4,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-senza-contesto",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Non può saperlo (azienda immaginaria, nessun documento fornito). Non deve dare una cifra.",
+      "check": {
+        "not_regex": "\\d[\\d.,]*\\s*(milioni|€|euro|mln)",
+        "contains_any": [
+          "non ",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Mi dispiace, ma non ho informazioni sulle attività finanziarie di Rossi Impianti Srl di Macerata per l'anno 2025, poiché attualmente non sono disponibili dati aggiornati per quell'anno. Ti consiglio di consultare fonti ufficiali o contattare direttamente l'azienda per ottenere informazioni più recenti e accurate.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.099,
+      "total_s": 1.764,
+      "in_tokens": 41,
+      "out_tokens": 76,
+      "tok_s": 45.7,
+      "prompt_tok_s": 906.4,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-data-inventata",
+      "category": "05-allucinazioni",
+      "lang": "en",
+      "expected": "Trick question - he had no days of absence. Must say so.",
+      "check": {
+        "contains_any": [
+          "no days",
+          "did not take",
+          "didn't take",
+          "no absence",
+          "no sick leave",
+          "continued working",
+          "not absent",
+          "wasn't absent",
+          "was not absent",
+          "no time off"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Tom Okafor did not take any sick leave after the incident. He continued working after a 30-minute break and completed the shift on the same day as the incident.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.089,
+      "total_s": 0.907,
+      "in_tokens": 742,
+      "out_tokens": 37,
+      "tok_s": 45.2,
+      "prompt_tok_s": 18225.6,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-prezzo-assente",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "Il listino non riporta il prezzo delle macchine, solo manodopera e forfait (140 € è la manutenzione, non la macchina). Non deve dare un prezzo.",
+      "check": {
+        "not_contains": [
+          "18.450",
+          "18,450",
+          "3.200"
+        ],
+        "contains_any": [
+          "non ",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Il documento fornito non include informazioni sul prezzo di una pompa di calore RX-16 AIR.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.466,
+      "total_s": 1.01,
+      "in_tokens": 693,
+      "out_tokens": 25,
+      "tok_s": 46.0,
+      "prompt_tok_s": 1675.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-citazione-sezione",
+      "category": "05-allucinazioni",
+      "lang": "it",
+      "expected": "La sezione 27 non è nel testo fornito (ci sono solo 1-3). Deve dirlo, non inventare contenuti.",
+      "check": {
+        "not_contains": [
+          "60 °C",
+          "60°C",
+          "30 minuti"
+        ],
+        "contains_any": [
+          "non ",
+          "no "
+        ]
+      },
+      "grade": true,
+      "ctx": 8192,
+      "vision": false,
+      "response": "La sezione 27 del manuale non è presente nel documento fornito.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 2.105,
+      "total_s": 2.488,
+      "in_tokens": 3121,
+      "out_tokens": 17,
+      "tok_s": 44.4,
+      "prompt_tok_s": 1539.4,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "hal-coerenza-numerica",
+      "category": "05-allucinazioni",
+      "lang": "es",
+      "expected": "Corregir - son 12 unidades; total 38.400 €.",
+      "check": {
+        "contains_all": [
+          "12"
+        ],
+        "contains_any": [
+          "38.400",
+          "38,400",
+          "38 400"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "El contrato especifica que son 12 unidades a 3.200 euros cada una. Por lo tanto, el total sería de 38.400 euros (12 unidades x 3.200 euros/unidad).",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.24,
+      "total_s": 1.423,
+      "in_tokens": 845,
+      "out_tokens": 53,
+      "tok_s": 44.8,
+      "prompt_tok_s": 18792.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "wr-email-cliente-it",
+      "category": "07-scrittura",
+      "lang": "it",
+      "expected": "Email coerente con il thread, cita 2-3 dicembre, 3 punti vendita/giorno, conferma entro 20 novembre, firma Marinelli, ≤150 parole, nessun dato inventato.",
+      "check": {
+        "max_words": 170,
+        "contains_all": [
+          "dicembre",
+          "20 novembre"
+        ],
+        "contains_any": [
+          "Marinelli"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "<documento nome=\"it-email-controllo-straordinario.md\">\nDa: Davide Marinelli <d.marinelli@rossiimpianti.example.it>\nA: Paolo Bianchi <p.bianchi@bianchisupermercati.example.it>\nData: venerdì 20 ottobre 2026, 14:32\nOggetto: Controllo straordinario gratuito — Proposta date\n\nBuongiorno Paolo,\n\nti scrivo per concordare le date del controllo straordinario gratuito sui punti vendita, come concordato nella nostra ultima email.\n\nTi propongo di eseguire il controllo il 2 e 3 dicembre 2026, con un massimo di tre punti vendita al giorno. In questo modo, possiamo coprire tutti e sei i punti vendita in due giorni lavorativi.\n\nSpero che queste date siano comode per te e i tuoi direttori. Ti chiedo di confermare entro il 20 novembre, così da poter organizzare al meglio i nostri tecnici.\n\nIn attesa di tue notizie, resto a disposizione per qualsiasi chiarimento.\n\nCordiali saluti,\nDavide Marinelli\nResponsabile tecnico — Rossi Impianti Srl\nTel. +39 0733 123456\n\n</documento>",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.179,
+      "total_s": 6.684,
+      "in_tokens": 1111,
+      "out_tokens": 286,
+      "tok_s": 44.0,
+      "prompt_tok_s": 16218.0,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "wr-report-en-struttura",
+      "category": "07-scrittura",
+      "lang": "en",
+      "expected": "4 intestazioni esatte, contenuti fedeli, 2 raccomandazioni nuove e sensate, ≤250 parole.",
+      "check": {
+        "max_words": 280,
+        "contains_all": [
+          "Summary",
+          "Root causes",
+          "Actions taken",
+          "Recommendations"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "**Summary:**\nOn 14 July 2026, Tom Okafor, Lead Engineer at Kingsway Dental Practice, slipped from a stepladder while fixing a wall bracket, resulting in a bruised left knee. He received first aid on-site and completed his shift. No medical treatment was required beyond first aid, and no days of absence were recorded.\n\n**Root causes:**\n- Immediate cause: Wet floor due to condensation dripping from an uninsulated pipe.\n- Contributing cause: Stepladder missing one of its rubber non-slip feet.\n- Underlying cause: Pre-work checklist did not include a check of floor condition.\n\n**Actions taken:**\n- Replaced stepladders with models fitted with non-slip feet.\n- Added \"floor condition\" to the pre-work checklist.\n- Conducted a toolbox talk on ladder safety.\n- Shared the lesson learned with Macerata head office.\n\n**Recommendations:**\n- Implement regular inspections of plant areas to identify potential hazards.\n- Provide additional training on hazard identification and risk assessment for engineers.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.159,
+      "total_s": 5.088,
+      "in_tokens": 774,
+      "out_tokens": 218,
+      "tok_s": 44.2,
+      "prompt_tok_s": 13678.1,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "wr-propuesta-es",
+      "category": "07-scrittura",
+      "lang": "es",
+      "expected": "Spagnolo corretto, 140 €/unità (totale 1.680 €), 10% ricambi, titolo + 3 paragrafi + CTA, ≤200 parole.",
+      "check": {
+        "max_words": 230,
+        "contains_all": [
+          "140",
+          "10%"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "**Propuesta comercial para Climatizaciones Soler**\n\nEstimados,\n\nNos complace ofrecer a su empresa un contrato anual de mantenimiento para las 12 unidades de bomba de calor aire-agua modelo RX-9 AIR, adquiridas recientemente. Nuestro paquete de mantenimiento incluye una visita anual por unidad, con un precio a tanto alzado de 140 € por unidad y año.\n\nAdemás, como cliente con contrato de mantenimiento, tendrá un 10% de descuento en los repuestos necesarios para sus unidades. Este descuento se aplicará automáticamente en todas las facturas relacionadas con el mantenimiento de sus bombas de calor.\n\nAl contratar nuestro servicio de mantenimiento anual, garantizamos un funcionamiento óptimo de sus unidades, lo que se traduce en una mayor eficiencia energética y un menor costo a largo plazo. También tendrá prioridad en la atención técnica en caso de averías, asegurando un tiempo de inactividad mínimo para su negocio.\n\nLe invitamos a considerar esta propuesta y a contactarnos para discutir los detalles y beneficios adicionales que puede obtener al contratar nuestro servicio de mantenimiento anual. Esperamos su respuesta positiva y la oportunidad de colaborar con Climatizaciones Soler en el futuro.\n\nAtentamente,\nMarco Rossi\nConsejero Delegado\nRossi Impianti Srl",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.592,
+      "total_s": 6.864,
+      "in_tokens": 1528,
+      "out_tokens": 273,
+      "tok_s": 43.5,
+      "prompt_tok_s": 3115.5,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "wr-riscrittura-tono",
+      "category": "07-scrittura",
+      "lang": "it",
+      "expected": "Formale, completo (furgone, ottobre, 15, Recanati lunedì, alternativa auto propria con rimborso), nessuna informazione persa o aggiunta.",
+      "check": {
+        "contains_all": [
+          "Recanati",
+          "ottobre"
+        ],
+        "not_contains": [
+          "ragazzi",
+          "??"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Egregi signori,\n\nMi permetto di chiedere notizie riguardo al nuovo furgone, di cui attendevo l'arrivo con una certa urgenza. Ho appreso che, secondo Marinelli, il veicolo sarebbe dovuto giungere entro il mese di ottobre, ma siamo già giunti al 15 del medesimo mese e, finora, non ho ancora ricevuto alcuna comunicazione in merito al suo arrivo.\n\nMi trovo in una situazione di necessità, poiché ho bisogno del furgone per il cantiere di Recanati già a partire da lunedì prossimo. In mancanza del mezzo, sarei costretto a utilizzare il mio veicolo personale per recarmi sul luogo di lavoro, il che comporterebbe un notevole aumento delle spese di benzina. In tal caso, confido che la mia richiesta di rimborso per le suddette spese verrà presa in considerazione.\n\nSpero di ricevere al più presto notizie circa l'arrivo del nuovo furgone, al fine di poter pianificare al meglio il mio lavoro e di evitare eventuali inconvenienti.\n\nCordiali saluti,\n[Il tuo nome]",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.175,
+      "total_s": 5.744,
+      "in_tokens": 82,
+      "out_tokens": 251,
+      "tok_s": 45.1,
+      "prompt_tok_s": 1241.6,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "wr-faq-generate",
+      "category": "07-scrittura",
+      "lang": "en",
+      "expected": "6 Q&A fedeli (25 giorni + bank holidays, 1 apr-31 mar, 2 settimane preavviso, 5 giorni riporto entro 30 giugno, max 2 in ferie insieme in stagione, malattia - chiamare entro 8:00, fit note dall'8° giorno).",
+      "check": {
+        "contains_all": [
+          "25",
+          "5"
+        ],
+        "contains_any": [
+          "30 June"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "**Q1: How many days of paid annual leave am I entitled to per year?**\nA1: Full-time employees are entitled to 25 days of paid annual leave per year, plus the 8 English bank holidays.\n\n**Q2: How far in advance should I request leave?**\nA2: Leave must be requested through the online rota system with at least 2 weeks' notice, and 4 weeks' notice for more than 5 consecutive working days.\n\n**Q3: Can I carry over unused leave into the next year?**\nA3: A maximum of 5 days of unused leave may be carried over into the next leave year and must be taken by 30 June.\n\n**Q4: What happens if I work on a bank holiday?**\nA4: Engineers rostered to work on a bank holiday receive a day off in lieu plus a 50% uplift on hourly pay.\n\n**Q5: How should I report sickness absence?**\nA5: Employees must telephone the Branch Manager before 8:00 on the first day of absence and follow the procedures outlined in Section 6.5.\n\n**Q6: What types of other leave are available?**\nA6: Other types of leave include compassionate leave, medical appointments, and parental/maternity/paternity/adoption leave, each with its own provisions as outlined in Section 6.6.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.482,
+      "total_s": 6.96,
+      "in_tokens": 650,
+      "out_tokens": 287,
+      "tok_s": 44.3,
+      "prompt_tok_s": 1453.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "wr-vincoli-formali",
+      "category": "07-scrittura",
+      "lang": "it",
+      "expected": "Rispetta esattamente la struttura (titolo ≤8 parole, 3 bullet, riga finale col numero). Chiusura 10-21 agosto.",
+      "check": {
+        "bullets": 3,
+        "contains_all": [
+          "+39 333 1234567"
+        ],
+        "contains_any": [
+          "10",
+          "21"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "AVVISO: CHiusura estiva dal 10 al 21 agosto 2026. Servizio sospeso. Reperibilità +39 333 1234567 (solo clienti con contratto).",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.154,
+      "total_s": 1.379,
+      "in_tokens": 94,
+      "out_tokens": 56,
+      "tok_s": 45.7,
+      "prompt_tok_s": 1297.7,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "ml-it-su-es",
+      "category": "08-multilingua",
+      "lang": "it",
+      "expected": "3 anni dalla consegna; esclusi danni da installazione non conforme al manuale o mancata manutenzione annuale. Risposta in italiano.",
+      "check": {
+        "contains_all": [
+          "3"
+        ],
+        "contains_any": [
+          "manutenzione",
+          "installazione"
+        ],
+        "lang": "it"
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "La garanzia sulle unità è di 3 anni dalla data di consegna e copre i difetti di fabbricazione. Sono esclusi i danni derivanti da un'installazione non conforme al manuale o dalla mancanza di manutenzione annuale.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.123,
+      "total_s": 1.445,
+      "in_tokens": 829,
+      "out_tokens": 59,
+      "tok_s": 44.6,
+      "prompt_tok_s": 22071.4,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "ml-en-su-it",
+      "category": "08-multilingua",
+      "lang": "en",
+      "expected": "Above 2 m (harness + second anchor point); never alone on live systems or in confined spaces. Answer in English.",
+      "check": {
+        "contains_all": [
+          "2"
+        ],
+        "contains_any": [
+          "confined",
+          "alone"
+        ],
+        "lang": "en"
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "According to the provided document, a harness is mandatory for work above 2 meters of height. The rule for working alone is that it is forbidden to work alone on impianti in tensione (electrical installations) and in spazi confinati (enclosed spaces). In these cases, the presence of a second operator is obligatory.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.709,
+      "total_s": 2.312,
+      "in_tokens": 1006,
+      "out_tokens": 71,
+      "tok_s": 44.3,
+      "prompt_tok_s": 1582.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "ml-es-su-en",
+      "category": "08-multilingua",
+      "lang": "es",
+      "expected": "25 días + festivos; al menos 2 semanas (4 semanas si más de 5 días seguidos). Respuesta en español.",
+      "check": {
+        "contains_all": [
+          "25"
+        ],
+        "contains_any": [
+          "2 semanas",
+          "dos semanas"
+        ],
+        "lang": "es"
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Los empleados a tiempo completo tienen derecho a **25 días de vacaciones pagadas al año, más los 8 días festivos bancarios en Inglaterra**. La solicitud de vacaciones debe realizarse a través del sistema de turnos en línea con **al menos 2 semanas de antelación**. Las solicitudes para más de 5 días laborables consecutivos requieren 4 semanas de antelación.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.156,
+      "total_s": 2.071,
+      "in_tokens": 633,
+      "out_tokens": 86,
+      "tok_s": 44.9,
+      "prompt_tok_s": 14308.6,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "ml-traduzione-it-en",
+      "category": "08-multilingua",
+      "lang": "en",
+      "expected": "Traduzione fedele e naturale (48 hours, 2% of the monthly fee, deducted from the next invoice, does not apply if parts unavailability documented by the component supplier).",
+      "check": {
+        "contains_all": [
+          "48",
+          "2%"
+        ],
+        "contains_any": [
+          "next invoice",
+          "following invoice",
+          "subsequent invoice"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "For each day of delay beyond 48 hours, the Client shall be entitled to a penalty equal to 2% of the monthly fee, which shall be deducted in the subsequent invoice. The penalty shall not apply in case of documented unavailability of spare parts by the component supplier.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.117,
+      "total_s": 1.41,
+      "in_tokens": 91,
+      "out_tokens": 59,
+      "tok_s": 45.7,
+      "prompt_tok_s": 1259.5,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "ml-traduzione-en-es",
+      "category": "08-multilingua",
+      "lang": "es",
+      "expected": "Traduzione corretta e naturale: 5 años garantía del fabricante sujeta a mantenimiento anual; mano de obra 2 años; 40% anticipo, 60% a la puesta en marcha, transferencia en 14 días.",
+      "check": {
+        "contains_all": [
+          "40",
+          "60",
+          "14"
+        ],
+        "contains_any": [
+          "5 años",
+          "cinco años"
+        ],
+        "contains_any_2": [
+          "2 años",
+          "dos años"
+        ],
+        "lang": "es"
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "La bomba de calor lleva una garantía del fabricante de 5 años, sujeta a un servicio anual. El trabajo de instalación está garantizado por 2 años. Pago: se requiere un depósito del 40% al aceptar el trabajo, el saldo del 60% se abonará al poner en marcha la instalación, mediante transferencia bancaria dentro de los 14 días siguientes a la fecha de facturación.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.084,
+      "total_s": 2.086,
+      "in_tokens": 74,
+      "out_tokens": 91,
+      "tok_s": 45.4,
+      "prompt_tok_s": 1131.1,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "ml-istruzione-lingua",
+      "category": "08-multilingua",
+      "lang": "es",
+      "expected": "Responde en español - lunes a viernes 8:00-12:30 / 14:00-18:00, 35 euros + IVA.",
+      "check": {
+        "contains_all": [
+          "35"
+        ],
+        "contains_any": [
+          "8:00",
+          "8.00"
+        ],
+        "lang": "es"
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Gli orari di apertura sono dal lunedì al venerdì, 8:00-12:30 e 14:00-18:00. Il sabato siamo chiusi, salvo interventi programmati. Il diritto di chiamata costa 35 euro.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.093,
+      "total_s": 1.538,
+      "in_tokens": 676,
+      "out_tokens": 65,
+      "tok_s": 45.0,
+      "prompt_tok_s": 16355.4,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "ml-registro-it",
+      "category": "08-multilingua",
+      "lang": "it",
+      "expected": "Due registri nettamente diversi ma stesso contenuto (giovedì 30 ottobre, 9-11, 95 € + IVA, numero). Italiano naturale, senza calchi.",
+      "check": {
+        "contains_all": [
+          "30 ottobre",
+          "95",
+          "0733 123456"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Versione formale per PEC:\nOggetto: Appuntamento per manutenzione annuale caldaia\n\nEgregio Sig. [Nome Cognome],\nLa informiamo che il nostro tecnico passerà presso la Sua azienda giovedì 30 ottobre prossimo tra le ore 9:00 e le ore 11:00 per effettuare la manutenzione annuale della caldaia. Il costo per questo intervento è di €95,00 + IVA.\nIn caso di indisponibilità, La preghiamo di contattarci al numero 0733 123456 per concordare una nuova data.\nCordiali saluti,\n[Nome Cognome]\n\nVersione informale per WhatsApp:\nCiao [Nome], giovedì 30 ottobre il tecnico passerà da te tra le 9 e le 11 per la manutenzione annuale della caldaia. Costa 95 euro + IVA. Se non va bene, chiamaci allo 0733 123456. A presto!",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.131,
+      "total_s": 5.533,
+      "in_tokens": 113,
+      "out_tokens": 243,
+      "tok_s": 45.0,
+      "prompt_tok_s": 1369.7,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "ml-idiomi-en",
+      "category": "08-multilingua",
+      "lang": "en",
+      "expected": "Capisce gli idiomi (prezzo troppo alto → chiede sconto; disruption; lavori durante il bank holiday); spiegazione in italiano corretta; risposta inglese cortese, 3 frasi.",
+      "check": {
+        "contains_any": [
+          "sconto",
+          "ribasso",
+          "prezzo",
+          "riduzione",
+          "costi",
+          "quotazione",
+          "preventivo"
+        ],
+        "contains_all": [
+          "bank holiday"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "**Explanation in Italian:**\n\n- Il cliente britannico ha trovato il preventivo un po' elevato e non gradisce i possibili disagi. Sta chiedendo se è possibile ridurre il prezzo (\"sharpen your pencil\").\n- Inoltre, il cliente ha suggerito di svolgere il lavoro durante il ponte festivo, in modo da non creare interruzioni nell'attività (\"over the bank holiday\").\n- Sta chiedendo implicitamente se è possibile trovare una soluzione che soddisfi entrambe le richieste: un prezzo più basso e un lavoro svolto durante il ponte festivo.\n\n**Polite reply in English:**\n\n\"We understand your concerns regarding the quote and disruption. We will review our pricing and see if we can accommodate your request to work over the bank holiday. We will get back to you with a revised proposal as soon as possible.\"",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.11,
+      "total_s": 4.003,
+      "in_tokens": 87,
+      "out_tokens": 176,
+      "tok_s": 45.2,
+      "prompt_tok_s": 1210.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "tool-ticket-urgente",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "crea_ticket(cliente=Bianchi Supermercati, sede=Porto Recanati, problema=chiller..., priorita=urgente)",
+      "check": {
+        "tool": {
+          "name": "crea_ticket",
+          "args_contain": {
+            "cliente": "Bianchi",
+            "sede": "Porto Recanati",
+            "priorita": "urgente"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "",
+      "reasoning": null,
+      "tool_calls": [
+        {
+          "name": "crea_ticket",
+          "arguments": {
+            "sede": "Punto vendita Porto Recanati",
+            "cliente": "Bianchi Supermercati",
+            "problema": "chiller unità esterna fermo",
+            "priorita": "urgente"
+          }
+        }
+      ],
+      "ttft_s": 1.704,
+      "total_s": 1.704,
+      "in_tokens": 379,
+      "out_tokens": 64,
+      "tok_s": 45.2,
+      "prompt_tok_s": 1502.9,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "tool-pianifica-data",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "pianifica_intervento(cliente=Kingsway Dental Practice, data=2026-10-23, ora=09:00, tecnico=Luca Fabbri)",
+      "check": {
+        "tool": {
+          "name": "pianifica_intervento",
+          "args_contain": {
+            "data": "2026-10-23",
+            "ora": "09:00",
+            "tecnico": "Fabbri"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Il cliente Luca Fabbri da Kingsway Dental Practice è stato pianificato per giovedì 25 ottobre alle 9:00.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.76,
+      "total_s": 0.76,
+      "in_tokens": 380,
+      "out_tokens": 32,
+      "tok_s": 45.9,
+      "prompt_tok_s": 7502.8,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "tool-nessuno-necessario",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "Nessun tool; risposta testuale.",
+      "check": {
+        "no_tool": true,
+        "min_words": 15
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Una caldaia a condensazione utilizza la condensa prodotta durante il processo di combustione per riscaldare l'acqua, riducendo così i tempi di riscaldamento e i consumi di energia. Al contrario, una caldaia tradizionale non utilizza la condensa prodotta durante il processo di combustione, il che può portare a tempi di riscaldamento più lunghi e a un maggiore consumo di energia.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 2.119,
+      "total_s": 2.119,
+      "in_tokens": 363,
+      "out_tokens": 93,
+      "tok_s": 45.1,
+      "prompt_tok_s": 8245.1,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "tool-email-da-doc",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "invia_email(a=p.bianchi@bianchisupermercati.example.it, oggetto..., testo contiene penale/ottobre)",
+      "check": {
+        "tool": {
+          "name": "invia_email",
+          "args_contain": {
+            "a": "p.bianchi@bianchisupermercati.example.it",
+            "testo": "ottobre"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "",
+      "reasoning": null,
+      "tool_calls": [
+        {
+          "name": "invia_email",
+          "arguments": {
+            "a": "p.bianchi@bianchisupermercati.example.it",
+            "oggetto": "Penale per ritardo intervento Porto Recanati",
+            "testo": "Buongiorno Paolo,\n\nConfermiamo che la penale di 9,00 euro per il ritardo nell'intervento al punto vendita di Porto Recanati sarà detratta dalla fattura di ottobre.\n\nCordiali saluti,\nDavide Marinelli\nResponsabile tecnico — Rossi Impianti Srl\nTel. +39 0733 123456"
+          }
+        }
+      ],
+      "ttft_s": 4.001,
+      "total_s": 4.001,
+      "in_tokens": 1406,
+      "out_tokens": 143,
+      "tok_s": 43.9,
+      "prompt_tok_s": 1947.2,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "tool-ambiguo-chiede",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "Mancano data (e cliente non univoco); il comportamento ideale è chiedere. Accettabile anche cerca_cliente. Sbagliato inventare una data.",
+      "check": {
+        "tool_not": "pianifica_intervento"
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "Certo, posso aiutarti con questo. Qual è il problema che il cliente sta riscontrando?",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.615,
+      "total_s": 0.615,
+      "in_tokens": 350,
+      "out_tokens": 22,
+      "tok_s": 46.5,
+      "prompt_tok_s": 9725.2,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "json-contratto",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "{\"numero\":\"2026/114\",\"cliente\":\"Bianchi Supermercati Srl\",\"decorrenza\":\"2026-02-01\",\"durata_mesi\":12,\"canone_mensile_eur\":450,\"interventi_anno\":4,\"preavviso_recesso_giorni\":60,\"penale_pct\":2}",
+      "check": {
+        "json_equals": {
+          "numero": "2026/114",
+          "decorrenza": "2026-02-01",
+          "durata_mesi": 12,
+          "canone_mensile_eur": 450,
+          "interventi_anno": 4,
+          "preavviso_recesso_giorni": 60,
+          "penale_pct": 2
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "{\n  \"numero\": \"2026/114\",\n  \"cliente\": \"Bianchi Supermercati Srl\",\n  \"decorrenza\": \"2026-02-01\",\n  \"durata_mesi\": 12,\n  \"canone_mensile_eur\": 450.00,\n  \"interventi_anno\": 4,\n  \"preavviso_recesso_giorni\": 60,\n  \"penale_pct\": 0.02\n}",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.151,
+      "total_s": 2.863,
+      "in_tokens": 1062,
+      "out_tokens": 120,
+      "tok_s": 44.3,
+      "prompt_tok_s": 14199.6,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "json-quotation",
+      "category": "09-tools",
+      "lang": "en",
+      "expected": "Q-UK-2026-031, Kingsway Dental Practice, 2026-08-28, 18450, 20, 22140, 40, 3, 5, 2",
+      "check": {
+        "json_equals": {
+          "quote_number": "Q-UK-2026-031",
+          "date": "2026-08-28",
+          "total_ex_vat": 18450,
+          "vat_rate_pct": 20,
+          "total_inc_vat": 22140,
+          "deposit_pct": 40,
+          "lead_time_weeks": 3,
+          "warranty_years_unit": 5,
+          "warranty_years_labour": 2
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "{\n  \"quote_number\": \"Q-UK-2026-031\",\n  \"customer\": \"Kingsway Dental Practice\",\n  \"date\": \"2026-08-28\",\n  \"total_ex_vat\": 18450,\n  \"vat_rate_pct\": 20,\n  \"total_inc_vat\": 22140,\n  \"deposit_pct\": 40,\n  \"lead_time_weeks\": 3,\n  \"warranty_years_unit\": 5,\n  \"warranty_years_labour\": 2\n}",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.166,
+      "total_s": 3.219,
+      "in_tokens": 872,
+      "out_tokens": 135,
+      "tok_s": 44.2,
+      "prompt_tok_s": 13019.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "json-lista-decisioni",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "Array JSON valido con ≥4 decisioni (furgone, assunzioni, Valvex, obiettivo UK, Pescara rinviata).",
+      "check": {
+        "json_array_min": 4,
+        "contains_all": [
+          "Valvex",
+          "Transit"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "[\n  {\n    \"decisione\": \"acquisto di un furgone Ford Transit Custom entro ottobre 2026, con budget massimo di 38.000 euro + IVA\",\n    \"responsabile\": \"Elena Carletti\",\n    \"scadenza\": \"15 settembre 2026\"\n  },\n  {\n    \"decisione\": \"assunzione di 2 tecnici junior entro novembre 2026\",\n    \"responsabile\": \"Giulia Santini\",\n    \"scadenza\": null\n  },\n  {\n    \"decisione\": \"passare a Valvex Spa come fornitore principale di valvole dal 1 ottobre 2026\",\n    \"responsabile\": null,\n    \"scadenza\": null\n  }\n]",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.15,
+      "total_s": 4.16,
+      "in_tokens": 880,
+      "out_tokens": 177,
+      "tok_s": 44.1,
+      "prompt_tok_s": 15588.5,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "json-enum-classifica",
+      "category": "09-tools",
+      "lang": "it",
+      "expected": "1 guasto alta; 2 preventivo bassa/media; 3 amministrazione bassa/media; 4 altro bassa; 5 guasto bassa/media",
+      "check": {
+        "json_array_min": 5,
+        "json_items": {
+          "1": {
+            "categoria": "guasto",
+            "urgenza": "alta"
+          },
+          "2": {
+            "categoria": "preventivo"
+          },
+          "3": {
+            "categoria": "amministrazione"
+          },
+          "4": {
+            "categoria": "altro"
+          },
+          "5": {
+            "categoria": "guasto"
+          }
+        }
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "[\n  {\"id\": 1, \"categoria\": \"guasto\", \"urgenza\": \"alta\"},\n  {\"id\": 2, \"categoria\": \"preventivo\", \"urgenza\": \"media\"},\n  {\"id\": 3, \"categoria\": \"amministrazione\", \"urgenza\": \"media\"},\n  {\"id\": 4, \"categoria\": \"altro\", \"urgenza\": \"bassa\"},\n  {\"id\": 5, \"categoria\": \"guasto\", \"urgenza\": \"media\"}\n]",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.182,
+      "total_s": 2.857,
+      "in_tokens": 154,
+      "out_tokens": 121,
+      "tok_s": 45.2,
+      "prompt_tok_s": 1287.6,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-penale-3gg",
+      "category": "10-ragionamento",
+      "lang": "it",
+      "expected": "5 - 2 (48h) = 3 giorni; 3 × 2% × 450 = 27 €",
+      "check": {
+        "contains_any": [
+          "27"
+        ],
+        "contains_all": [
+          "3"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Se un intervento arriva 5 giorni dopo la segnalazione, il ritardo è di 3 giorni (5 giorni - 48 ore = 3 giorni). La penale per ogni giorno di ritardo è pari al 2% del canone mensile, che ammonta a euro 450,00. Quindi, la penale totale per 3 giorni di ritardo sarebbe:\n\n3 giorni x 2% x euro 450,00 = euro 27,00",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.122,
+      "total_s": 2.613,
+      "in_tokens": 1013,
+      "out_tokens": 110,
+      "tok_s": 44.2,
+      "prompt_tok_s": 20991.8,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-deposit-uk",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "Total inc VAT 22,140; deposit 40% = 8,856; balance 60% = 13,284",
+      "check": {
+        "contains_all": [
+          "8,856",
+          "13,284"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "To calculate the deposit and the balance including VAT, we'll first find the total cost including VAT, which is £22,140.00 as stated in the quotation.\n\n**Deposit including VAT:**\nThe deposit is 40% of the total cost including VAT.\nDeposit = (40/100) * £22,140.00 = £8,856.00\n\n**Balance including VAT:**\nThe balance is the remaining 60% of the total cost including VAT.\nBalance = (60/100) * £22,140.00 = £13,284.00\n\nSo, the deposit including VAT is £8,856.00, and the balance including VAT is £13,284.00.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.142,
+      "total_s": 4.172,
+      "in_tokens": 820,
+      "out_tokens": 178,
+      "tok_s": 44.2,
+      "prompt_tok_s": 20244.9,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-date-consegna",
+      "category": "10-ragionamento",
+      "lang": "es",
+      "expected": "Firma 15 junio + 45 días = 30 de julio; entrega 27 de julio → cumplido con 3 días de margen",
+      "check": {
+        "contains_any": [
+          "30 de julio",
+          "30/07"
+        ],
+        "contains_all": [
+          "3"
+        ],
+        "contains_any_2": [
+          "cumpl",
+          "a tiempo",
+          "dentro del plazo",
+          "margen"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "La fecha límite de entrega según el contrato era de **45 días naturales** desde la firma del contrato. La entrega se realizó el 27 de julio de 2026, lo que significa que se cumplió con un margen de **2 días**, ya que la fecha límite era el 10 de agosto de 2026.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.751,
+      "total_s": 2.448,
+      "in_tokens": 1739,
+      "out_tokens": 74,
+      "tok_s": 43.6,
+      "prompt_tok_s": 2685.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-ferie",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "Carried over max 5 (2 lost); 25 + 5 = 30; 30 - 9 = 21 remaining (carried days must be used by 30 June).",
+      "check": {
+        "contains_all": [
+          "21",
+          "2"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Based on the information provided in the document, an engineer had 7 unused days on 31 March 2026. They are entitled to carry over a maximum of 5 days into the next leave year. Therefore, they could carry over 5 days and lose 2 days (7 - 5 = 2).\n\nSince 1 April 2026, the engineer has taken 9 days of leave. They have used 4 days from their carried-over leave (5 carried-over days - 1 leave year's entitlement of 25 days = 4 days), and they have 21 days of leave remaining for this leave year (25 days of annual leave - 9 days taken = 16 days, plus 5 carried-over days = 21 days).\n\nSo, the engineer can still take 21 days of leave this leave year, and 2 of the 7 unused days were lost.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.203,
+      "total_s": 4.64,
+      "in_tokens": 654,
+      "out_tokens": 197,
+      "tok_s": 44.4,
+      "prompt_tok_s": 11836.0,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-logica",
+      "category": "10-ragionamento",
+      "lang": "it",
+      "expected": "Carlo=Macerata (unica opzione); quindi Anna=Recanati (non Fermo); Bruno=Fermo",
+      "check": {
+        "regex": "Carlo[^.]{0,30}Macerata|Macerata[^.]{0,30}Carlo",
+        "regex_2": "Bruno[^.]{0,30}Fermo|Fermo[^.]{0,30}Bruno",
+        "regex_3": "Anna[^.]{0,30}Recanati|Recanati[^.]{0,30}Anna"
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Anna va a Macerata, Bruno va a Recanati e Carlo va a Fermo.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.126,
+      "total_s": 0.575,
+      "in_tokens": 85,
+      "out_tokens": 21,
+      "tok_s": 46.8,
+      "prompt_tok_s": 1182.3,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-aritmetica-contratto",
+      "category": "10-ragionamento",
+      "lang": "it",
+      "expected": "450 × 12 = 5.400 + 22% = 6.588 €; a listino 24 × (2×42 + 35) = 24 × 119 = 2.856 €",
+      "check": {
+        "contains_any": [
+          "6.588",
+          "6588",
+          "6 588"
+        ],
+        "contains_any_2": [
+          "2.856",
+          "2856",
+          "2 856"
+        ]
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "Per calcolare quanto Bianchi pagherebbe in un anno di contratto, IVA inclusa, dobbiamo considerare il canone mensile di euro 450,00 oltre IVA al 22%.\n\nIl canone mensile è di euro 450,00 + (450,00 \\* 0,22) = euro 549,00.\n\nIn un anno (12 mesi), Bianchi pagherebbe:\n549,00 \\* 12 = euro 6.588,00.\n\nPer quanto riguarda il costo a listino per 24 manutenzioni programmate, dobbiamo considerare che ogni manutenzione programmata richiede 2 ore di tecnico più il diritto di chiamata.\n\nIl prezzo orario per un tecnico è di euro 42,00, quindi per 2 ore il costo sarebbe:\n42,00 \\* 2 = euro 84,00.\n\nIl diritto di chiamata è di euro 35,00, quindi il costo totale per ogni manutenzione programmata sarebbe:\n84,00 + 35,00 = euro 119,00.\n\nPer 24 manutenzioni programmate, il costo sarebbe:\n119,00 \\* 24 = euro 2.856,00.\n\nQuesto è il costo IVA esclusa. Se si volesse calcolare l'IVA, bisognerebbe aggiungere il 22% al totale:\n2.856,00 + (2.856,00 \\* 0,22) = euro 3.484,32.\n\nIn conclusione, Bianchi pagherebbe euro 6.588,00 in un anno di contratto, IVA inclusa, mentre il costo a listino per 24 manutenzioni programmate sarebbe euro 3.484,32, IVA inclusa.",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.551,
+      "total_s": 10.732,
+      "in_tokens": 1658,
+      "out_tokens": 440,
+      "tok_s": 43.2,
+      "prompt_tok_s": 3426.4,
+      "load_s": 0.01,
+      "error": null
+    },
+    {
+      "id": "rag-sql",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "SELECT tecnico, SUM(ore) ... WHERE tipo='guasto' AND data in Sept 2026 GROUP BY tecnico ORDER BY ... DESC",
+      "check": {
+        "regex": "(?is)select.*sum\\s*\\(\\s*ore\\s*\\).*where.*guasto.*group by\\s+tecnico.*order by.*desc"
+      },
+      "grade": null,
+      "ctx": null,
+      "vision": false,
+      "response": "SELECT tecnico, SUM(ore) AS total_hours\nFROM Table_interventi\nWHERE tipo = 'guasto' AND EXTRACT(MONTH FROM data) = 9 AND EXTRACT(YEAR FROM data) = 2026\nGROUP BY tecnico\nORDER BY total_hours DESC;",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.192,
+      "total_s": 1.662,
+      "in_tokens": 72,
+      "out_tokens": 67,
+      "tok_s": 45.5,
+      "prompt_tok_s": 1105.8,
+      "load_s": 0.0,
+      "error": null
+    },
+    {
+      "id": "rag-python",
+      "category": "10-ragionamento",
+      "lang": "en",
+      "expected": "Funzione corretta (es. ceil((arrived-reported - 48h)/24h) × 0.02 × fee, min 0); esempi coerenti (es. 72h → 1 giorno → 9.0 con fee 450).",
+      "check": {
+        "contains_all": [
+          "def penalty",
+          "0.02"
+        ],
+        "contains_any": [
+          "48",
+          "timedelta"
+        ]
+      },
+      "grade": true,
+      "ctx": null,
+      "vision": false,
+      "response": "```python\nfrom datetime import datetime, timedelta\n\ndef penalty(reported, arrived, monthly_fee):\n    delay = arrived - reported\n    if delay > timedelta(hours=48):\n        days_delay = delay.days\n        penalty = monthly_fee * 0.02 * days_delay\n    else:\n        penalty = 0\n    return penalty\n\n# Example calls\nprint(penalty(datetime(2022, 1, 1), datetime(2022, 1, 3), 100))  # Expected: 4 euros\nprint(penalty(datetime(2022, 1, 1), datetime(2022, 1, 2), 100))  # Expected: 0 euros\n```",
+      "reasoning": null,
+      "tool_calls": null,
+      "ttft_s": 0.088,
+      "total_s": 3.932,
+      "in_tokens": 79,
+      "out_tokens": 174,
+      "tok_s": 45.3,
+      "prompt_tok_s": 1192.7,
+      "load_s": 0.0,
+      "error": null
+    }
+  ]
+}

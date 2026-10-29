@@ -1,0 +1,44 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — gemma4:e4b (4.5B effective, blob updated 2026-10-21; 122 tok/s, 6 GB VRAM)
+# With the new blob it reads images (7/10 auto): good OCR on sharp text, errors on the IBAN (one digit) and chart reading (127 instead of 131).
+# Same family traits: Italian answers to English questions, 3 options instead of one. Unjustified refusal on the sales proposal.
+conv-memoria-it: 3            # does not repeat name/6 stores; "le fornirò subito il nome del tecnico" ("I'll give you the technician's name right away") repeated three times
+conv-cambio-tema-en: 3        # returns to the topic, generic but closes with sensible questions
+conv-riferimento-pronome-it: 5
+conv-support-es: 5
+conv-correzione-it: 4
+conv-tono-en: 5
+doc-estrazione-tabella: 5
+doc-multi-persona: 3          # correo: "Giulia gli invia le istruzioni" ("Giulia sends him the instructions"; it is the other way round)
+sum-email-3punti: 4           # misses the €9 amount and the customer's acceptance
+sum-incident-50w: 2           # in Italian; "azioni correttive implementate" ("corrective actions implemented") is empty; misses RIDDOR
+sum-verbale-decisioni: 4
+sum-es-in-italiano: 4
+sum-manuale-sezioni: 5
+sum-fedelta-trappola: 5
+hal-cf-assente: 5
+hal-telefono-assente: 3       # Italian
+hal-premessa-falsa: 5         # corrects and calculates €18
+hal-senza-contesto: 4
+hal-data-inventata: 3         # right, in Italian
+hal-prezzo-assente: 3         # "in quanto ricambio" ("as a spare part"): confused
+hal-citazione-sezione: 2      # "nella sezione 27 non ci sono informazioni" ("section 27 has no information"): the section does not exist in the text
+img-rapporto-descrizione: 4   # misses Porto Recanati and the technician
+img-grafico-tendenza: 2       # peak "in August" (it was July) and sum 127 (it was 131)
+img-tabella-confronto: 4      # misses mileage n/a
+img-fattura-assente: 5
+wr-email-cliente-it: 4        # "[Data odierna]" placeholder
+wr-report-en-struttura: 5
+wr-propuesta-es: 1            # REFUSES: "non sono in possesso di informazioni per redigere una proposta" ("I don't have the information to draft a proposal"; it had everything)
+wr-riscrittura-tono: 3        # three options, truncated
+wr-faq-generate: 2            # in Italian
+wr-vincoli-formali: 3         # "contattare il nostro supporto" ("contact our support") is vague; title with ":"
+ml-it-su-es: 5
+ml-en-su-it: 2                # Italian to an English question
+ml-es-su-en: 5
+ml-traduzione-it-en: 3        # three versions + glossary
+ml-traduzione-en-es: 3        # three versions + glossary
+ml-istruzione-lingua: 5
+ml-registro-it: 4             # good, truncated
+ml-idiomi-en: 5
+tool-ambiguo-chiede: 5
+rag-python: 5                 # correct (ceil), consistent example

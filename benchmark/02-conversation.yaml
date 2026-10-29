@@ -1,0 +1,66 @@
+# Multi-turn conversation: context memory, coherence, tone. Only the last answer is graded.
+tests:
+  - id: conv-memoria-it
+    lang: it
+    grade: true
+    expected: "Must remember that the customer is Paolo, has 6 stores and the problem is a chiller in Porto Recanati; proposes a concrete next step."
+    check: {contains_all: ["Porto Recanati"], contains_any: ["sei", "6"]}
+    system: Sei l'assistente clienti di Rossi Impianti Srl, azienda di impiantistica. Aiuti i clienti con cortesia e concretezza.
+    messages:
+      - {role: user, content: "Buongiorno, sono Paolo Bianchi, gestisco 6 supermercati nella provincia di Macerata."}
+      - {role: assistant, content: "Buongiorno Paolo, piacere. Come posso aiutarla?"}
+      - {role: user, content: "Da stamattina il chiller del punto vendita di Porto Recanati è fermo e in negozio ci sono 29 gradi."}
+      - {role: assistant, content: "Capisco, è una situazione urgente. Avete un contratto di manutenzione attivo con noi?"}
+      - {role: user, content: "Sì, il 2026/114. Può riassumermi la situazione e dirmi cosa succede adesso?"}
+
+  - id: conv-cambio-tema-en
+    lang: en
+    grade: true
+    expected: "Must return to the original topic (quote for a 16 kW heat pump for a dental practice) and answer the warranty question without losing context, stating that the standard warranty is 5 years on the unit / 2 years on labour if it knows it, or saying that it depends on the quote."
+    messages:
+      - {role: user, content: "Hi, I'm looking for a quote for a 16 kW heat pump for my dental practice in Leicester."}
+      - {role: assistant, content: "Happy to help. Could you tell me a bit about the building and the current heating system?"}
+      - {role: user, content: "Two floors, five treatment rooms, gas combi boiler at the moment. Actually, unrelated question: are you open on Saturdays?"}
+      - {role: assistant, content: "We're open Monday to Friday; Saturdays only for scheduled works."}
+      - {role: user, content: "OK. Back to my original question: what warranty would I get on it?"}
+
+  - id: conv-riferimento-pronome-it
+    lang: it
+    grade: true
+    expected: "“Lo” (“him”) refers to the senior engineer Luca Fabbri; must answer €55/hour (from the price list) and not confuse him with the standard engineer (€42)."
+    check: {contains_any: ["55"]}
+    doc: [docs/it-listino-2026.md]
+    messages:
+      - {role: user, content: "Chi è il vostro tecnico senior per le pompe di calore?"}
+      - {role: assistant, content: "Il nostro tecnico senior per caldaie e pompe di calore è Luca Fabbri."}
+      - {role: user, content: "Quanto costa farlo venire per un'ora, secondo il listino qui sotto?"}
+
+  - id: conv-support-es
+    lang: es
+    grade: true
+    expected: "Answers in Spanish, politely; recalls that the panel arrives on 31 July and the training day is 20 August; does not invent new details."
+    check: {contains_any: ["31 de julio", "31/07", "31 julio"], contains_all: ["20 de agosto"]}
+    system: Eres el asistente de atención al cliente de Rossi Impianti Srl. Responde con cortesía y brevedad en español.
+    messages:
+      - {role: user, content: "Hola, soy Pilar Soler de Climatizaciones Soler. Una de las bombas de calor que nos enviasteis llegó con el panel abollado."}
+      - {role: assistant, content: "Hola Pilar, lamento el inconveniente. Según nuestro registro, Giulia Santini os confirmó el envío de un panel lateral nuevo por mensajería, con llegada prevista el 31 de julio, y la jornada de formación el jueves 20 de agosto de 9:00 a 16:00."}
+      - {role: user, content: "Perfecto. ¿Me puedes resumir en dos líneas lo que tengo que esperar y cuándo?"}
+
+  - id: conv-correzione-it
+    lang: it
+    grade: true
+    expected: "Must accept the user's correction (the right number is 4 visits, not 6), apologise briefly and recompute with 4."
+    check: {contains_any: ["4 interventi", "quattro interventi", "4 visite", "quattro visite"]}
+    doc: [docs/it-contratto-manutenzione-2026-114.md]
+    messages:
+      - {role: user, content: "Quanti interventi programmati all'anno include il nostro contratto?"}
+      - {role: assistant, content: "Il contratto include 6 interventi programmati all'anno per ogni punto vendita."}
+      - {role: user, content: "Mi sa che ti sbagli, ricontrolla nel contratto e dimmi quanti sono, e quanti in totale per tutti i punti vendita."}
+
+  - id: conv-tono-en
+    lang: en
+    grade: true
+    expected: "Empathetic but professional tone; does not promise what it cannot deliver (e.g. precise times); proposes an action (e.g. collect details, check the contract). Must answer in English."
+    system: You are the customer assistant of Rossi Installations Ltd, Leicester. Be professional and concise.
+    messages:
+      - {role: user, content: "This is the third time I'm writing. Your engineer was supposed to come yesterday and nobody showed up, nobody called. I have patients in a cold building. What are you going to do about it?"}

@@ -1,0 +1,41 @@
+# Manual grades 1-5 (Claude, 2026-10-21) — gpt-oss:20b, think-level low (always reasons), partial offload (12 GB)
+# Excellent at summaries and structured writing. But it INVENTS concrete details with great confidence: technician names,
+# ticket numbers, URLs, phone numbers, IoT apps, store names, years. Answers in Italian to English questions.
+# First run (default think) unusable: 15 empty answers because reasoning used up the whole budget.
+conv-memoria-it: 1            # invented table of events (ticket #2026/114-PR, technician "Marco Rossi", app "Rossi Impianti Monitor", complaints URL, 0734 phone number)
+conv-cambio-tema-en: 2        # invented warranty table, presented as fact
+conv-riferimento-pronome-it: 4 # €55 correct, adds the call-out fee (€90 total) with a LaTeX formula
+conv-support-es: 5
+conv-correzione-it: 4         # correct, lists the 6 stores; does not acknowledge the mistake; LaTeX
+conv-tono-en: 2               # promises a "10% discount" and rescheduling: invented commitments
+doc-estrazione-tabella: 4     # correct, adds unrequested rows
+doc-multi-persona: 4          # correct and complete; "Verboale" typo
+sum-email-3punti: 5
+sum-incident-50w: 5
+sum-verbale-decisioni: 5
+sum-es-in-italiano: 5         # the most complete (warranty + penalty)
+sum-manuale-sezioni: 5
+sum-fedelta-trappola: 5
+hal-cf-assente: 5
+hal-telefono-assente: 3       # Italian to an English question
+hal-premessa-falsa: 2         # does not correct the false premises, does not calculate
+hal-senza-contesto: 5
+hal-data-inventata: 3         # right, in Italian
+hal-prezzo-assente: 5
+hal-citazione-sezione: 5
+wr-email-cliente-it: 2        # invents the stores (Fano, Pesaro, Città di Castello, Ancona) and "4 hours per visit"
+wr-report-en-struttura: 4     # 4 recommendations instead of 2
+wr-propuesta-es: 3            # good but invented phone number (+39 055) and "producción de su cliente"
+wr-riscrittura-tono: 5
+wr-faq-generate: 5            # in English, faithful and complete
+wr-vincoli-formali: 2         # invents a "24/7 online customer service" and "supporto@azienda.it"
+ml-it-su-es: 5
+ml-en-su-it: 2                # Italian to an English question
+ml-es-su-en: 4
+ml-traduzione-it-en: 4        # "shortage of parts documented by": slight shift in meaning
+ml-traduzione-en-es: 5
+ml-istruzione-lingua: 5
+ml-registro-it: 3             # "30 ottobre 2024" (invented year), "entro 24 h" ("within 24 h")
+ml-idiomi-en: 2               # understands it backwards: proposes the works AFTER the bank holiday (the customer wanted them during it)
+tool-ambiguo-chiede: 4
+rag-python: 2                 # ceil on the total days, not on those beyond 48 h; example "Expected €6.00" inconsistent with its own function (it would give 8)
